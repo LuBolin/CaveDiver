@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bbrjyragd7ae2"
-path="res://.godot/imported/Idle-Sheet.png-85399f1da5c96b38e6f1fef117bd5710.ctex"
+uid="uid://bcws31mk2yly5"
+path="res://.godot/imported/Death-Sheet.png-f4f92e5b3f8565cb73b78d77c6f0695c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://resources/Orc - Rogue/Idle/Idle-Sheet.png"
-dest_files=["res://.godot/imported/Idle-Sheet.png-85399f1da5c96b38e6f1fef117bd5710.ctex"]
+source_file="res://objects/player/Orc - Rogue/Death/Death-Sheet.png"
+dest_files=["res://.godot/imported/Death-Sheet.png-f4f92e5b3f8565cb73b78d77c6f0695c.ctex"]
 
 [params]
 

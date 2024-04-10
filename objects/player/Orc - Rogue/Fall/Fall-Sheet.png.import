@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ei42r5trd4rp"
-path="res://.godot/imported/water_idle.png-5f232d55f34e48922e14bbf99ace1be8.ctex"
+uid="uid://bbu1166niwl7"
+path="res://.godot/imported/Fall-Sheet.png-f464601cbca6b7fde40f7ef65d822bd5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://resources/Orc - Rogue/water_idle.png"
-dest_files=["res://.godot/imported/water_idle.png-5f232d55f34e48922e14bbf99ace1be8.ctex"]
+source_file="res://objects/player/Orc - Rogue/Fall/Fall-Sheet.png"
+dest_files=["res://.godot/imported/Fall-Sheet.png-f464601cbca6b7fde40f7ef65d822bd5.ctex"]
 
 [params]
 

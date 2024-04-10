@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://csydis0a6lrj2"
-path="res://.godot/imported/rock.png-0100c72fc23eda4f6f076fd2b0462aec.ctex"
+uid="uid://dv7ko70pkr0rx"
+path="res://.godot/imported/water_move.png-d137a3a37373ff2fb15a7a45a30dc966.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://resources/sprites/rock.png"
-dest_files=["res://.godot/imported/rock.png-0100c72fc23eda4f6f076fd2b0462aec.ctex"]
+source_file="res://objects/player/Orc - Rogue/water_move.png"
+dest_files=["res://.godot/imported/water_move.png-d137a3a37373ff2fb15a7a45a30dc966.ctex"]
 
 [params]
 

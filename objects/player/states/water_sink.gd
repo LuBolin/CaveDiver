@@ -7,13 +7,11 @@ var water_move_state: State
 @export
 var water_float_state: State
 
-var sink_speed: float = 100
-
 func enter():
 	super()
 
 func process_physics(delta: float):
-	parent.velocity.y = sink_speed
+	parent.velocity.y = water_sink_speed
 	
 	var movement = Input.get_axis("move_left", "move_right") \
 		* water_move_speed
