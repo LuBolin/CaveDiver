@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-var fish_scene: PackedScene = preload("res://objects/fish/basicfish.tscn")
+var fish_scene: PackedScene = preload("res://objects/fish/sinusoidalfish.tscn")
 
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0

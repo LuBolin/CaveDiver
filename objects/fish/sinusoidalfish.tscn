@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://bklcldpxvdiad"]
+
+[ext_resource type="Script" path="res://objects/fish/Fish.gd" id="1_7tkhu"]
+[ext_resource type="Script" path="res://objects/fish/FishTypes/FishTypeSinusoidal.gd" id="2_2dmav"]
+[ext_resource type="PackedScene" uid="uid://co4gl2wl5vnrm" path="res://objects/fish/fish-skeleton.tscn" id="3_8lwjj"]
+
+[node name="Sinusoidalfish" type="Node2D" node_paths=PackedStringArray("skeleton", "fish_type")]
+script = ExtResource("1_7tkhu")
+skeleton = NodePath("FishSkeleton")
+fish_type = NodePath("FishType")
+
+[node name="FishType" type="Node" parent="."]
+script = ExtResource("2_2dmav")
+
+[node name="FishSkeleton" parent="." instance=ExtResource("3_8lwjj")]
