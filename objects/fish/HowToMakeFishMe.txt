@@ -1,0 +1,14 @@
+Creating a new Fish Type guide
+
+Add a Node2D. Call it <Name>Fish (just for convention)
+Attach Fish.gd script to <Name>Fish node.
+
+Attach a Node called FishType (for convention).
+Create a subclass of FishType with the correct overrides (see FishType.gd for details) called FishType<Name> (for convention)
+Attach the script to the FishType node.
+
+Attach fish-skeleton.tscn for FishSkeleton.
+
+On the <Name>Fish node, attach FishType and FishSkeleton to the @export variables
+
+Done

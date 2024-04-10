@@ -1,6 +1,7 @@
 class_name Fish
 extends Node
 
+## START HERE
 ## Fish class
 ## Attach generic Fish Skeleton and Fish Type subclass
 
@@ -13,5 +14,6 @@ func _ready():
 func _process(delta):
 	fish_type.update(delta)
 
+## Spawner should call launch(direction) when instantiating 
 func launch(direction : Vector2) -> void:
 	skeleton.launch(direction)

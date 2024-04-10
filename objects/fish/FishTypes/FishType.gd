@@ -2,6 +2,8 @@ class_name FishType
 extends Node
 
 ## Abstract class FishType defines attributes of different kinds of Fish
+## Top portion is for common variables and functions. Add bottom functions and initialise variables
+## See FishTypeBasic for example
 
 ## FishType agnostic variables and functions
 var fish_type : FishType
