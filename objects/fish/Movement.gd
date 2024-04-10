@@ -19,3 +19,4 @@ func move(delta) -> void:
 ## Generic bounce function bc I couldn't think of another way to implement
 func bounce(kmbd : KinematicCollision2D):
 	velocity = velocity.bounce(kmbd.get_normal())
+
