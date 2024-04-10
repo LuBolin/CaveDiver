@@ -1,0 +1,26 @@
+[gd_scene load_steps=6 format=3 uid="uid://brradghrgxkqb"]
+
+[ext_resource type="Script" path="res://objects/fish/Fish.gd" id="1_eywjo"]
+[ext_resource type="Script" path="res://objects/fish/Movement.gd" id="2_ofrr6"]
+[ext_resource type="Script" path="res://objects/fish/FishTypes/FishTypeBasic.gd" id="2_q7k2c"]
+[ext_resource type="Texture2D" uid="uid://ccctov4b5uppi" path="res://resources/sprites/icon.svg" id="3_ca4ux"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cqiy6"]
+radius = 67.42
+
+[node name="Fish" type="Node2D" node_paths=PackedStringArray("fish_type", "movement")]
+script = ExtResource("1_eywjo")
+fish_type = NodePath("FishType")
+movement = NodePath("Movement")
+
+[node name="FishType" type="Node" parent="."]
+script = ExtResource("2_q7k2c")
+
+[node name="Movement" type="CharacterBody2D" parent="."]
+script = ExtResource("2_ofrr6")
+
+[node name="Sprite" type="Sprite2D" parent="Movement"]
+texture = ExtResource("3_ca4ux")
+
+[node name="Collision" type="CollisionShape2D" parent="Movement"]
+shape = SubResource("CircleShape2D_cqiy6")

@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-var fish_scene: PackedScene = preload("res://fish.tscn")
+var fish_scene: PackedScene = preload("res://objects/fish/basicfish.tscn")
 
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
@@ -14,7 +14,7 @@ func _input(event):
 	if (event.is_pressed() and event.button_index == MOUSE_BUTTON_LEFT):
 		var mouse_pos = get_global_mouse_position()
 		var fish = fish_scene.instantiate()
-		add_child(fish)
+		get_parent().add_child(fish)
 		fish.global_position = mouse_pos
 		var direction = mouse_pos - self.global_position
 		fish.launch(direction)
