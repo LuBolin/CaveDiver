@@ -1,8 +1,8 @@
 [gd_scene load_steps=9 format=3 uid="uid://lqo3br30yhw7"]
 
-[ext_resource type="Script" path="res://fish.gd" id="1_bwj22"]
-[ext_resource type="PhysicsMaterial" uid="uid://bh8d64yo7crwg" path="res://fully_elasticity.tres" id="1_xg8sx"]
-[ext_resource type="Texture2D" uid="uid://ccctov4b5uppi" path="res://icon.svg" id="3_mchnr"]
+[ext_resource type="PhysicsMaterial" uid="uid://bh8d64yo7crwg" path="res://misc/fully_elasticity.tres" id="1_ujvlg"]
+[ext_resource type="Script" path="res://objects/fish/fish.gd" id="2_r4xbm"]
+[ext_resource type="Texture2D" uid="uid://ccctov4b5uppi" path="res://resources/sprites/icon.svg" id="3_jaxy3"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_urbod"]
 
@@ -18,12 +18,12 @@ colors = PackedColorArray(1, 1, 1, 1, 0, 1, 0, 0.231373)
 
 [node name="Fish" type="RigidBody2D"]
 collision_layer = 2
-physics_material_override = ExtResource("1_xg8sx")
+physics_material_override = ExtResource("1_ujvlg")
 gravity_scale = 0.0
 continuous_cd = 1
 max_contacts_reported = 10
 contact_monitor = true
-script = ExtResource("1_bwj22")
+script = ExtResource("2_r4xbm")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_urbod")
@@ -53,5 +53,5 @@ end_cap_mode = 2
 [node name="PointLight2D" type="PointLight2D" parent="."]
 color = Color(0, 0.596078, 0, 1)
 energy = 3.7
-texture = ExtResource("3_mchnr")
+texture = ExtResource("3_jaxy3")
 texture_scale = 0.5

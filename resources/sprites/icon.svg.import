@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://csydis0a6lrj2"
-path="res://.godot/imported/rock.png-7cde296a374b1b67a4444af0fb55521f.ctex"
+uid="uid://ccctov4b5uppi"
+path="res://.godot/imported/icon.svg-0fabf6deb9f03f3befc0beb80dc1440b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://resources/rock.png"
-dest_files=["res://.godot/imported/rock.png-7cde296a374b1b67a4444af0fb55521f.ctex"]
+source_file="res://resources/sprites/icon.svg"
+dest_files=["res://.godot/imported/icon.svg-0fabf6deb9f03f3befc0beb80dc1440b.ctex"]
 
 [params]
 
@@ -32,3 +32,6 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
+svg/scale=1.0
+editor/scale_with_editor_scale=false
+editor/convert_colors_with_editor_theme=false
