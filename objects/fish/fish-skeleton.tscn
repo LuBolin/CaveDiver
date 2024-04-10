@@ -1,8 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://co4gl2wl5vnrm"]
+[gd_scene load_steps=8 format=3 uid="uid://co4gl2wl5vnrm"]
 
 [ext_resource type="Script" path="res://objects/fish/FishSkeleton.gd" id="1_007le"]
 [ext_resource type="Script" path="res://objects/fish/Movement.gd" id="2_u4bfd"]
-[ext_resource type="Texture2D" uid="uid://ccctov4b5uppi" path="res://resources/sprites/icon.svg" id="3_awh8f"]
 [ext_resource type="Script" path="res://objects/fish/FishSprite.gd" id="4_ujw0s"]
 [ext_resource type="Script" path="res://objects/fish/FishTrail.gd" id="5_x3ex4"]
 
@@ -25,7 +24,6 @@ trail = NodePath("Movement/Trail")
 script = ExtResource("2_u4bfd")
 
 [node name="Sprite" type="Sprite2D" parent="Movement"]
-texture = ExtResource("3_awh8f")
 script = ExtResource("4_ujw0s")
 
 [node name="Collision" type="CollisionShape2D" parent="Movement"]

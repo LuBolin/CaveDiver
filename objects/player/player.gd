@@ -32,6 +32,15 @@ func _ready():
 func _unhandled_input(event):
 	if event.is_action_pressed("restart"):
 		get_tree().reload_current_scene()
+	if event is InputEventMouseButton:
+		if event.button_index == MOUSE_BUTTON_LEFT:
+			if event.is_pressed():
+				var fish = fish_scene.instantiate()
+				get_parent().add_child(fish)
+				var mouse_pos = get_global_mouse_position()
+				fish.global_position = mouse_pos
+				var direction = mouse_pos - self.global_position
+				fish.launch(direction)
 	state_machine.process_input(event)
 
 func _physics_process(delta):

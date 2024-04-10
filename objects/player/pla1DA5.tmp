@@ -1,0 +1,123 @@
+[gd_scene load_steps=14 format=3 uid="uid://cw5v4ivweo6bl"]
+
+[ext_resource type="Script" path="res://objects/player/Player.gd" id="1_kiu2d"]
+[ext_resource type="SpriteFrames" uid="uid://6xhup71bfrop" path="res://objects/player/player_spriteframes.tres" id="2_gp143"]
+[ext_resource type="Texture2D" uid="uid://bteqkxejmlhbm" path="res://resources/sprites/white_circle.png" id="3_qxlou"]
+[ext_resource type="Script" path="res://objects/player/PlayerStatemachine.gd" id="4_jvups"]
+[ext_resource type="Script" path="res://objects/player/states/land_idle.gd" id="5_pbnr6"]
+[ext_resource type="Script" path="res://objects/player/states/land_move.gd" id="6_2ydie"]
+[ext_resource type="Script" path="res://objects/player/states/land_jump.gd" id="6_ih6bu"]
+[ext_resource type="Script" path="res://objects/player/states/land_fall.gd" id="8_mtsqc"]
+[ext_resource type="Script" path="res://objects/player/states/water_idle.gd" id="9_fkvoy"]
+[ext_resource type="Script" path="res://objects/player/states/water_move.gd" id="10_xyd02"]
+[ext_resource type="Script" path="res://objects/player/states/water_float.gd" id="11_mb7uq"]
+[ext_resource type="Script" path="res://objects/player/states/water_sink.gd" id="12_5gqv5"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_f5jfp"]
+
+[node name="Player" type="CharacterBody2D"]
+scale = Vector2(2, 2)
+collision_layer = 2
+script = ExtResource("1_kiu2d")
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_f5jfp")
+
+[node name="Renderer" type="Node2D" parent="."]
+
+[node name="AnimatedSprite" type="AnimatedSprite2D" parent="Renderer"]
+sprite_frames = ExtResource("2_gp143")
+animation = &"water_move"
+autoplay = "land_idle"
+
+[node name="PointLight2D" type="PointLight2D" parent="Renderer"]
+texture = ExtResource("3_qxlou")
+texture_scale = 0.66
+
+[node name="StateMachine" type="Node2D" parent="." node_paths=PackedStringArray("starting_state")]
+script = ExtResource("4_jvups")
+starting_state = NodePath("land_idle")
+
+[node name="land_idle" type="Node2D" parent="StateMachine" node_paths=PackedStringArray("land_fall_state", "land_jump_state", "land_move_state", "water_idle_state")]
+script = ExtResource("5_pbnr6")
+land_fall_state = NodePath("../land_fall")
+land_jump_state = NodePath("../land_jump")
+land_move_state = NodePath("../land_move")
+water_idle_state = NodePath(".")
+
+[node name="land_move" type="Node2D" parent="StateMachine" node_paths=PackedStringArray("land_fall_state", "land_jump_state", "land_idle_state", "water_idle_state")]
+script = ExtResource("6_2ydie")
+land_fall_state = NodePath("../land_fall")
+land_jump_state = NodePath("../land_jump")
+land_idle_state = NodePath("../land_idle")
+water_idle_state = NodePath("../water_idle")
+
+[node name="land_jump" type="Node2D" parent="StateMachine" node_paths=PackedStringArray("land_fall_state", "land_idle_state", "land_move_state", "water_idle_state")]
+script = ExtResource("6_ih6bu")
+land_fall_state = NodePath("../land_fall")
+land_idle_state = NodePath("../land_idle")
+land_move_state = NodePath("../land_move")
+water_idle_state = NodePath("../water_idle")
+
+[node name="land_fall" type="Node2D" parent="StateMachine" node_paths=PackedStringArray("land_idle_state", "land_move_state", "water_idle_state")]
+script = ExtResource("8_mtsqc")
+land_idle_state = NodePath("../land_idle")
+land_move_state = NodePath("../land_move")
+water_idle_state = NodePath("../water_idle")
+
+[node name="water_idle" type="Node2D" parent="StateMachine" node_paths=PackedStringArray("water_sink_state", "water_float_state", "water_move_state")]
+script = ExtResource("9_fkvoy")
+water_sink_state = NodePath("../water_sink")
+water_float_state = NodePath("../water_float")
+water_move_state = NodePath("../water_move")
+
+[node name="water_move" type="Node2D" parent="StateMachine" node_paths=PackedStringArray("land_jump_state", "water_idle_state", "water_float_state", "water_sink_state")]
+script = ExtResource("10_xyd02")
+land_jump_state = NodePath("../land_jump")
+water_idle_state = NodePath("../water_idle")
+water_float_state = NodePath("../water_float")
+water_sink_state = NodePath("../water_sink")
+
+[node name="water_float" type="Node2D" parent="StateMachine" node_paths=PackedStringArray("land_jump_state", "water_idle_state", "water_move_state", "water_sink_state")]
+script = ExtResource("11_mb7uq")
+land_jump_state = NodePath("../land_jump")
+water_idle_state = NodePath("../water_idle")
+water_move_state = NodePath("../water_move")
+water_sink_state = NodePath("../water_sink")
+animation_name = null
+land_move_speed = null
+
+[node name="water_sink" type="Node2D" parent="StateMachine" node_paths=PackedStringArray("water_idle_state", "water_move_state", "water_float_state")]
+script = ExtResource("12_5gqv5")
+water_idle_state = NodePath("../water_idle")
+water_move_state = NodePath("../water_move")
+water_float_state = NodePath("../water_float")
+
+[node name="StateLabel" type="Label" parent="."]
+offset_left = -20.0
+offset_top = -38.0
+offset_right = 20.0
+offset_bottom = -15.0
+text = "test"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BufferLabel" type="Label" parent="."]
+offset_left = 10.0
+offset_top = -1.5
+offset_right = 50.0
+offset_bottom = 21.5
+scale = Vector2(0.8, 0.7)
+text = "test"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TankLabel" type="Label" parent="."]
+offset_left = -8.5
+offset_top = 2.0
+offset_right = 31.5
+offset_bottom = 25.0
+scale = Vector2(1.38, 1.44)
+text = "test"
+horizontal_alignment = 1
+vertical_alignment = 1

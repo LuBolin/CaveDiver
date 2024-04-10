@@ -31,16 +31,14 @@ animations = [{
 
 [node name="Shark" type="Node2D"]
 
-[node name="Shark" type="RigidBody2D" parent="."]
-gravity_scale = 0.0
-max_contacts_reported = 10
-contact_monitor = true
+[node name="Shark" type="CharacterBody2D" parent="."]
 script = ExtResource("1_ugetu")
 speed = 200.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Shark"]
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_8ccx3")
+one_way_collision = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Shark"]
 scale = Vector2(2, 2)

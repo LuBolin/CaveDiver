@@ -21,7 +21,6 @@ func _ready():
 		var point = patrol_route.get_point_position(i)
 		point = parent.to_global(point)
 		patrol_points.append(point)
-	print(patrol_points)
 	self.global_position = patrol_points[0]
 	current_index = 1
 
@@ -33,7 +32,7 @@ func _process(delta):
 
 func _physics_process(delta):
 	if done or patrol_point_count == 0:
-		set_linear_velocity(Vector2.ZERO)
+		set_freeze_enabled(true)
 		return
 	var coverable = speed * delta
 	var current_point = patrol_points[current_index]
@@ -46,3 +45,4 @@ func _physics_process(delta):
 			if current_index >= patrol_point_count:
 				done = true
 	self.set_linear_velocity(to_travel.normalized() * speed)
+
