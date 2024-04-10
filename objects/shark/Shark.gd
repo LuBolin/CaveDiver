@@ -2,6 +2,7 @@ extends RigidBody2D
 
 @onready var patrol_route = $"../PatrolRoute"
 @onready var sprite = $AnimatedSprite2D
+@onready var kill_area = $KillZone
 
 @export var speed: float = 10
 
@@ -46,3 +47,9 @@ func _physics_process(delta):
 				done = true
 	self.set_linear_velocity(to_travel.normalized() * speed)
 
+
+
+func _on_kill_zone_body_entered(body):
+	if body == self:
+		return
+	#body.queue_free()

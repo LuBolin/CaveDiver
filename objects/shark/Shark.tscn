@@ -32,9 +32,6 @@ animations = [{
 [node name="Shark" type="Node2D"]
 
 [node name="Shark" type="RigidBody2D" parent="."]
-gravity_scale = 0.0
-max_contacts_reported = 10
-contact_monitor = true
 script = ExtResource("1_ugetu")
 speed = 200.0
 
@@ -47,6 +44,14 @@ scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_64son")
 autoplay = "default"
 
+[node name="KillZone" type="Area2D" parent="Shark"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Shark/KillZone"]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_8ccx3")
+
 [node name="PatrolRoute" type="Line2D" parent="."]
 closed = true
 width = 4.0
+
+[connection signal="body_entered" from="Shark/KillZone" to="Shark" method="_on_kill_zone_body_entered"]
