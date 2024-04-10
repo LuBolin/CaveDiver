@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ccctov4b5uppi"
-path="res://.godot/imported/icon.svg-0fabf6deb9f03f3befc0beb80dc1440b.ctex"
+uid="uid://c5y85uh26v1nv"
+path="res://.godot/imported/shark-sheet.png-9264097ca93f5c53b3992c8ee829b5a6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://resources/sprites/icon.svg"
-dest_files=["res://.godot/imported/icon.svg-0fabf6deb9f03f3befc0beb80dc1440b.ctex"]
+source_file="res://objects/shark/shark-sheet.png"
+dest_files=["res://.godot/imported/shark-sheet.png-9264097ca93f5c53b3992c8ee829b5a6.ctex"]
 
 [params]
 
@@ -32,6 +32,3 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
-svg/scale=1.0
-editor/scale_with_editor_scale=false
-editor/convert_colors_with_editor_theme=false

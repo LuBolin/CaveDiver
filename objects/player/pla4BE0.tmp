@@ -71,9 +71,8 @@ water_sink_state = NodePath("../water_sink")
 water_float_state = NodePath("../water_float")
 water_move_state = NodePath("../water_move")
 
-[node name="water_move" type="Node2D" parent="StateMachine" node_paths=PackedStringArray("land_jump_state", "water_idle_state", "water_float_state", "water_sink_state")]
+[node name="water_move" type="Node2D" parent="StateMachine" node_paths=PackedStringArray("water_idle_state", "water_float_state", "water_sink_state")]
 script = ExtResource("10_xyd02")
-land_jump_state = NodePath("../land_jump")
 water_idle_state = NodePath("../water_idle")
 water_float_state = NodePath("../water_float")
 water_sink_state = NodePath("../water_sink")
@@ -84,8 +83,6 @@ land_jump_state = NodePath("../land_jump")
 water_idle_state = NodePath("../water_idle")
 water_move_state = NodePath("../water_move")
 water_sink_state = NodePath("../water_sink")
-animation_name = null
-land_move_speed = null
 
 [node name="water_sink" type="Node2D" parent="StateMachine" node_paths=PackedStringArray("water_idle_state", "water_move_state", "water_float_state")]
 script = ExtResource("12_5gqv5")

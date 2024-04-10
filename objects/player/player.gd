@@ -1,39 +1,59 @@
+class_name Player
 extends CharacterBody2D
+
+@onready
+var animations = $Renderer/AnimatedSprite
+@onready
+var state_machine = $StateMachine
+@onready
+var state_label = $StateLabel
+
+@onready
+var oxygen_buffer_label = $BufferLabel
+@onready
+var oxygen_tank_label = $TankLabel
+
 
 var fish_scene: PackedScene = preload("res://objects/fish/sinusoidalfish.tscn")
 
-const SPEED = 300.0
-const JUMP_VELOCITY = -400.0
 
-# Get the gravity from the project settings to be synced with RigidBody nodes.
-var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+var waters_area: Area2D
 
-func _input(event):
-	if event is InputEventKey:
-		return
-	if (event.is_pressed() and event.button_index == MOUSE_BUTTON_LEFT):
-		var mouse_pos = get_global_mouse_position()
-		var fish = fish_scene.instantiate()
-		get_parent().add_child(fish)
-		fish.global_position = mouse_pos
-		var direction = mouse_pos - self.global_position
-		fish.launch(direction)
+const oxygen_buffer = 5
+var oxygen_buffer_left = oxygen_buffer
+const oxygen_tank = 20
+var oxygen_tank_left = oxygen_tank
+
+
+func _ready():
+	waters_area = get_node(^"../Waters_Area")
+	state_machine.init(self)
+
+func _unhandled_input(event):
+	if event.is_action_pressed("restart"):
+		get_tree().reload_current_scene()
+	state_machine.process_input(event)
 
 func _physics_process(delta):
-	# Add the gravity.
-	if not is_on_floor():
-		velocity.y += gravity * delta
+	if in_water():
+		oxygen_buffer_left -= delta
+		if oxygen_buffer_left < 0:
+			oxygen_tank_left += oxygen_buffer_left
+			oxygen_buffer_left = 0
+	state_machine.process_physics(delta)
 
-	# Handle jump.
-	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
-
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
-	var direction = Input.get_axis("ui_left", "ui_right")
-	if direction:
-		velocity.x = direction * SPEED
+func _process(delta):
+	if oxygen_buffer_left < 0:
+		oxygen_buffer_label.set_text("Empty!")
 	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
+		oxygen_buffer_label.set_text(str(snapped(oxygen_buffer_left, 0.1)))
+	
+	if oxygen_tank_left < 0:
+		oxygen_tank_label.set_text("Empty!")
+	else:
+		oxygen_tank_label.set_text(str(snapped(oxygen_tank_left, 0.1)))
+	state_machine.process_frame(delta)
 
-	move_and_slide()
+func in_water():
+	return self in waters_area.get_overlapping_bodies()
+	return global_position.x < 0
