@@ -1,0 +1,57 @@
+[gd_scene load_steps=9 format=3 uid="uid://lqo3br30yhw7"]
+
+[ext_resource type="Script" path="res://fish.gd" id="1_bwj22"]
+[ext_resource type="PhysicsMaterial" uid="uid://bh8d64yo7crwg" path="res://fully_elasticity.tres" id="1_xg8sx"]
+[ext_resource type="Texture2D" uid="uid://ccctov4b5uppi" path="res://icon.svg" id="3_mchnr"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_urbod"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_oaid2"]
+
+[sub_resource type="PrismMesh" id="PrismMesh_b3vgj"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_bg1sm"]
+light_mode = 1
+
+[sub_resource type="Gradient" id="Gradient_o11rf"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 1, 0, 0.231373)
+
+[node name="Fish" type="RigidBody2D"]
+collision_layer = 2
+physics_material_override = ExtResource("1_xg8sx")
+gravity_scale = 0.0
+continuous_cd = 1
+max_contacts_reported = 10
+contact_monitor = true
+script = ExtResource("1_bwj22")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_urbod")
+
+[node name="Render" type="Node2D" parent="."]
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Render"]
+scale = Vector2(20, 20)
+mesh = SubResource("SphereMesh_oaid2")
+
+[node name="MeshInstance2D2" type="MeshInstance2D" parent="Render"]
+position = Vector2(-11, 0)
+rotation = -1.5708
+scale = Vector2(10, 10)
+mesh = SubResource("PrismMesh_b3vgj")
+
+[node name="Trail" type="Line2D" parent="."]
+top_level = true
+z_as_relative = false
+material = SubResource("CanvasItemMaterial_bg1sm")
+width = 4.0
+gradient = SubResource("Gradient_o11rf")
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+color = Color(0, 0.596078, 0, 1)
+energy = 3.7
+texture = ExtResource("3_mchnr")
+texture_scale = 0.5
