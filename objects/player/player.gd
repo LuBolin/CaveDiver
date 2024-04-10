@@ -7,6 +7,16 @@ var animations = $Renderer/AnimatedSprite
 var state_machine = $StateMachine
 @onready
 var state_label = $StateLabel
+
+@onready
+var oxygen_buffer_label = $BufferLabel
+@onready
+var oxygen_tank_label = $TankLabel
+
+
+var fish_scene: PackedScene = preload("res://objects/fish/sinusoidalfish.tscn")
+
+
 var waters_area: Area2D
 
 const oxygen_buffer = 5
@@ -14,10 +24,6 @@ var oxygen_buffer_left = oxygen_buffer
 const oxygen_tank = 20
 var oxygen_tank_left = oxygen_tank
 
-@onready
-var oxygen_buffer_label = $BufferLabel
-@onready
-var oxygen_tank_label = $TankLabel
 
 func _ready():
 	waters_area = get_node(^"../Waters_Area")
