@@ -19,9 +19,9 @@ func move_function(velocity : Vector2, delta) -> Vector2:
 
 ## Define what should be done on collision with a KinematicCollision2D object
 func collision_function(kmbd : KinematicCollision2D) -> void:
+	if(kmbd.get_collider().name == "Shark"):
+		die.call()
 	movement.bounce(kmbd)	#bounce no matter what
 	var angle = kmbd.get_angle()
 	var offset = period - 2 * angle
-	#cycle -= offset
 	cycle += period / 2
-	#cycle = 0
