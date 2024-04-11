@@ -17,7 +17,7 @@ var fish_type : FishType
 func install(ft : FishType):
 	fish_type = ft
 
-## TODO temporary to fit code, remove later
+## Launch Fish
 func launch(direction : Vector2, die : Callable) -> void:
 	fish_type.initialise(fish_type, sprite, movement, fish_trail, direction, die)
 
