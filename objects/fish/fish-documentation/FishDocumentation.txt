@@ -1,0 +1,13 @@
+class Fish
+@exports
+FishSkeleton, FishType
+
+Installs FishType properties into Skeleton
+updates to Fish should call Fish::update(delta)
+Currently Fish::_process(delta) is calling Fish::update(delta)
+
+func launch(direction : Vector2) -> void:
+	Launches Fish in direction and attaches die function
+
+func die() -> void:
+	

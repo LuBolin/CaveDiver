@@ -6,7 +6,7 @@ extends Node2D
 
 @export var sprite : Sprite2D
 @export var movement : Movement
-@export var trail : FishTrail
+@export var fish_trail : FishTrail
 
 var fish_type : FishType
 
@@ -17,6 +17,11 @@ var fish_type : FishType
 func install(ft : FishType):
 	fish_type = ft
 
-## TODO temporary to fit code, remove later
-func launch(direction : Vector2):
-	fish_type.initialise(fish_type, sprite, movement, trail, direction)
+## Launch Fish
+func launch(direction : Vector2, die : Callable) -> void:
+	fish_type.initialise(fish_type, sprite, movement, fish_trail, direction, die)
+
+func update(delta) -> void:
+	movement.move(delta)
+	sprite.update(movement.get_velocity().angle())
+	fish_trail.update(delta)

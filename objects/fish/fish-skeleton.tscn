@@ -1,9 +1,9 @@
 [gd_scene load_steps=8 format=3 uid="uid://co4gl2wl5vnrm"]
 
-[ext_resource type="Script" path="res://objects/fish/FishSkeleton.gd" id="1_007le"]
-[ext_resource type="Script" path="res://objects/fish/Movement.gd" id="2_u4bfd"]
-[ext_resource type="Script" path="res://objects/fish/FishSprite.gd" id="4_ujw0s"]
-[ext_resource type="Script" path="res://objects/fish/FishTrail.gd" id="5_x3ex4"]
+[ext_resource type="Script" path="res://objects/fish/fish-scripts/FishSkeleton.gd" id="1_007le"]
+[ext_resource type="Script" path="res://objects/fish/fish-scripts/Movement.gd" id="2_u4bfd"]
+[ext_resource type="Script" path="res://objects/fish/fish-scripts/FishSprite.gd" id="4_ujw0s"]
+[ext_resource type="Script" path="res://objects/fish/fish-scripts/FishTrail.gd" id="5_x3ex4"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_cqiy6"]
 radius = 67.42
@@ -14,11 +14,11 @@ light_mode = 1
 [sub_resource type="Gradient" id="Gradient_xtmbd"]
 colors = PackedColorArray(1, 1, 1, 1, 0, 1, 0, 0.231373)
 
-[node name="FishSkeleton" type="Node2D" node_paths=PackedStringArray("sprite", "movement", "trail")]
+[node name="FishSkeleton" type="Node2D" node_paths=PackedStringArray("sprite", "movement", "fish_trail")]
 script = ExtResource("1_007le")
 sprite = NodePath("Movement/Sprite")
 movement = NodePath("Movement")
-trail = NodePath("Movement/Trail")
+fish_trail = NodePath("Movement/Trail")
 
 [node name="Movement" type="CharacterBody2D" parent="."]
 script = ExtResource("2_u4bfd")

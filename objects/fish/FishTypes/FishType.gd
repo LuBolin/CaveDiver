@@ -10,19 +10,16 @@ var fish_type : FishType
 var sprite : FishSprite
 var movement : Movement
 var fish_trail : FishTrail
+var die : Callable
 
-func initialise(ft : FishType, sp: FishSprite, mv: Movement, f_trail : FishTrail, direction : Vector2) -> void:
+func initialise(ft : FishType, sp: FishSprite, mv: Movement, f_trail : FishTrail, direction : Vector2, d : Callable) -> void:
 	fish_type = ft
 	sprite = sp
 	movement = mv
 	fish_trail = f_trail
 	movement.scale = Vector2(size, size)
+	die = d
 	movement.initialise(move_function, collision_function, direction.normalized() * speed)
-	
-func update(delta) -> void:
-	movement.move(delta)
-	sprite.update(movement.get_velocity().angle())
-	fish_trail.update(delta)
 
 ## FishType variant variables and functions
 ## Use _init to initialise these variables
