@@ -14,7 +14,7 @@ var oxygen_buffer_label = $BufferLabel
 var oxygen_tank_label = $TankLabel
 
 
-var fish_scene: PackedScene = preload("res://objects/fish/sinusoidalfish.tscn")
+var fish_scene: PackedScene = preload("res://objects/fish/basicfish.tscn")
 
 
 var waters_area: Area2D
