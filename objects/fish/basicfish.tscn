@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://bdbqbregiv5ws"]
+[gd_scene load_steps=5 format=3 uid="uid://bdbqbregiv5ws"]
 
 [ext_resource type="Script" path="res://objects/fish/fish-scripts/Fish.gd" id="1_0ih44"]
 [ext_resource type="Script" path="res://objects/fish/FishTypes/FishTypeBasic.gd" id="2_6h74k"]
 [ext_resource type="PackedScene" uid="uid://co4gl2wl5vnrm" path="res://objects/fish/fish-skeleton.tscn" id="3_2utv1"]
+[ext_resource type="Texture2D" uid="uid://b055mcxfowjvv" path="res://resources/sprites/basicfish.png" id="4_nefp6"]
 
 [node name="BasicFish" type="Node2D" node_paths=PackedStringArray("skeleton", "fish_type")]
 script = ExtResource("1_0ih44")
@@ -13,3 +14,4 @@ fish_type = NodePath("FishType")
 script = ExtResource("2_6h74k")
 
 [node name="FishSkeleton" parent="." instance=ExtResource("3_2utv1")]
+fish_texture = ExtResource("4_nefp6")

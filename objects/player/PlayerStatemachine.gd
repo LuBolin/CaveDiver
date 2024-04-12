@@ -16,7 +16,11 @@ func change_state(new_state: State):
 	if current_state:
 		current_state.exit()
 	current_state = new_state
-	current_state.enter()
+	
+	# checks for buttons that are held down
+	var newer_state = current_state.enter()
+	if newer_state:
+		change_state(newer_state)
 
 func process_input(event):
 	var new_state = current_state.process_input(event)

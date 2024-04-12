@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cw5v4ivweo6bl"]
+[gd_scene load_steps=16 format=3 uid="uid://cw5v4ivweo6bl"]
 
 [ext_resource type="Script" path="res://objects/player/Player.gd" id="1_kiu2d"]
 [ext_resource type="SpriteFrames" uid="uid://6xhup71bfrop" path="res://objects/player/player_spriteframes.tres" id="2_gp143"]
@@ -12,13 +12,21 @@
 [ext_resource type="Script" path="res://objects/player/states/water_move.gd" id="10_xyd02"]
 [ext_resource type="Script" path="res://objects/player/states/water_float.gd" id="11_mb7uq"]
 [ext_resource type="Script" path="res://objects/player/states/water_sink.gd" id="12_5gqv5"]
+[ext_resource type="PackedScene" uid="uid://bpp4cb8b201on" path="res://level_data/ammo_pouch.tscn" id="13_u68c8"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_f5jfp"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hj2cs"]
+radius = 7.5
 
 [node name="Player" type="CharacterBody2D"]
 scale = Vector2(2, 2)
 collision_layer = 2
 script = ExtResource("1_kiu2d")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="AmmoPouch" parent="CanvasLayer" instance=ExtResource("13_u68c8")]
 
 [node name="Collision" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_f5jfp")
@@ -27,7 +35,7 @@ shape = SubResource("CapsuleShape2D_f5jfp")
 
 [node name="AnimatedSprite" type="AnimatedSprite2D" parent="Renderer"]
 sprite_frames = ExtResource("2_gp143")
-animation = &"water_move"
+animation = &"land_idle"
 autoplay = "land_idle"
 
 [node name="PointLight2D" type="PointLight2D" parent="Renderer"]
@@ -121,3 +129,10 @@ scale = Vector2(1.38, 1.44)
 text = "test"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Head" type="Area2D" parent="."]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Head"]
+position = Vector2(0, -7.5)
+shape = SubResource("CircleShape2D_hj2cs")

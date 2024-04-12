@@ -13,7 +13,10 @@ func enter():
 	super()
 
 func process_physics(delta: float):
-	parent.velocity.y = -water_float_speed
+	if parent.submerged():
+		parent.velocity.y = -water_float_speed
+	else:
+		parent.velocity.y = 0
 	
 	var movement = Input.get_axis("move_left", "move_right") \
 		* water_move_speed
@@ -28,9 +31,8 @@ func process_physics(delta: float):
 		else:
 			return water_move_state
 
-	# floated out
-	if not parent.in_water():
-		parent.oxygen_buffer_left = parent.oxygen_buffer
-		return land_jump_state
+	if Input.is_action_just_pressed("jump"):
+		if not parent.submerged():
+			return land_jump_state
 	
 	return null

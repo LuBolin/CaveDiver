@@ -23,7 +23,7 @@ func process_physics(delta):
 	parent.velocity.x = movement
 	parent.move_and_slide()
 	
-	if parent.in_water():
+	if parent.submerged():
 		return water_idle_state
 	
 	if parent.is_on_floor():
@@ -35,7 +35,7 @@ func process_physics(delta):
 	return null
 
 func process_input(event):
-	if Input.is_action_just_pressed("move_up") \
+	if Input.is_action_just_pressed("jump") \
 		and parent.is_on_floor():
 			return land_jump_state
 	return null

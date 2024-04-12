@@ -18,14 +18,14 @@ func process_physics(delta):
 	parent.velocity.y += gravity * delta
 	parent.move_and_slide()
 	
-	if parent.in_water():
+	if parent.submerged():
 		return water_idle_state
 	if not parent.is_on_floor():
 		return land_fall_state
 	return null
 
 func process_input(event):
-	if Input.is_action_just_pressed("move_up") \
+	if Input.is_action_just_pressed("jump") \
 		and parent.is_on_floor():
 			return land_jump_state
 	if int(Input.is_action_pressed("move_left")) + \

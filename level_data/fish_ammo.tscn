@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://bxw45oxdrsd2l"]
+
+[ext_resource type="Texture2D" uid="uid://bbbu5tx8ems36" path="res://resources/sprites/fish-sprite-temp.png" id="1_0rdms"]
+[ext_resource type="Texture2D" uid="uid://cv2yy61xyn4yf" path="res://resources/sprites/frame.png" id="2_xwuxh"]
+
+[node name="FishTexture" type="TextureRect"]
+focus_mode = 2
+texture = ExtResource("1_0rdms")
+metadata/fish_type = "dummy"
+metadata/fish_resource = null
+
+[node name="SelectFrame" type="TextureRect" parent="."]
+visible = false
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_xwuxh")

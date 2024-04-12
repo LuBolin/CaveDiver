@@ -4,6 +4,7 @@ extends Node2D
 ## This is a Fish. Fish loads all properties in one place.
 ## To alter Fish, you only need to extend abstract class FishType and implement all functions
 
+@export var fish_texture: Texture2D
 @export var sprite : Sprite2D
 @export var movement : Movement
 @export var fish_trail : FishTrail
@@ -20,6 +21,7 @@ func install(ft : FishType):
 ## Launch Fish
 func launch(direction : Vector2, die : Callable) -> void:
 	fish_type.initialise(fish_type, sprite, movement, fish_trail, direction, die)
+	sprite.set_texture(fish_texture)
 
 func update(delta) -> void:
 	movement.move(delta)
