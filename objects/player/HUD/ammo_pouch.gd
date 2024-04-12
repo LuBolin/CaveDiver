@@ -4,7 +4,7 @@ extends Control
 @onready var scroll_container = $SmoothScrollContainer
 @onready var vbox_list = $SmoothScrollContainer/VBoxContainer
 
-var fish_ammo_dummy: PackedScene = preload('res://level_data/fish_ammo.tscn')
+var fish_ammo_dummy: PackedScene = preload('res://objects/player/HUD/fish_ammo.tscn')
 var current_index: int = 0
 
 @export var initial_fishes: Array[PackedScene] = []

@@ -22,6 +22,7 @@ movement = NodePath("Movement")
 fish_trail = NodePath("Movement/Trail")
 
 [node name="Movement" type="CharacterBody2D" parent="."]
+collision_layer = 2
 script = ExtResource("2_u4bfd")
 
 [node name="Sprite" type="Sprite2D" parent="Movement"]

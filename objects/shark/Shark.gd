@@ -24,6 +24,7 @@ func _ready():
 		patrol_points.append(point)
 	self.global_position = patrol_points[0]
 	current_index = 1
+	patrol_route.set_visible(false)
 
 func _process(delta):
 	if get_linear_velocity().x < 0:
@@ -52,4 +53,5 @@ func _physics_process(delta):
 func _on_kill_zone_body_entered(body):
 	if body == self:
 		return
+	print(body)
 	#body.queue_free()

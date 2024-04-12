@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://5g0gkvddwhcs"]
+
+[ext_resource type="Script" path="res://objects/escape/Escape.gd" id="1_as0h3"]
+[ext_resource type="Texture2D" uid="uid://wa3ucflrb47o" path="res://objects/escape/escape.png" id="1_ejpx7"]
+[ext_resource type="Texture2D" uid="uid://bteqkxejmlhbm" path="res://resources/sprites/light_circle.png" id="3_wfw14"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e7ux1"]
+size = Vector2(32, 32)
+
+[node name="Escape" type="Area2D"]
+collision_mask = 3
+script = ExtResource("1_as0h3")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_ejpx7")
+
+[node name="CollisionShape" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_e7ux1")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+color = Color(0, 0.788235, 0.294118, 1)
+energy = 0.5
+texture = ExtResource("3_wfw14")
+texture_scale = 1.2
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

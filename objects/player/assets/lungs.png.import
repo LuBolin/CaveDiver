@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dv7ko70pkr0rx"
-path="res://.godot/imported/water_move.png-d137a3a37373ff2fb15a7a45a30dc966.ctex"
+uid="uid://bqv8vxdwkuy6a"
+path="res://.godot/imported/lungs.png-0cdbe1d33aa09bf65e152be6bce3518f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://objects/player/Orc - Rogue/water_move.png"
-dest_files=["res://.godot/imported/water_move.png-d137a3a37373ff2fb15a7a45a30dc966.ctex"]
+source_file="res://objects/player/assets/lungs.png"
+dest_files=["res://.godot/imported/lungs.png-0cdbe1d33aa09bf65e152be6bce3518f.ctex"]
 
 [params]
 

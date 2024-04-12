@@ -9,21 +9,13 @@ var state_machine = $StateMachine
 var state_label = $StateLabel
 
 @onready
-var oxygen_buffer_label = $BufferLabel
-@onready
-var oxygen_tank_label = $TankLabel
-
-@onready
 var ammo_pouch: AmmoPouch = $CanvasLayer/AmmoPouch
+@onready
+var oxygen_level: OxygenLevel = $CanvasLayer/OxygenLevel
 
 var fish_scene: PackedScene = preload("res://objects/fish/jetfish.tscn")
 
 var waters_area: Area2D
-
-const oxygen_buffer = 5
-var oxygen_buffer_left = oxygen_buffer
-const oxygen_tank = 20
-var oxygen_tank_left = oxygen_tank
 
 
 func _ready():
@@ -47,26 +39,9 @@ func _unhandled_input(event):
 	state_machine.process_input(event)
 
 func _physics_process(delta):
-	if submerged():
-		oxygen_buffer_left -= delta
-		if oxygen_buffer_left < 0:
-			oxygen_tank_left += oxygen_buffer_left
-			oxygen_buffer_left = 0
-	else:
-		oxygen_buffer_left = oxygen_buffer
-
 	state_machine.process_physics(delta)
 
 func _process(delta):
-	if oxygen_buffer_left < 0:
-		oxygen_buffer_label.set_text("Empty!")
-	else:
-		oxygen_buffer_label.set_text(str(snapped(oxygen_buffer_left, 0.1)))
-	
-	if oxygen_tank_left < 0:
-		oxygen_tank_label.set_text("Empty!")
-	else:
-		oxygen_tank_label.set_text(str(snapped(oxygen_tank_left, 0.1)))
 	state_machine.process_frame(delta)
 
 func submerged():

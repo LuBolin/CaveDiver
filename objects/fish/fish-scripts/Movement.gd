@@ -1,7 +1,6 @@
 class_name Movement
 extends CharacterBody2D
 
-
 var movement_function : Callable
 var collision_function : Callable
 

@@ -7,7 +7,7 @@ var animation_name: String
 var land_move_speed: float = 60
 var water_move_speed: float = 60
 var water_float_speed: float = 60
-var water_sink_speed: float = 100
+var water_sink_speed: float = 200
 
 var gravity: int = ProjectSettings.get_setting("physics/2d/default_gravity")
 

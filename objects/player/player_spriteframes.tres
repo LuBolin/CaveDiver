@@ -1,13 +1,13 @@
 [gd_resource type="SpriteFrames" load_steps=28 format=3 uid="uid://6xhup71bfrop"]
 
-[ext_resource type="Texture2D" uid="uid://bbu1166niwl7" path="res://objects/player/Orc - Rogue/Fall/Fall-Sheet.png" id="1_hl7c0"]
-[ext_resource type="Texture2D" uid="uid://bbrjyragd7ae2" path="res://objects/player/Orc - Rogue/Idle/Idle-Sheet.png" id="1_n8c0k"]
-[ext_resource type="Texture2D" uid="uid://bcws31mk2yly5" path="res://objects/player/Orc - Rogue/Death/Death-Sheet.png" id="3_ldrov"]
-[ext_resource type="Texture2D" uid="uid://b5rhekh14vbt7" path="res://objects/player/Orc - Rogue/Run/Run-Sheet.png" id="3_x4btt"]
-[ext_resource type="Texture2D" uid="uid://ei42r5trd4rp" path="res://objects/player/Orc - Rogue/water_idle.png" id="5_3oksr"]
-[ext_resource type="Texture2D" uid="uid://woomdm41kudd" path="res://objects/player/Orc - Rogue/water_float.png" id="5_btnel"]
-[ext_resource type="Texture2D" uid="uid://b4uksh7bdvmwr" path="res://objects/player/Orc - Rogue/water_sink.png" id="5_e5fia"]
-[ext_resource type="Texture2D" uid="uid://dv7ko70pkr0rx" path="res://objects/player/Orc - Rogue/water_move.png" id="8_phqql"]
+[ext_resource type="Texture2D" uid="uid://bbu1166niwl7" path="res://objects/player/assets/Orc - Rogue/Fall/Fall-Sheet.png" id="1_hl7c0"]
+[ext_resource type="Texture2D" uid="uid://bbrjyragd7ae2" path="res://objects/player/assets/Orc - Rogue/Idle/Idle-Sheet.png" id="1_n8c0k"]
+[ext_resource type="Texture2D" uid="uid://bcws31mk2yly5" path="res://objects/player/assets/Orc - Rogue/Death/Death-Sheet.png" id="3_ldrov"]
+[ext_resource type="Texture2D" uid="uid://b5rhekh14vbt7" path="res://objects/player/assets/Orc - Rogue/Run/Run-Sheet.png" id="3_x4btt"]
+[ext_resource type="Texture2D" uid="uid://ei42r5trd4rp" path="res://objects/player/assets/Orc - Rogue/water_idle.png" id="5_3oksr"]
+[ext_resource type="Texture2D" uid="uid://woomdm41kudd" path="res://objects/player/assets/Orc - Rogue/water_float.png" id="5_btnel"]
+[ext_resource type="Texture2D" uid="uid://b4uksh7bdvmwr" path="res://objects/player/assets/Orc - Rogue/water_sink.png" id="5_e5fia"]
+[ext_resource type="Texture2D" uid="uid://dv7ko70pkr0rx" path="res://objects/player/assets/Orc - Rogue/water_move.png" id="8_phqql"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5qbw8"]
 atlas = ExtResource("1_hl7c0")

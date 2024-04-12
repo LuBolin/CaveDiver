@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bcws31mk2yly5"
-path="res://.godot/imported/Death-Sheet.png-f4f92e5b3f8565cb73b78d77c6f0695c.ctex"
+uid="uid://woomdm41kudd"
+path="res://.godot/imported/water_float.png-f7cf426860068bb58b470e65e8463813.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://objects/player/Orc - Rogue/Death/Death-Sheet.png"
-dest_files=["res://.godot/imported/Death-Sheet.png-f4f92e5b3f8565cb73b78d77c6f0695c.ctex"]
+source_file="res://objects/player/assets/Orc - Rogue/water_float.png"
+dest_files=["res://.godot/imported/water_float.png-f7cf426860068bb58b470e65e8463813.ctex"]
 
 [params]
 

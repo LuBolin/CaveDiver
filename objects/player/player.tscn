@@ -1,9 +1,10 @@
-[gd_scene load_steps=16 format=3 uid="uid://cw5v4ivweo6bl"]
+[gd_scene load_steps=17 format=3 uid="uid://cw5v4ivweo6bl"]
 
 [ext_resource type="Script" path="res://objects/player/Player.gd" id="1_kiu2d"]
 [ext_resource type="SpriteFrames" uid="uid://6xhup71bfrop" path="res://objects/player/player_spriteframes.tres" id="2_gp143"]
-[ext_resource type="Texture2D" uid="uid://bteqkxejmlhbm" path="res://resources/sprites/white_circle.png" id="3_qxlou"]
+[ext_resource type="PackedScene" uid="uid://c10mfic5lq45q" path="res://objects/player/HUD/oxygen_level.tscn" id="3_06578"]
 [ext_resource type="Script" path="res://objects/player/PlayerStatemachine.gd" id="4_jvups"]
+[ext_resource type="Texture2D" uid="uid://bteqkxejmlhbm" path="res://resources/sprites/light_circle.png" id="5_7idbf"]
 [ext_resource type="Script" path="res://objects/player/states/land_idle.gd" id="5_pbnr6"]
 [ext_resource type="Script" path="res://objects/player/states/land_move.gd" id="6_2ydie"]
 [ext_resource type="Script" path="res://objects/player/states/land_jump.gd" id="6_ih6bu"]
@@ -12,7 +13,7 @@
 [ext_resource type="Script" path="res://objects/player/states/water_move.gd" id="10_xyd02"]
 [ext_resource type="Script" path="res://objects/player/states/water_float.gd" id="11_mb7uq"]
 [ext_resource type="Script" path="res://objects/player/states/water_sink.gd" id="12_5gqv5"]
-[ext_resource type="PackedScene" uid="uid://bpp4cb8b201on" path="res://level_data/ammo_pouch.tscn" id="13_u68c8"]
+[ext_resource type="PackedScene" uid="uid://bpp4cb8b201on" path="res://objects/player/HUD/ammo_pouch.tscn" id="13_u68c8"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_f5jfp"]
 
@@ -20,6 +21,7 @@
 radius = 7.5
 
 [node name="Player" type="CharacterBody2D"]
+z_index = 100
 scale = Vector2(2, 2)
 collision_layer = 2
 script = ExtResource("1_kiu2d")
@@ -27,6 +29,8 @@ script = ExtResource("1_kiu2d")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="AmmoPouch" parent="CanvasLayer" instance=ExtResource("13_u68c8")]
+
+[node name="OxygenLevel" parent="CanvasLayer" instance=ExtResource("3_06578")]
 
 [node name="Collision" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_f5jfp")
@@ -39,8 +43,9 @@ animation = &"land_idle"
 autoplay = "land_idle"
 
 [node name="PointLight2D" type="PointLight2D" parent="Renderer"]
-texture = ExtResource("3_qxlou")
-texture_scale = 0.66
+energy = 0.5
+texture = ExtResource("5_7idbf")
+texture_scale = 1.2
 
 [node name="StateMachine" type="Node2D" parent="." node_paths=PackedStringArray("starting_state")]
 script = ExtResource("4_jvups")
@@ -92,8 +97,6 @@ land_jump_state = NodePath("../land_jump")
 water_idle_state = NodePath("../water_idle")
 water_move_state = NodePath("../water_move")
 water_sink_state = NodePath("../water_sink")
-animation_name = null
-land_move_speed = null
 
 [node name="water_sink" type="Node2D" parent="StateMachine" node_paths=PackedStringArray("water_idle_state", "water_move_state", "water_float_state")]
 script = ExtResource("12_5gqv5")
@@ -106,26 +109,6 @@ offset_left = -20.0
 offset_top = -38.0
 offset_right = 20.0
 offset_bottom = -15.0
-text = "test"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="BufferLabel" type="Label" parent="."]
-offset_left = 10.0
-offset_top = -1.5
-offset_right = 50.0
-offset_bottom = 21.5
-scale = Vector2(0.8, 0.7)
-text = "test"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="TankLabel" type="Label" parent="."]
-offset_left = -8.5
-offset_top = 2.0
-offset_right = 31.5
-offset_bottom = 25.0
-scale = Vector2(1.38, 1.44)
 text = "test"
 horizontal_alignment = 1
 vertical_alignment = 1
