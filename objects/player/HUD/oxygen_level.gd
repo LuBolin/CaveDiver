@@ -20,6 +20,8 @@ func _ready():
 	while not p is Player:
 		p = p.get_parent()
 	player = p
+	lungs_label.set_text(str(snapped(lungs_left, 0.1)))
+	tank_label.set_text(str(snapped(tank_left, 0.1)))
 
 func _physics_process(delta):
 	if player.submerged():
