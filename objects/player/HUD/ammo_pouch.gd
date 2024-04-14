@@ -83,3 +83,6 @@ func _input(event):
 				push_fish(sine_fish)
 			KEY_3:
 				push_fish(jet_fish)
+
+func get_fish_count():
+	return vbox_list.get_children().size()

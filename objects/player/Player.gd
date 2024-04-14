@@ -26,17 +26,6 @@ func _ready():
 func _unhandled_input(event):
 	if event.is_action_pressed("restart"):
 		get_tree().reload_current_scene()
-	if event is InputEventMouseButton:
-		if event.button_index == MOUSE_BUTTON_LEFT:
-			if event.is_pressed():
-				var fish_resource = ammo_pouch.pop_fish()
-				if fish_resource:
-					var fish = fish_resource.instantiate()
-					get_parent().add_child(fish)
-					var mouse_pos = get_global_mouse_position()
-					fish.global_position = mouse_pos
-					var direction = mouse_pos - self.global_position
-					fish.launch(direction)
 	state_machine.process_input(event)
 
 func _physics_process(delta):
@@ -52,3 +41,14 @@ func submerged():
 func in_water():
 	var in_water = waters_area.overlaps_body(self)
 	return in_water
+
+func launch_fish(direction):
+	var fish_resource = ammo_pouch.pop_fish()
+	if fish_resource:
+		var fish = fish_resource.instantiate()
+		get_parent().add_child(fish)
+		fish.global_position = self.global_position
+		fish.launch(direction)
+
+func has_ammo():
+	return ammo_pouch.get_fish_count() > 0
