@@ -11,4 +11,4 @@ func move_function(velocity : Vector2, delta) -> Vector2:
 
 ## Define what should be done on collision with a KinematicCollision2D object
 func collision_function(kmbd : KinematicCollision2D) -> void:
-	movement.bounce(kmbd)	#bounce no matter what
+	fish.bounce(kmbd)	#bounce no matter what
