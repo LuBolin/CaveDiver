@@ -63,7 +63,7 @@ func move_install(mf : Callable, cf : Callable):
 
 func move(delta) -> void:
 	var v = movement_function.call(velocity, delta)
-	v = gravity_adjust(v)
+	v = gravity_adjust(v, delta)
 	var collision : KinematicCollision2D = move_and_collide(v * delta)
 	if (collision and live):
 		collision_function.call(collision)
@@ -76,9 +76,9 @@ func dead_move(velocity : Vector2, delta) -> Vector2:
 	return Vector2(0, -20)
 
 var gravity : Vector2 = Vector2(0, 0)
-func gravity_adjust(v : Vector2) -> Vector2:
+func gravity_adjust(v : Vector2, delta) -> Vector2:
 	if (not in_water()):
-		gravity += Vector2(0, 10)
+		gravity += Vector2(0, 10) * delta
 		v = velocity + gravity
 		velocity = v.normalized() * speed
 	else:

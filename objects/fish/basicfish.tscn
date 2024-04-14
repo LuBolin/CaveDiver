@@ -19,6 +19,9 @@ light_mode = 1
 colors = PackedColorArray(1, 1, 1, 1, 0, 1, 0, 0.231373)
 
 [node name="BasicFish" type="CharacterBody2D" node_paths=PackedStringArray("fish_type", "sprite", "fish_trail")]
+top_level = true
+z_index = 50
+z_as_relative = false
 collision_layer = 2
 script = ExtResource("1_0ih44")
 fish_type = NodePath("FishType")
@@ -39,6 +42,7 @@ one_way_collision = true
 
 [node name="Trail" type="Line2D" parent="."]
 top_level = true
+z_index = 40
 z_as_relative = false
 material = SubResource("CanvasItemMaterial_4ngiv")
 width = 4.0
