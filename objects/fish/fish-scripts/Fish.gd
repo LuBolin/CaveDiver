@@ -18,6 +18,7 @@ var speed : int
 
 func _ready():
 	speed = fish_type.initialise(self, sprite, fish_trail, die)
+	sprite.set_texture(fish_texture)
 	var root_node = get_tree().root.get_child(0)
 	waters_area = root_node.get_node(^'World/Water_Area')
 
@@ -27,7 +28,6 @@ func _process(delta):
 ## Spawner should call launch(direction) when instantiating 
 func launch(direction : Vector2) -> void:
 	live = true
-	sprite.set_texture(fish_texture)
 	velocity = direction.normalized() * speed
 
 func update(delta):
@@ -63,6 +63,7 @@ func move_install(mf : Callable, cf : Callable):
 
 func move(delta) -> void:
 	var v = movement_function.call(velocity, delta)
+	v = gravity_adjust(v)
 	var collision : KinematicCollision2D = move_and_collide(v * delta)
 	if (collision and live):
 		collision_function.call(collision)
@@ -73,3 +74,14 @@ func bounce(kmbd : KinematicCollision2D):
 
 func dead_move(velocity : Vector2, delta) -> Vector2:
 	return Vector2(0, -20)
+
+var gravity : Vector2 = Vector2(0, 0)
+func gravity_adjust(v : Vector2) -> Vector2:
+	if (not in_water()):
+		gravity += Vector2(0, 10)
+		v = velocity + gravity
+		velocity = v.normalized() * speed
+	else:
+		v.normalized() * speed
+		gravity = Vector2(0, 0)
+	return v

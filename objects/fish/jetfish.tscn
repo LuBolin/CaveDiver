@@ -19,6 +19,7 @@ light_mode = 1
 colors = PackedColorArray(1, 1, 1, 1, 0, 1, 0, 0.231373)
 
 [node name="Jetfish" type="CharacterBody2D" node_paths=PackedStringArray("fish_type", "sprite", "fish_trail")]
+collision_layer = 2
 script = ExtResource("1_t2ylc")
 fish_type = NodePath("FishType")
 fish_texture = ExtResource("2_ddgwv")
