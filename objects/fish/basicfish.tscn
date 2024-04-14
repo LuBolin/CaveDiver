@@ -1,9 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://bdbqbregiv5ws"]
+[gd_scene load_steps=11 format=3 uid="uid://bdbqbregiv5ws"]
 
 [ext_resource type="Script" path="res://objects/fish/fish-scripts/Fish.gd" id="1_0ih44"]
 [ext_resource type="Script" path="res://objects/fish/FishTypes/FishTypeBasic.gd" id="2_6h74k"]
-[ext_resource type="Texture2D" uid="uid://b055mcxfowjvv" path="res://resources/sprites/basicfish.png" id="2_d3xiy"]
-[ext_resource type="Texture2D" uid="uid://bbbu5tx8ems36" path="res://resources/sprites/fish-sprite-temp.png" id="3_1jc62"]
+[ext_resource type="Texture2D" uid="uid://kb3lgp6vn722" path="res://resources/sprites/purple_fish.png" id="2_foxss"]
 [ext_resource type="Script" path="res://objects/fish/fish-scripts/FishSprite.gd" id="4_hr26h"]
 [ext_resource type="Script" path="res://objects/fish/fish-scripts/FishTrail.gd" id="5_0m811"]
 [ext_resource type="Texture2D" uid="uid://bteqkxejmlhbm" path="res://resources/sprites/light_circle.png" id="7_ns16v"]
@@ -25,7 +24,7 @@ z_as_relative = false
 collision_layer = 2
 script = ExtResource("1_0ih44")
 fish_type = NodePath("FishType")
-fish_texture = ExtResource("2_d3xiy")
+fish_texture = ExtResource("2_foxss")
 sprite = NodePath("Sprite")
 fish_trail = NodePath("Trail")
 
@@ -33,7 +32,8 @@ fish_trail = NodePath("Trail")
 script = ExtResource("2_6h74k")
 
 [node name="Sprite" type="Sprite2D" parent="."]
-texture = ExtResource("3_1jc62")
+rotation = 0.785397
+texture = ExtResource("2_foxss")
 script = ExtResource("4_hr26h")
 
 [node name="Collision" type="CollisionShape2D" parent="."]

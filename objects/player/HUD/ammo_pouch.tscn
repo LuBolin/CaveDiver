@@ -34,13 +34,6 @@ size_flags_horizontal = 0
 size_flags_vertical = 0
 script = ExtResource("1_84fyg")
 
-[node name="Frame" type="TextureRect" parent="."]
-modulate = Color(0.835294, 0.4, 1, 1)
-layout_mode = 0
-offset_right = 64.0
-offset_bottom = 336.0
-texture = ExtResource("2_fhmhd")
-
 [node name="SmoothScrollContainer" type="ScrollContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
@@ -57,3 +50,15 @@ auto_allow_scroll = false
 
 [node name="VBoxContainer" type="VBoxContainer" parent="SmoothScrollContainer"]
 layout_mode = 2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+modulate = Color(0.705882, 0, 1, 1)
+layout_mode = 0
+offset_right = 64.0
+offset_bottom = 336.0
+texture = ExtResource("2_fhmhd")
+region_rect = Rect2(0, 0, 64, 64)
+patch_margin_left = 32
+patch_margin_top = 32
+patch_margin_right = 32
+patch_margin_bottom = 32

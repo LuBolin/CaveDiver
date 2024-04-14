@@ -4,9 +4,9 @@
 [ext_resource type="Texture2D" uid="uid://bbrjyragd7ae2" path="res://objects/player/assets/Orc - Rogue/Idle/Idle-Sheet.png" id="1_n8c0k"]
 [ext_resource type="Texture2D" uid="uid://bcws31mk2yly5" path="res://objects/player/assets/Orc - Rogue/Death/Death-Sheet.png" id="3_ldrov"]
 [ext_resource type="Texture2D" uid="uid://b5rhekh14vbt7" path="res://objects/player/assets/Orc - Rogue/Run/Run-Sheet.png" id="3_x4btt"]
-[ext_resource type="Texture2D" uid="uid://ei42r5trd4rp" path="res://objects/player/assets/Orc - Rogue/water_idle.png" id="5_3oksr"]
 [ext_resource type="Texture2D" uid="uid://woomdm41kudd" path="res://objects/player/assets/Orc - Rogue/water_float.png" id="5_btnel"]
 [ext_resource type="Texture2D" uid="uid://b4uksh7bdvmwr" path="res://objects/player/assets/Orc - Rogue/water_sink.png" id="5_e5fia"]
+[ext_resource type="Texture2D" uid="uid://dp2j1tw411he6" path="res://resources/sprites/player.png" id="6_woa2c"]
 [ext_resource type="Texture2D" uid="uid://dv7ko70pkr0rx" path="res://objects/player/assets/Orc - Rogue/water_move.png" id="8_phqql"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5qbw8"]
@@ -73,9 +73,9 @@ region = Rect2(250, 0, 50, 32)
 atlas = ExtResource("5_btnel")
 region = Rect2(0, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_mnaf0"]
-atlas = ExtResource("5_3oksr")
-region = Rect2(0, 0, 32, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_28yxd"]
+atlas = ExtResource("6_woa2c")
+region = Rect2(0, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gmqlx"]
 atlas = ExtResource("8_phqql")
@@ -162,7 +162,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_mnaf0")
+"texture": SubResource("AtlasTexture_28yxd")
 }],
 "loop": true,
 "name": &"water_idle",
