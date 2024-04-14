@@ -115,13 +115,12 @@ shape = SubResource("CircleShape2D_hj2cs")
 
 [node name="AnimatedSprite" type="AnimatedSprite2D" parent="Renderer"]
 sprite_frames = ExtResource("2_gp143")
-animation = &"land_idle"
+animation = &"water_idle"
 autoplay = "land_idle"
 
 [node name="PointLight2D" type="PointLight2D" parent="Renderer"]
-energy = 0.5
+energy = 1.5
 texture = ExtResource("5_7idbf")
-texture_scale = 1.2
 
 [node name="AimIndicator" type="Node2D" parent="."]
 script = ExtResource("15_ape5n")

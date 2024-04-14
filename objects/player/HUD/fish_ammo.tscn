@@ -4,13 +4,17 @@
 [ext_resource type="Texture2D" uid="uid://cv2yy61xyn4yf" path="res://resources/sprites/frame.png" id="2_xwuxh"]
 
 [node name="FishTexture" type="TextureRect"]
+custom_minimum_size = Vector2(64, 64)
+offset_right = 64.0
+offset_bottom = 64.0
 focus_mode = 2
 texture = ExtResource("1_0rdms")
+stretch_mode = 5
 metadata/fish_type = "dummy"
-metadata/fish_resource = null
 
 [node name="SelectFrame" type="TextureRect" parent="."]
 visible = false
+z_index = 10
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
