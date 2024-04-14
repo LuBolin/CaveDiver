@@ -51,6 +51,7 @@ shape = SubResource("CircleShape2D_psm21")
 debug_color = Color(0.572549, 0, 0.337255, 0.419608)
 
 [node name="KillZone" type="Area2D" parent="Shark"]
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Shark/KillZone"]
 rotation = 1.5708
