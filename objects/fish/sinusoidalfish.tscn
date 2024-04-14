@@ -35,6 +35,7 @@ script = ExtResource("4_w2ask")
 
 [node name="Collision" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_ohq10")
+one_way_collision = true
 
 [node name="Trail" type="Line2D" parent="."]
 top_level = true

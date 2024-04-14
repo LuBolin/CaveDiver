@@ -42,7 +42,6 @@ texture = ExtResource("1_o2xs0")
 [node name="World" type="Node2D" parent="."]
 
 [node name="Background" type="Sprite2D" parent="World"]
-visible = false
 position = Vector2(1.5, 68.0001)
 scale = Vector2(18.0156, 7.9375)
 texture = ExtResource("1_1w25g")
@@ -97,7 +96,7 @@ position = Vector2(548, -236)
 [node name="Entities" type="Node2D" parent="."]
 
 [node name="Shark" parent="Entities" instance=ExtResource("5_iqw21")]
-position = Vector2(179, 231)
+position = Vector2(-315, 172)
 
 [node name="Shark" parent="Entities/Shark" index="0"]
 speed = 100.0
@@ -106,7 +105,7 @@ speed = 100.0
 points = PackedVector2Array(173, -3, 0, 0, 157, -70)
 
 [node name="Shark2" parent="Entities" instance=ExtResource("5_iqw21")]
-position = Vector2(303, -23)
+position = Vector2(-328, -17)
 
 [node name="Shark" parent="Entities/Shark2" index="0"]
 speed = 500.0
@@ -128,7 +127,6 @@ position = Vector2(-494, -242)
 initial_fishes = Array[PackedScene]([ExtResource("5_v5wh8"), ExtResource("6_gsmd7"), ExtResource("7_0wkr4")])
 
 [node name="Darkness" type="DirectionalLight2D" parent="."]
-visible = false
 color = Color(0, 0, 0, 1)
 energy = 0.5
 blend_mode = 2
