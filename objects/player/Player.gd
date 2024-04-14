@@ -19,7 +19,8 @@ var waters_area: Area2D
 
 
 func _ready():
-	waters_area = get_node(^"../Waters_Area")
+	var root_node = get_tree().root.get_child(0)
+	waters_area = root_node.get_node(^'World/Water_Area')
 	state_machine.init(self)
 
 func _unhandled_input(event):

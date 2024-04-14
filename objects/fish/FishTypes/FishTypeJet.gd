@@ -9,7 +9,7 @@ func _init():
 var multiplier : float = 10
 var decayRate : float = 0.99
 func move_function(velocity : Vector2, delta) -> Vector2:
-	multiplier = multiplier * decayRate
+	multiplier = multiplier * (decayRate ** (1.0-delta))
 	return velocity * multiplier
 
 ## Define what should be done on collision with a KinematicCollision2D object

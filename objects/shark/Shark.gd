@@ -49,9 +49,9 @@ func _physics_process(delta):
 	self.set_linear_velocity(to_travel.normalized() * speed)
 
 
-
 func _on_kill_zone_body_entered(body):
 	if body == self:
 		return
-	print(body)
+	if body is Fish:
+		body.die()
 	#body.queue_free()

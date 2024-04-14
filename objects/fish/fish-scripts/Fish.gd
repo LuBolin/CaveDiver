@@ -9,6 +9,7 @@ extends CharacterBody2D
 @export var fish_texture: Texture2D
 @export var sprite : Sprite2D
 @export var fish_trail : FishTrail
+@onready var oxygen_light: PointLight2D = $OxygenLight
 
 var live : bool
 
