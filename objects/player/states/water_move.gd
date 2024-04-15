@@ -32,7 +32,6 @@ func process_physics(delta):
 
 	# floated out
 	if not parent.in_water():
-		parent.oxygen_buffer_left = parent.oxygen_buffer
 		return land_jump_state
 		
 	if movement == 0:

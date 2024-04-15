@@ -1,6 +1,5 @@
-[gd_scene load_steps=19 format=3 uid="uid://b8ed654sngd3h"]
+[gd_scene load_steps=17 format=3 uid="uid://b8ed654sngd3h"]
 
-[ext_resource type="Texture2D" uid="uid://ciggn0lafcose" path="res://objects/terrain/water.png" id="1_1w25g"]
 [ext_resource type="Texture2D" uid="uid://dyr1ayx2hbk58" path="res://resources/sprites/background_from_online.jpg" id="1_o2xs0"]
 [ext_resource type="TileSet" uid="uid://cyktj7rs2x5sw" path="res://objects/terrain/water_tileset.tres" id="2_vbfiw"]
 [ext_resource type="Script" path="res://objects/terrain/Waters_Area.gd" id="3_hlkok"]
@@ -23,13 +22,10 @@ size = Vector2(100, 20)
 [sub_resource type="QuadMesh" id="QuadMesh_rwhld"]
 size = Vector2(100, 20)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_yvpmd"]
-size = Vector2(793, 236)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_in1fv"]
 size = Vector2(100, 33)
 
-[node name="Root" type="Node2D"]
+[node name="LevelRoot" type="Node2D"]
 
 [node name="Misc" type="Node2D" parent="."]
 
@@ -41,6 +37,7 @@ texture = ExtResource("1_o2xs0")
 [node name="Camera2D" type="Camera2D" parent="Misc"]
 
 [node name="Darkness" type="DirectionalLight2D" parent="Misc"]
+visible = false
 z_index = 1000
 z_as_relative = false
 color = Color(0, 0, 0, 1)
@@ -48,11 +45,6 @@ blend_mode = 2
 shadow_enabled = true
 
 [node name="World" type="Node2D" parent="."]
-
-[node name="Background" type="Sprite2D" parent="World"]
-position = Vector2(1.5, 68.0001)
-scale = Vector2(18.0156, 7.9375)
-texture = ExtResource("1_1w25g")
 
 [node name="Water_Area" type="Area2D" parent="World"]
 position = Vector2(0, 100)
@@ -73,20 +65,10 @@ debug_color = Color(0.584314, 0.294118, 0, 0.419608)
 [node name="MeshInstance2D" type="MeshInstance2D" parent="World/Terrain"]
 mesh = SubResource("QuadMesh_rwhld")
 
-[node name="MeshInstance2D2" type="MeshInstance2D" parent="World/Terrain"]
-position = Vector2(495, -41.5)
-scale = Vector2(7.94, 11.75)
-mesh = SubResource("QuadMesh_rwhld")
-
 [node name="MeshInstance2D3" type="MeshInstance2D" parent="World/Terrain"]
 position = Vector2(1052, 6)
 scale = Vector2(1.0275, 1.35)
 mesh = SubResource("QuadMesh_rwhld")
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="World/Terrain"]
-position = Vector2(494.5, -42)
-shape = SubResource("RectangleShape2D_yvpmd")
-debug_color = Color(0.419608, 0.231373, 0.0392157, 0.419608)
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="World/Terrain"]
 position = Vector2(1051, 8)
@@ -100,6 +82,16 @@ layer_0/tile_data = PackedInt32Array(-65545, 3, 0, -9, 3, 0, 65527, 3, 0, 131063
 
 [node name="Escape" parent="World" instance=ExtResource("8_xe23b")]
 position = Vector2(548, -236)
+
+[node name="Water_Shader" type="TextureRect" parent="World"]
+z_index = 500
+z_as_relative = false
+material = ExtResource("12_4n35g")
+offset_left = -575.0
+offset_top = -319.0
+offset_right = 577.0
+offset_bottom = 329.0
+texture = ExtResource("13_rvrs4")
 
 [node name="Entities" type="Node2D" parent="."]
 
@@ -133,16 +125,6 @@ position = Vector2(-494, -242)
 
 [node name="AmmoPouch" parent="Player/CanvasLayer" index="0"]
 initial_fishes = Array[PackedScene]([ExtResource("5_v5wh8"), ExtResource("6_gsmd7"), ExtResource("7_0wkr4")])
-
-[node name="Water_Shader" type="TextureRect" parent="."]
-z_index = 500
-z_as_relative = false
-material = ExtResource("12_4n35g")
-offset_left = -575.0
-offset_top = -319.0
-offset_right = 577.0
-offset_bottom = 329.0
-texture = ExtResource("13_rvrs4")
 
 [editable path="Entities/Shark"]
 [editable path="Entities/Shark2"]

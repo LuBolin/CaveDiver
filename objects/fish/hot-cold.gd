@@ -4,7 +4,8 @@ extends PointLight2D
 var escapes = []
 		
 func _ready():
-	for i in get_tree().root.get_child(0).get_node(^'World').get_children():
+	var root = get_tree().root.get_node('LevelRoot')
+	for i in root.get_node(^'World/Escapes').get_children():
 		if 'Escape' in i.name:
 			escapes.append(i)
 

@@ -17,9 +17,8 @@ var fish_scene: PackedScene = preload("res://objects/fish/jetfish.tscn")
 
 var water_area: Area2D
 
-
 func _ready():
-	var root_node = get_tree().root.get_node("Root")
+	var root_node = get_tree().root.get_node("LevelRoot")
 	water_area = root_node.get_node(^'World/Water_Area')
 	state_machine.init(self)
 

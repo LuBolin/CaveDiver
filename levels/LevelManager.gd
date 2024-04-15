@@ -6,7 +6,7 @@ extends Node2D
 func _ready():
 	Singleton.restart.connect(restart)
 	Singleton.escape.connect(to_menu)
-	darkness.visible = true
+	#darkness.visible = true
 
 func restart():
 	get_tree().reload_current_scene()

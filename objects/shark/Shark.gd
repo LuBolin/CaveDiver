@@ -1,6 +1,6 @@
 extends RigidBody2D
 
-@onready var patrol_route = $"../PatrolRoute"
+@onready var patrol_route = $".."
 @onready var sprite = $AnimatedSprite2D
 @onready var kill_area = $KillZone
 
@@ -23,8 +23,9 @@ func _ready():
 		point = parent.to_global(point)
 		patrol_points.append(point)
 	self.global_position = patrol_points[0]
-	current_index = 1
-	patrol_route.set_visible(false)
+	if patrol_points.size() > 1:
+		current_index = 1
+	patrol_route.set_default_color(Color.TRANSPARENT)
 
 func _process(delta):
 	if get_linear_velocity().x < 0:

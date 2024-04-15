@@ -1,13 +1,5 @@
-[gd_scene format=3 uid="uid://cyqgupufq0ofw"]
+[gd_scene load_steps=2 format=3 uid="uid://npdybt4h07x3"]
 
-[node name="Level1" type="Node2D"]
+[ext_resource type="PackedScene" uid="uid://v8uf6qi7n2pq" path="res://levels/Level Template.tscn" id="1_tyr65"]
 
-[node name="Camera2D" type="Camera2D" parent="."]
-
-[node name="Label" type="Label" parent="."]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "Level 1"
+[node name="LevelRoot" instance=ExtResource("1_tyr65")]
