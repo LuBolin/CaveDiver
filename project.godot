@@ -17,6 +17,12 @@ config/features=PackedStringArray("4.2", "Mobile")
 [autoload]
 
 Singleton="*res://misc/Singleton.gd"
+BetterTerrain="*res://addons/better-terrain/BetterTerrain.gd"
+
+[display]
+
+window/stretch/mode="viewport"
+window/stretch/aspect="expand"
 
 [editor]
 
@@ -25,7 +31,7 @@ version_control/autoload_on_startup=true
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/SmoothScroll/plugin.cfg")
+enabled=PackedStringArray("res://addons/SmoothScroll/plugin.cfg", "res://addons/better-terrain/plugin.cfg")
 
 [input]
 

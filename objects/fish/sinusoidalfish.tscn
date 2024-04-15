@@ -1,16 +1,15 @@
-[gd_scene load_steps=12 format=3 uid="uid://bklcldpxvdiad"]
+[gd_scene load_steps=11 format=3 uid="uid://bklcldpxvdiad"]
 
 [ext_resource type="Script" path="res://objects/fish/fish-scripts/Fish.gd" id="1_7tkhu"]
 [ext_resource type="Script" path="res://objects/fish/FishTypes/FishTypeSinusoidal.gd" id="2_2dmav"]
-[ext_resource type="Texture2D" uid="uid://x3oh72vqq1jd" path="res://resources/sprites/sinusoidalfish.png" id="2_ns6pn"]
-[ext_resource type="Texture2D" uid="uid://bbbu5tx8ems36" path="res://resources/sprites/fish-sprite-temp.png" id="3_rf126"]
+[ext_resource type="Texture2D" uid="uid://civvnyxocpfks" path="res://objects/fish/sprites/sine_fish.png" id="2_p1hv3"]
 [ext_resource type="Script" path="res://objects/fish/fish-scripts/FishSprite.gd" id="4_w2ask"]
 [ext_resource type="Script" path="res://objects/fish/fish-scripts/FishTrail.gd" id="5_vp1ec"]
 [ext_resource type="Texture2D" uid="uid://bteqkxejmlhbm" path="res://resources/sprites/light_circle.png" id="7_ep26d"]
 [ext_resource type="Script" path="res://objects/fish/hot-cold.gd" id="8_jjbsn"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ohq10"]
-radius = 64.0
+radius = 4.0
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_3e1sf"]
 light_mode = 1
@@ -25,7 +24,7 @@ z_as_relative = false
 collision_layer = 2
 script = ExtResource("1_7tkhu")
 fish_type = NodePath("FishType")
-fish_texture = ExtResource("2_ns6pn")
+fish_texture = ExtResource("2_p1hv3")
 sprite = NodePath("Sprite")
 fish_trail = NodePath("Trail")
 
@@ -33,7 +32,7 @@ fish_trail = NodePath("Trail")
 script = ExtResource("2_2dmav")
 
 [node name="Sprite" type="Sprite2D" parent="."]
-texture = ExtResource("3_rf126")
+texture = ExtResource("2_p1hv3")
 script = ExtResource("4_w2ask")
 
 [node name="Collision" type="CollisionShape2D" parent="."]

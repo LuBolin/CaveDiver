@@ -22,18 +22,23 @@ func process_physics(delta):
 		parent.velocity.y = water_sink_speed
 	elif floating:
 		parent.velocity.y = -water_float_speed
-	
+		if not parent.submerged():
+			parent.velocity.y = 0
+			
 	var movement = Input.get_axis("move_left", "move_right") \
 		* land_move_speed
 	if movement != 0:
 		parent.animations.flip_h = movement < 0
 	parent.velocity.x = movement
+		
 	parent.move_and_slide()
 
-	# floated out
-	if not parent.in_water():
-		parent.oxygen_buffer_left = parent.oxygen_buffer
-		return land_jump_state
+	if not sinking and floating and not parent.submerged():
+		return water_float_state
+
+	if Input.is_action_just_pressed("jump"):
+		if not parent.submerged():
+			return land_jump_state
 		
 	if movement == 0:
 		return water_idle_state

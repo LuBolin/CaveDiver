@@ -25,6 +25,9 @@ func process_physics(delta: float):
 	parent.velocity.x = movement
 	parent.move_and_slide()
 	
+	if parent.submerged() and movement != 0:
+		return water_move_state
+	
 	if not Input.is_action_pressed("move_up"):
 		if movement == 0:
 			return water_idle_state

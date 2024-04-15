@@ -19,7 +19,7 @@ var speed : int
 func _ready():
 	speed = fish_type.initialise(self, sprite, fish_trail, die)
 	sprite.set_texture(fish_texture)
-	var root_node = get_tree().root.get_child(0)
+	var root_node = get_tree().root.get_node('LevelRoot')
 	waters_area = root_node.get_node(^'World/Water_Area')
 
 func _process(delta):

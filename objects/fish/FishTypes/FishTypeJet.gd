@@ -2,7 +2,7 @@ class_name FishTypeJet
 extends FishType
 
 func _init():
-	speed = 100
+	speed = 700
 	size = 0.3
 
 ## Define how the fish moves

@@ -9,6 +9,10 @@ func _ready():
 	aiming = false
 	self.visible = aiming
 
+func _process(delta):
+	if not player.alive and self.visible:
+		self.visible = false
+
 func _input(event):
 	if not event is InputEventMouse:
 		return
