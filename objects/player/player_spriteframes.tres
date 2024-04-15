@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://b5rhekh14vbt7" path="res://objects/player/assets/Orc - Rogue/Run/Run-Sheet.png" id="3_x4btt"]
 [ext_resource type="Texture2D" uid="uid://woomdm41kudd" path="res://objects/player/assets/Orc - Rogue/water_float.png" id="5_btnel"]
 [ext_resource type="Texture2D" uid="uid://b4uksh7bdvmwr" path="res://objects/player/assets/Orc - Rogue/water_sink.png" id="5_e5fia"]
-[ext_resource type="Texture2D" uid="uid://dp2j1tw411he6" path="res://resources/sprites/player.png" id="6_woa2c"]
+[ext_resource type="Texture2D" uid="uid://dp2j1tw411he6" path="res://levels/MainMenu/player.png" id="6_woa2c"]
 [ext_resource type="Texture2D" uid="uid://dv7ko70pkr0rx" path="res://objects/player/assets/Orc - Rogue/water_move.png" id="8_phqql"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5qbw8"]

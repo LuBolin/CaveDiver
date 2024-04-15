@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://ccx7lkuaf1lif"]
+
+[node name="Level2" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Level 2"

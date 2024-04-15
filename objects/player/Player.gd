@@ -15,17 +15,15 @@ var oxygen_level: OxygenLevel = $CanvasLayer/OxygenLevel
 
 var fish_scene: PackedScene = preload("res://objects/fish/jetfish.tscn")
 
-var waters_area: Area2D
+var water_area: Area2D
 
 
 func _ready():
-	var root_node = get_tree().root.get_child(0)
-	waters_area = root_node.get_node(^'World/Water_Area')
+	var root_node = get_tree().root.get_node("Root")
+	water_area = root_node.get_node(^'World/Water_Area')
 	state_machine.init(self)
 
 func _unhandled_input(event):
-	if event.is_action_pressed("restart"):
-		get_tree().reload_current_scene()
 	state_machine.process_input(event)
 
 func _physics_process(delta):
@@ -35,11 +33,11 @@ func _process(delta):
 	state_machine.process_frame(delta)
 
 func submerged():
-	var submerged = waters_area.overlaps_area($Head)
+	var submerged = water_area.overlaps_area($Head)
 	return submerged
 
 func in_water():
-	var in_water = waters_area.overlaps_body(self)
+	var in_water = water_area.overlaps_body(self)
 	return in_water
 
 func launch_fish(direction):
