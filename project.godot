@@ -14,6 +14,10 @@ config/name="CaveDiver"
 run/main_scene="res://levels/sandbox.tscn"
 config/features=PackedStringArray("4.2", "Mobile")
 
+[autoload]
+
+Singleton="*res://misc/Singleton.gd"
+
 [editor]
 
 version_control/plugin_name="GitPlugin"

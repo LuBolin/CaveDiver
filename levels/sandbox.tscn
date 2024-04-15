@@ -34,12 +34,18 @@ size = Vector2(100, 33)
 [node name="Misc" type="Node2D" parent="."]
 
 [node name="Background" type="Sprite2D" parent="Misc"]
-visible = false
 position = Vector2(1.49997, -7.00003)
 scale = Vector2(4.53937, 3.32323)
 texture = ExtResource("1_o2xs0")
 
 [node name="Camera2D" type="Camera2D" parent="Misc"]
+
+[node name="Darkness" type="DirectionalLight2D" parent="Misc"]
+z_index = 1000
+z_as_relative = false
+color = Color(0, 0, 0, 1)
+blend_mode = 2
+shadow_enabled = true
 
 [node name="World" type="Node2D" parent="."]
 
@@ -137,13 +143,6 @@ offset_top = -319.0
 offset_right = 577.0
 offset_bottom = 329.0
 texture = ExtResource("13_rvrs4")
-
-[node name="Darkness" type="DirectionalLight2D" parent="."]
-z_index = 1000
-z_as_relative = false
-color = Color(0, 0, 0, 1)
-blend_mode = 2
-shadow_enabled = true
 
 [editable path="Entities/Shark"]
 [editable path="Entities/Shark2"]
