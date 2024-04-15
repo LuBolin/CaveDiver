@@ -19,29 +19,46 @@
 [ext_resource type="Texture2D" uid="uid://dwrel4o0rfjxx" path="res://resources/sprites/arrow.png" id="15_gffn3"]
 [ext_resource type="Script" path="res://objects/player/RetrieveFish.gd" id="18_k0akq"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_4ksd0"]
+radius = 8.0
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_f5jfp"]
+radius = 5.0
+height = 13.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hj2cs"]
-radius = 7.5
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_4ksd0"]
-radius = 16.0
+radius = 4.5
 
 [node name="Player" type="CharacterBody2D"]
 z_index = 100
 z_as_relative = false
-scale = Vector2(2, 2)
 collision_layer = 2
 script = ExtResource("1_kiu2d")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="RetrieveFishArea" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("18_k0akq")
 
-[node name="AmmoPouch" parent="CanvasLayer" instance=ExtResource("13_u68c8")]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RetrieveFishArea"]
+shape = SubResource("CircleShape2D_4ksd0")
+debug_color = Color(0, 0.419608, 0, 0.419608)
 
-[node name="OxygenLevel" parent="CanvasLayer" instance=ExtResource("3_06578")]
+[node name="Renderer" type="Node2D" parent="."]
+
+[node name="AnimatedSprite" type="AnimatedSprite2D" parent="Renderer"]
+sprite_frames = ExtResource("2_gp143")
+animation = &"water_sink"
+autoplay = "land_idle"
+
+[node name="PointLight2D" type="PointLight2D" parent="Renderer"]
+energy = 1.5
+texture = ExtResource("5_7idbf")
 
 [node name="Collision" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 1.5)
 shape = SubResource("CapsuleShape2D_f5jfp")
+debug_color = Color(0.992157, 0, 0, 0.419608)
 
 [node name="StateMachine" type="Node2D" parent="." node_paths=PackedStringArray("starting_state")]
 script = ExtResource("4_jvups")
@@ -115,19 +132,8 @@ vertical_alignment = 1
 collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Head"]
-position = Vector2(0, -7.5)
+position = Vector2(0, -3.5)
 shape = SubResource("CircleShape2D_hj2cs")
-
-[node name="Renderer" type="Node2D" parent="."]
-
-[node name="AnimatedSprite" type="AnimatedSprite2D" parent="Renderer"]
-sprite_frames = ExtResource("2_gp143")
-animation = &"land_idle"
-autoplay = "land_idle"
-
-[node name="PointLight2D" type="PointLight2D" parent="Renderer"]
-energy = 1.5
-texture = ExtResource("5_7idbf")
 
 [node name="AimIndicator" type="Node2D" parent="."]
 script = ExtResource("15_ape5n")
@@ -138,12 +144,10 @@ rotation = 0.785397
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("15_gffn3")
 
-[node name="RetrieveFishArea" type="Area2D" parent="."]
-collision_layer = 0
-collision_mask = 2
-script = ExtResource("18_k0akq")
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RetrieveFishArea"]
-shape = SubResource("CircleShape2D_4ksd0")
+[node name="AmmoPouch" parent="CanvasLayer" instance=ExtResource("13_u68c8")]
+
+[node name="OxygenLevel" parent="CanvasLayer" instance=ExtResource("3_06578")]
 
 [connection signal="body_entered" from="RetrieveFishArea" to="RetrieveFishArea" method="_on_body_entered"]

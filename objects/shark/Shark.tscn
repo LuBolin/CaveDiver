@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://c1dr63pe1527k"]
+[gd_scene load_steps=9 format=3 uid="uid://c1dr63pe1527k"]
 
 [ext_resource type="Texture2D" uid="uid://c5y85uh26v1nv" path="res://objects/shark/shark-sheet.png" id="1_iirp7"]
 [ext_resource type="Script" path="res://objects/shark/Shark.gd" id="1_ugetu"]
+[ext_resource type="Script" path="res://objects/shark/SharkBody.gd" id="2_teqiw"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vxawq"]
 atlas = ExtResource("1_iirp7")
@@ -26,24 +27,23 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_psm21"]
-radius = 8.0
+radius = 6.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3qjf7"]
-radius = 12.0
-height = 48.0
+radius = 8.0
+height = 24.0
 
 [node name="Shark" type="Line2D"]
 points = PackedVector2Array(0, 0)
 closed = true
+script = ExtResource("1_ugetu")
 
 [node name="Shark" type="RigidBody2D" parent="."]
 gravity_scale = 0.0
 contact_monitor = true
-script = ExtResource("1_ugetu")
-speed = 200.0
+script = ExtResource("2_teqiw")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Shark"]
-scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_64son")
 autoplay = "default"
 

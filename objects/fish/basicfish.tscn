@@ -2,14 +2,14 @@
 
 [ext_resource type="Script" path="res://objects/fish/fish-scripts/Fish.gd" id="1_0ih44"]
 [ext_resource type="Script" path="res://objects/fish/FishTypes/FishTypeBasic.gd" id="2_6h74k"]
-[ext_resource type="Texture2D" uid="uid://kb3lgp6vn722" path="res://resources/sprites/purple_fish.png" id="2_foxss"]
+[ext_resource type="Texture2D" uid="uid://bdl1f1klfjfxh" path="res://objects/fish/sprites/default_yellow_fish.png" id="2_pmbw4"]
 [ext_resource type="Script" path="res://objects/fish/fish-scripts/FishSprite.gd" id="4_hr26h"]
 [ext_resource type="Script" path="res://objects/fish/fish-scripts/FishTrail.gd" id="5_0m811"]
 [ext_resource type="Texture2D" uid="uid://bteqkxejmlhbm" path="res://resources/sprites/light_circle.png" id="7_ns16v"]
 [ext_resource type="Script" path="res://objects/fish/hot-cold.gd" id="8_17f7x"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tup3n"]
-radius = 64.0
+radius = 4.0
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_4ngiv"]
 light_mode = 1
@@ -24,7 +24,7 @@ z_as_relative = false
 collision_layer = 2
 script = ExtResource("1_0ih44")
 fish_type = NodePath("FishType")
-fish_texture = ExtResource("2_foxss")
+fish_texture = ExtResource("2_pmbw4")
 sprite = NodePath("Sprite")
 fish_trail = NodePath("Trail")
 
@@ -33,7 +33,7 @@ script = ExtResource("2_6h74k")
 
 [node name="Sprite" type="Sprite2D" parent="."]
 rotation = 0.785397
-texture = ExtResource("2_foxss")
+texture = ExtResource("2_pmbw4")
 script = ExtResource("4_hr26h")
 
 [node name="Collision" type="CollisionShape2D" parent="."]
