@@ -2,11 +2,13 @@ extends Node2D
 
 @onready var main_menu: PackedScene = preload("res://levels/MainMenu/MainMenu.tscn")
 @onready var darkness: DirectionalLight2D = $Misc/Darkness
+@onready var water_shader: TextureRect = $World/Water_Shader
 # Called when the node enters the scene tree for the first time.
-func _ready():
+func _ready():       
 	Singleton.restart.connect(restart)
 	Singleton.escape.connect(to_menu)
 	#darkness.visible = true
+	water_shader.visible = true
 
 func restart():
 	get_tree().reload_current_scene()

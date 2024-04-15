@@ -49,3 +49,6 @@ func launch_fish(direction):
 
 func has_ammo():
 	return ammo_pouch.get_fish_count() > 0
+
+func pickup_fish(fish_resource: PackedScene):
+	ammo_pouch.push_fish(fish_resource)
