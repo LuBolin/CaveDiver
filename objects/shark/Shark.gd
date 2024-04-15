@@ -55,4 +55,5 @@ func _on_kill_zone_body_entered(body):
 		return
 	if body is Fish:
 		body.die()
-	#body.queue_free()
+	if body is Player:
+		body.die()

@@ -17,18 +17,27 @@ var fish_scene: PackedScene = preload("res://objects/fish/jetfish.tscn")
 
 var water_area: Area2D
 
+var alive: bool = true
+
 func _ready():
 	var root_node = get_tree().root.get_node("LevelRoot")
 	water_area = root_node.get_node(^'World/Water_Area')
+	alive = true
 	state_machine.init(self)
 
 func _unhandled_input(event):
+	if not alive:
+		return
 	state_machine.process_input(event)
 
 func _physics_process(delta):
+	if not alive:
+		return
 	state_machine.process_physics(delta)
 
 func _process(delta):
+	if not alive:
+		return
 	state_machine.process_frame(delta)
 
 func submerged():
@@ -52,3 +61,9 @@ func has_ammo():
 
 func pickup_fish(fish_resource: PackedScene):
 	ammo_pouch.push_fish(fish_resource)
+
+func die():
+	alive = false
+	# some animation
+	await get_tree().create_timer(2).timeout
+	Singleton.restart.emit()

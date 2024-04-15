@@ -24,6 +24,8 @@ func _ready():
 	tank_label.set_text(str(snapped(tank_left, 0.1)))
 
 func _physics_process(delta):
+	if not player.alive:
+		return
 	if player.submerged():
 		lungs_left -= delta
 		if lungs_left < 0:
@@ -34,6 +36,8 @@ func _physics_process(delta):
 			lungs_left = lung_capacity
 
 func _process(delta):
+	if not player.alive:
+		return
 	if lungs_left < 0:
 		lungs_label.set_text("No more breath!")
 	else:

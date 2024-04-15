@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://v8uf6qi7n2pq"]
+[gd_scene load_steps=11 format=3 uid="uid://v8uf6qi7n2pq"]
 
 [ext_resource type="Script" path="res://levels/LevelManager.gd" id="1_rwxwj"]
 [ext_resource type="Texture2D" uid="uid://dyr1ayx2hbk58" path="res://resources/sprites/background_from_online.jpg" id="2_sqc2a"]
@@ -9,7 +9,6 @@
 [ext_resource type="PackedScene" uid="uid://5g0gkvddwhcs" path="res://objects/escape/Escape.tscn" id="7_c5rmx"]
 [ext_resource type="PackedScene" uid="uid://cw5v4ivweo6bl" path="res://objects/player/player.tscn" id="7_xxhsr"]
 [ext_resource type="PackedScene" uid="uid://c1dr63pe1527k" path="res://objects/shark/Shark.tscn" id="8_cvq4k"]
-[ext_resource type="FontFile" uid="uid://oc44ktq8rgys" path="res://resources/fonts/Xolonium-Regular.ttf" id="8_wfou2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dv6bi"]
 size = Vector2(1152, 512)
@@ -84,10 +83,3 @@ points = PackedVector2Array(20, 112, 90, -73)
 position = Vector2(-538, -238)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="Label" type="Label" parent="CanvasLayer"]
-offset_right = 40.0
-offset_bottom = 23.0
-theme_override_fonts/font = ExtResource("8_wfou2")
-theme_override_font_sizes/font_size = 36
-text = "Level X"

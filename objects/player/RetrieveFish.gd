@@ -3,6 +3,8 @@ extends Area2D
 @onready var player: Player = $".."
 
 func _on_body_entered(body):
+	if not player.alive:
+		return
 	if body is Fish:
 		if body.live:
 			return
