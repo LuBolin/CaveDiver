@@ -2,9 +2,7 @@
 
 [ext_resource type="FontFile" uid="uid://oc44ktq8rgys" path="res://resources/fonts/Xolonium-Regular.ttf" id="1_alch8"]
 [ext_resource type="Texture2D" uid="uid://cx0gbh13fmhu4" path="res://resources/sprites/red_tick.png" id="2_b3chd"]
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ef5bo"]
-load_path = "res://.godot/imported/player.png-008d2cdcc3c1cde1c1bb1e5d34a57647.ctex"
+[ext_resource type="Texture2D" uid="uid://tiddcbb3bayt" path="res://resources/sprites/player.png" id="2_jdi36"]
 
 [node name="LevelButton" type="Button"]
 custom_minimum_size = Vector2(80, 0)
@@ -22,11 +20,12 @@ grow_vertical = 2
 theme_override_fonts/font = ExtResource("1_alch8")
 theme_override_font_sizes/font_size = 40
 text = "1"
-icon = SubResource("CompressedTexture2D_ef5bo")
+icon = ExtResource("2_jdi36")
 icon_alignment = 2
 expand_icon = true
 
 [node name="Cleared" type="TextureRect" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0

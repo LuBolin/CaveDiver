@@ -1,14 +1,17 @@
 extends Node2D
 
 @onready var buttonsGrid = $ControlsGroup/LevelButtons
-@onready var lvl_button_template = preload("res://levels/MainMenu/level_button.tscn")
+@onready var lvl_button_template = \
+	preload("res://levels/MainMenu/level_button.tscn")
 
-const lvlFileName = "res://Levels/Level"
-const levels_dir = "res://levels"
+const lvl_scenes_dir = "res://levels"
+# "Level X.tscn"
+var lvl_scene_name_regex = RegEx.new()
 
 var levels = []
 
 func _ready():
+	lvl_scene_name_regex.compile("^Level (\\d+)\\.tscn$")
 	init_levels()
 	for l in levels:
 		var lvl_num = l[0]
@@ -20,11 +23,10 @@ func _ready():
 	self.renderBeaten()
 
 func init_levels():
-	var dir = DirAccess.open(levels_dir)
+	var dir = DirAccess.open(lvl_scenes_dir)
 	for f in dir.get_files():
-		# "Level X.tscn"
-		if f.right(5) == '.tscn' and 'Level' in f:
-			var lvl_scene = load(levels_dir + "//" + f)
+		if lvl_scene_name_regex.search(f):
+			var lvl_scene = load(lvl_scenes_dir + "//" + f)
 			var lvl_digits = f.length()-11 #"Level ".length() - ".tscn".length()
 			var lvl_num = int(f.substr(6,lvl_digits))
 			levels.append([lvl_num, lvl_scene])
