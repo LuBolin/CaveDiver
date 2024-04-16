@@ -7,19 +7,17 @@ extends Node
 
 ## FishType agnostic variables and functions
 var fish : Fish
-var sprite : FishSprite
-var movement : Movement
-var fish_trail : FishTrail
+var fish_skeleton : FishSkeleton
 var die : Callable
+@export var fish_texture: Texture2D
 
-func initialise(f : Fish, sp: FishSprite, f_trail : FishTrail, d : Callable) -> int:
+func initialise(f : Fish, skeleton : FishSkeleton, d : Callable) -> void:
 	fish = f
-	sprite = sp
-	fish_trail = f_trail
-	fish.scale = Vector2(size, size)
+	fish_skeleton = skeleton
 	die = d
-	fish.move_install(move_function, collision_function)
-	return speed
+	fish.scale = Vector2(size, size)
+	fish.move_install(move_function, collision_function, speed)
+	fish_skeleton.install(fish, fish_texture)
 
 ## FishType variant variables and functions
 ## Use _init to initialise these variables

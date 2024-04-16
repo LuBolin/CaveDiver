@@ -1,57 +1,28 @@
-[gd_scene load_steps=11 format=3 uid="uid://bklcldpxvdiad"]
+[gd_scene load_steps=6 format=3 uid="uid://bklcldpxvdiad"]
 
 [ext_resource type="Script" path="res://objects/fish/fish-scripts/Fish.gd" id="1_7tkhu"]
 [ext_resource type="Script" path="res://objects/fish/FishTypes/FishTypeSinusoidal.gd" id="2_2dmav"]
 [ext_resource type="Texture2D" uid="uid://civvnyxocpfks" path="res://objects/fish/sprites/sine_fish.png" id="2_p1hv3"]
-[ext_resource type="Script" path="res://objects/fish/fish-scripts/FishSprite.gd" id="4_w2ask"]
-[ext_resource type="Script" path="res://objects/fish/fish-scripts/FishTrail.gd" id="5_vp1ec"]
-[ext_resource type="Texture2D" uid="uid://bteqkxejmlhbm" path="res://resources/sprites/light_circle.png" id="7_ep26d"]
-[ext_resource type="Script" path="res://objects/fish/hot-cold.gd" id="8_jjbsn"]
+[ext_resource type="PackedScene" uid="uid://cr1vireck1kai" path="res://objects/fish/fish_skeleton.tscn" id="4_66d2o"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ohq10"]
 radius = 4.0
 
-[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_3e1sf"]
-light_mode = 1
-
-[sub_resource type="Gradient" id="Gradient_c5upd"]
-colors = PackedColorArray(1, 1, 1, 1, 0, 1, 0, 0.231373)
-
-[node name="Sinusoidalfish" type="CharacterBody2D" node_paths=PackedStringArray("fish_type", "sprite", "fish_trail")]
+[node name="Sinusoidalfish" type="CharacterBody2D" node_paths=PackedStringArray("fish_type", "fish_skeleton")]
 top_level = true
 z_index = 50
 z_as_relative = false
 collision_layer = 2
 script = ExtResource("1_7tkhu")
 fish_type = NodePath("FishType")
-fish_texture = ExtResource("2_p1hv3")
-sprite = NodePath("Sprite")
-fish_trail = NodePath("Trail")
+fish_skeleton = NodePath("FishSkeleton")
 
 [node name="FishType" type="Node" parent="."]
 script = ExtResource("2_2dmav")
-
-[node name="Sprite" type="Sprite2D" parent="."]
-texture = ExtResource("2_p1hv3")
-script = ExtResource("4_w2ask")
+fish_texture = ExtResource("2_p1hv3")
 
 [node name="Collision" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_ohq10")
 one_way_collision = true
 
-[node name="Trail" type="Line2D" parent="."]
-top_level = true
-z_index = 40
-z_as_relative = false
-material = SubResource("CanvasItemMaterial_3e1sf")
-width = 4.0
-gradient = SubResource("Gradient_c5upd")
-joint_mode = 2
-begin_cap_mode = 2
-end_cap_mode = 2
-script = ExtResource("5_vp1ec")
-
-[node name="OxygenLight" type="PointLight2D" parent="."]
-texture = ExtResource("7_ep26d")
-texture_scale = 5.0
-script = ExtResource("8_jjbsn")
+[node name="FishSkeleton" parent="." instance=ExtResource("4_66d2o")]
