@@ -6,10 +6,7 @@ extends CharacterBody2D
 ## Attach generic Fish Skeleton and Fish Type subclass
 
 @export var fish_type : FishType
-@export var fish_texture: Texture2D
-@export var sprite : Sprite2D
-@export var fish_trail : FishTrail
-@onready var oxygen_light: PointLight2D = $OxygenLight
+@export var fish_skeleton : FishSkeleton
 
 var waters_area
 
@@ -17,8 +14,7 @@ var live : bool
 var speed : int
 
 func _ready():
-	speed = fish_type.initialise(self, sprite, fish_trail, die)
-	sprite.set_texture(fish_texture)
+	fish_type.initialise(self, fish_skeleton, die)
 	var root_node = get_tree().root.get_node('LevelRoot')
 	waters_area = root_node.get_node(^'World/Water_Area')
 
@@ -33,10 +29,7 @@ func launch(direction : Vector2) -> void:
 func update(delta):
 	move(delta)
 	if (live):
-		sprite.update(get_velocity().angle())
-		fish_trail.update(delta)
-	#if (Input.is_key_pressed(KEY_ESCAPE)):
-	#	pick_up()
+		fish_skeleton.update(get_velocity().angle(), delta)
 
 func in_water():
 	var in_water = waters_area.overlaps_body(self)
@@ -44,7 +37,7 @@ func in_water():
 
 func die() -> void:
 	live = false
-	fish_trail.die()
+	fish_skeleton.die()
 	movement_function = dead_move
 
 func pick_up():
@@ -57,9 +50,10 @@ func destroy():
 var movement_function : Callable
 var collision_function : Callable
 
-func move_install(mf : Callable, cf : Callable):
+func move_install(mf : Callable, cf : Callable, sp : int):
 	movement_function = mf
 	collision_function = cf
+	speed = sp
 
 func move(delta) -> void:
 	var v = movement_function.call(velocity, delta)
