@@ -18,7 +18,7 @@ func _ready():
 func push_fish(fish_resource: PackedScene):
 	var instance = fish_resource.instantiate()
 	var fish_type = instance.name.to_lower()
-	var texture = instance.fish_texture
+	var texture = instance.fish_type.fish_texture
 	instance.queue_free()
 	
 	# potentially retrieve texture by fish_type by file_name
