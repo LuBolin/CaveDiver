@@ -1,9 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://drxm4lprot2ml"]
+[gd_scene load_steps=7 format=3 uid="uid://drxm4lprot2ml"]
 
 [ext_resource type="Script" path="res://objects/fish/fish-scripts/Fish.gd" id="1_t2ylc"]
 [ext_resource type="Script" path="res://objects/fish/FishTypes/FishTypeJet.gd" id="2_ngnf3"]
 [ext_resource type="Texture2D" uid="uid://b6elufhidf1t6" path="res://objects/fish/sprites/fast_fish.png" id="2_pciha"]
 [ext_resource type="PackedScene" uid="uid://cr1vireck1kai" path="res://objects/fish/fish_skeleton.tscn" id="4_653bi"]
+
+[sub_resource type="Gradient" id="Gradient_t3820"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 0, 0, 1)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_rhsrg"]
 radius = 4.0
@@ -21,6 +24,7 @@ fish_skeleton = NodePath("FishSkeleton")
 [node name="FishType" type="Node" parent="."]
 script = ExtResource("2_ngnf3")
 fish_texture = ExtResource("2_pciha")
+fish_trail_gradient = SubResource("Gradient_t3820")
 
 [node name="Collision" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_rhsrg")
