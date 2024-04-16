@@ -20,12 +20,10 @@ func process_physics(delta: float):
 	parent.velocity.y += gravity * delta
 	var movement = Input.get_axis("move_left", "move_right") \
 		* land_move_speed
-	if movement != 0:
-		parent.animations.flip_h = movement < 0
 	parent.velocity.x = movement
 	parent.move_and_slide()
 
-	if parent.submerged(): # not parent.in_water()
+	if parent.in_water:
 		return water_idle_state
 	
 	if parent.velocity.y > 0:

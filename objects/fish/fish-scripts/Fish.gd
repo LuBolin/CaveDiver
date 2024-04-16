@@ -8,15 +8,13 @@ extends CharacterBody2D
 @export var fish_type : FishType
 @export var fish_skeleton : FishSkeleton
 
-var waters_area
-
 var live : bool
 var speed : int
+var in_water: bool = true
 
 func _ready():
 	fish_type.initialise(self, fish_skeleton, die)
 	var root_node = get_tree().root.get_node('LevelRoot')
-	waters_area = root_node.get_node(^'World/Water_Area')
 
 func _process(delta):
 	update(delta)
@@ -31,9 +29,6 @@ func update(delta):
 	if (live):
 		fish_skeleton.update(get_velocity().angle(), delta)
 
-func in_water():
-	var in_water = waters_area.overlaps_body(self)
-	return in_water
 
 func die() -> void:
 	live = false
@@ -71,7 +66,7 @@ func dead_move(velocity : Vector2, delta) -> Vector2:
 
 var gravity : Vector2 = Vector2(0, 0)
 func gravity_adjust(v : Vector2, delta) -> Vector2:
-	if (not in_water()):
+	if (not in_water):
 		gravity += Vector2(0, 10) * delta
 		v = velocity + gravity
 		velocity = v.normalized() * speed

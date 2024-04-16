@@ -2,8 +2,8 @@ class_name FishTypeSinusoidal
 extends FishType
 
 func _init():
+	size = 1
 	speed = 50
-	size = 0.3
 	stamina = 1000
 
 ## Define how the fish moves

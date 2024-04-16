@@ -3,7 +3,7 @@ extends FishType
 
 func _init():
 	speed = 700
-	size = 0.3
+	size = 1
 
 ## Define how the fish moves
 var multiplier : float = 10

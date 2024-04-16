@@ -2,8 +2,8 @@ class_name FishTypeBasic
 extends FishType
 
 func _init():
+	size = 1
 	speed = 30
-	size = 0.3
 	stamina = 100
 
 ## Define how the fish moves

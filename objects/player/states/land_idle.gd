@@ -18,7 +18,7 @@ func process_physics(delta):
 	parent.velocity.y += gravity * delta
 	parent.move_and_slide()
 	
-	if parent.submerged():
+	if parent.in_water:
 		return water_idle_state
 	if not parent.is_on_floor():
 		return land_fall_state

@@ -13,15 +13,11 @@ var ammo_pouch: AmmoPouch = $CanvasLayer/AmmoPouch
 @onready
 var oxygen_level: OxygenLevel = $CanvasLayer/OxygenLevel
 
-var fish_scene: PackedScene = preload("res://objects/fish/jetfish.tscn")
-
-var water_area: Area2D
-
 var alive: bool = true
+var in_water: bool = true
 
 func _ready():
 	var root_node = get_tree().root.get_node("LevelRoot")
-	water_area = root_node.get_node(^'World/Water_Area')
 	alive = true
 	state_machine.init(self)
 
@@ -39,14 +35,6 @@ func _process(delta):
 	if not alive:
 		return
 	state_machine.process_frame(delta)
-
-func submerged():
-	var submerged = water_area.overlaps_area($Head)
-	return submerged
-
-func in_water():
-	var in_water = water_area.overlaps_body(self)
-	return in_water
 
 func launch_fish(direction):
 	var fish_resource = ammo_pouch.pop_fish()
