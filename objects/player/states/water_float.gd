@@ -13,19 +13,17 @@ func enter():
 	super()
 
 func process_physics(delta: float):
-	if parent.submerged():
+	if parent.in_water:
 		parent.velocity.y = -water_float_speed
 	else:
 		parent.velocity.y = 0
 	
 	var movement = Input.get_axis("move_left", "move_right") \
 		* water_move_speed
-	if movement != 0:
-		parent.animations.flip_h = movement < 0
 	parent.velocity.x = movement
 	parent.move_and_slide()
 	
-	if parent.submerged() and movement != 0:
+	if parent.in_water and movement != 0:
 		return water_move_state
 	
 	if not Input.is_action_pressed("move_up"):
@@ -35,7 +33,7 @@ func process_physics(delta: float):
 			return water_move_state
 
 	if Input.is_action_just_pressed("jump"):
-		if not parent.submerged():
+		if not parent.in_water:
 			return land_jump_state
 	
 	return null

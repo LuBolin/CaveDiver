@@ -39,6 +39,7 @@ func stamina_drain(v : Vector2, delta) -> Vector2:
 	stamina -= delta * speed
 	if (stamina < 0):
 		speed = max(speed - delta, 0)
+		die.call()
 		return v.normalized() * speed
 	else:
 		return v

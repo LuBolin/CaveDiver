@@ -15,8 +15,6 @@ func process_physics(delta: float):
 	
 	var movement = Input.get_axis("move_left", "move_right") \
 		* water_move_speed
-	if movement != 0:
-		parent.animations.flip_h = movement < 0
 	parent.velocity.x = movement
 	parent.move_and_slide()
 	

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://levels/LevelManager.gd" id="1_rwxwj"]
 [ext_resource type="Texture2D" uid="uid://bons3ao2bd2vw" path="res://resources/sprites/background_from_online.jpg" id="2_sqc2a"]
-[ext_resource type="Script" path="res://objects/terrain/Waters_Area.gd" id="4_mxd0x"]
+[ext_resource type="PackedScene" uid="uid://yxs84srwww6w" path="res://objects/terrain/Air_Pocket.tscn" id="3_yg37f"]
 [ext_resource type="Material" uid="uid://d0yt0pah0id4y" path="res://objects/terrain/water_shader.tres" id="5_igmmf"]
 [ext_resource type="Texture2D" uid="uid://cqrwicjmdivmc" path="res://resources/sprites/overlay.png" id="6_5qg5g"]
 [ext_resource type="TileSet" uid="uid://bvjrde51nofk3" path="res://objects/terrain/terrain_tileset.tres" id="6_cglc4"]
@@ -11,8 +11,8 @@
 [ext_resource type="PackedScene" uid="uid://c1dr63pe1527k" path="res://objects/shark/Shark.tscn" id="8_cvq4k"]
 [ext_resource type="FontFile" uid="uid://oc44ktq8rgys" path="res://resources/fonts/Xolonium-Regular.ttf" id="8_wfou2"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_dv6bi"]
-size = Vector2(576, 263)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pgyne"]
+size = Vector2(114.5, 54.75)
 
 [node name="LevelRoot" type="Node2D"]
 script = ExtResource("1_rwxwj")
@@ -37,17 +37,19 @@ shadow_enabled = true
 
 [node name="World" type="Node2D" parent="."]
 
-[node name="Water_Area" type="Area2D" parent="World"]
-collision_mask = 2
-script = ExtResource("4_mxd0x")
+[node name="AirPockets" parent="World" instance=ExtResource("3_yg37f")]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="World/Water_Area"]
-position = Vector2(0, 30.5)
-shape = SubResource("RectangleShape2D_dv6bi")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/AirPockets"]
+position = Vector2(-255.5, -131.25)
+shape = SubResource("RectangleShape2D_pgyne")
+debug_color = Color(1, 1, 1, 0.419608)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="World/AirPockets"]
+position = Vector2(224.25, -128.375)
+shape = SubResource("RectangleShape2D_pgyne")
+debug_color = Color(1, 1, 1, 0.419608)
 
 [node name="Water_Shader" type="TextureRect" parent="World"]
-visible = false
-z_index = 500
 z_as_relative = false
 material = ExtResource("5_igmmf")
 offset_left = -290.0
@@ -68,7 +70,7 @@ layer_0/tile_data = PackedInt32Array(-655397, 0, 1, -655396, 131072, 1, -720862,
 [node name="Escapes" type="Node2D" parent="World"]
 
 [node name="Escape" parent="World/Escapes" instance=ExtResource("7_c5rmx")]
-position = Vector2(262, -134)
+position = Vector2(265, -127)
 
 [node name="Entities" type="Node2D" parent="."]
 

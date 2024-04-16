@@ -26,8 +26,9 @@ radius = 8.0
 radius = 5.0
 height = 13.0
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_hj2cs"]
-radius = 4.5
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_m66hs"]
+radius = 2.0
+height = 8.0
 
 [node name="Player" type="CharacterBody2D"]
 z_index = 100
@@ -55,10 +56,15 @@ autoplay = "land_idle"
 energy = 1.5
 texture = ExtResource("5_7idbf")
 
-[node name="Collision" type="CollisionShape2D" parent="."]
+[node name="BodyCollider" type="CollisionShape2D" parent="."]
 position = Vector2(0.5, 1.5)
 shape = SubResource("CapsuleShape2D_f5jfp")
 debug_color = Color(0.992157, 0, 0, 0.419608)
+
+[node name="Face" type="CollisionShape2D" parent="."]
+position = Vector2(0, -1)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_m66hs")
 
 [node name="StateMachine" type="Node2D" parent="." node_paths=PackedStringArray("starting_state")]
 script = ExtResource("4_jvups")
@@ -127,13 +133,6 @@ theme_override_font_sizes/font_size = 12
 text = "test"
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="Head" type="Area2D" parent="."]
-collision_layer = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Head"]
-position = Vector2(0, -3.5)
-shape = SubResource("CircleShape2D_hj2cs")
 
 [node name="AimIndicator" type="Node2D" parent="."]
 script = ExtResource("15_ape5n")

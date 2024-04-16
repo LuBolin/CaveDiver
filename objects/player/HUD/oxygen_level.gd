@@ -26,7 +26,7 @@ func _ready():
 func _physics_process(delta):
 	if not player.alive:
 		return
-	if player.submerged():
+	if player.in_water:
 		lungs_left -= delta
 		if lungs_left < 0:
 			tank_left += lungs_left
