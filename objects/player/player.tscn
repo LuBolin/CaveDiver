@@ -19,7 +19,7 @@
 [ext_resource type="Script" path="res://objects/player/AimIndicator.gd" id="15_ape5n"]
 [ext_resource type="Texture2D" uid="uid://dwrel4o0rfjxx" path="res://resources/sprites/arrow.png" id="15_gffn3"]
 [ext_resource type="Script" path="res://objects/player/RetrieveFish.gd" id="18_k0akq"]
-[ext_resource type="Texture2D" uid="uid://bg652gtotcs7y" path="res://resources/hotbar.png" id="20_yqlh7"]
+[ext_resource type="Texture2D" uid="uid://bg652gtotcs7y" path="res://resources/sprites/hotbar.png" id="18_ncsvg"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4ksd0"]
 radius = 8.0
@@ -51,7 +51,7 @@ debug_color = Color(0, 0.419608, 0, 0.419608)
 
 [node name="AnimatedSprite" type="AnimatedSprite2D" parent="Renderer"]
 sprite_frames = ExtResource("2_gp143")
-animation = &"death"
+animation = &"land_idle"
 autoplay = "land_idle"
 
 [node name="PointLight2D" type="PointLight2D" parent="Renderer"]
@@ -161,9 +161,13 @@ offset_top = -258.0
 offset_right = 211.5
 grow_horizontal = 2
 grow_vertical = 0
-texture = ExtResource("20_yqlh7")
+texture = ExtResource("18_ncsvg")
 
 [node name="AmmoPouch" parent="CanvasLayer" instance=ExtResource("13_u68c8")]
+anchors_preset = 7
+anchor_top = 1.0
+anchor_bottom = 1.0
+grow_vertical = 0
 
 [node name="OxygenLevel" parent="CanvasLayer" instance=ExtResource("3_06578")]
 anchors_preset = 7

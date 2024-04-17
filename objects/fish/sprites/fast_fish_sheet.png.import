@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bons3ao2bd2vw"
-path="res://.godot/imported/background_from_online.jpg-e6d4e79893629cf8367a25c56c05f05c.ctex"
+uid="uid://ghydh2d3w2fa"
+path="res://.godot/imported/fast_fish_sheet.png-5b96db3620c12cc3025fb9dc8b5d38fb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://resources/sprites/background_from_online.jpg"
-dest_files=["res://.godot/imported/background_from_online.jpg-e6d4e79893629cf8367a25c56c05f05c.ctex"]
+source_file="res://objects/fish/sprites/fast_fish_sheet.png"
+dest_files=["res://.godot/imported/fast_fish_sheet.png-5b96db3620c12cc3025fb9dc8b5d38fb.ctex"]
 
 [params]
 

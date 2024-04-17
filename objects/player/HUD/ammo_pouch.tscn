@@ -1,68 +1,27 @@
 [gd_scene load_steps=10 format=3 uid="uid://bpp4cb8b201on"]
 
 [ext_resource type="Script" path="res://objects/player/HUD/ammo_pouch.gd" id="1_84fyg"]
-[ext_resource type="Script" path="res://addons/SmoothScroll/SmoothScrollContainer.gd" id="3_cnyll"]
-[ext_resource type="Script" path="res://addons/SmoothScroll/scroll_damper/expo_scroll_damper.gd" id="4_88xlv"]
-[ext_resource type="Texture2D" uid="uid://cv2yy61xyn4yf" path="res://objects/player/assets/frame.png" id="4_q2nxn"]
-[ext_resource type="Texture2D" uid="uid://bg652gtotcs7y" path="res://resources/hotbar.png" id="5_1uq3y"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wa7c7"]
-
-[sub_resource type="Theme" id="Theme_c2mtq"]
-VScrollBar/styles/scroll = SubResource("StyleBoxEmpty_wa7c7")
-
-[sub_resource type="Resource" id="Resource_4lt18"]
-script = ExtResource("4_88xlv")
-friction = 4.0
-minimum_velocity = 0.4
-rebound_strength = 7.0
-
-[sub_resource type="Resource" id="Resource_6g57r"]
-script = ExtResource("4_88xlv")
-friction = 4.0
-minimum_velocity = 0.4
-rebound_strength = 7.0
+[ext_resource type="Texture2D" uid="uid://bg652gtotcs7y" path="res://resources/sprites/hotbar.png" id="2_rp0r2"]
+[ext_resource type="PackedScene" uid="uid://b5hlpndhldwaf" path="res://objects/player/HUD/fish_ammo.tscn" id="3_rk2em"]
+[ext_resource type="PackedScene" uid="uid://bdbqbregiv5ws" path="res://objects/fish/basicfish.tscn" id="4_k22wc"]
+[ext_resource type="Texture2D" uid="uid://b6elufhidf1t6" path="res://objects/fish/sprites/fast_fish.png" id="5_7jfyd"]
+[ext_resource type="PackedScene" uid="uid://drxm4lprot2ml" path="res://objects/fish/jetfish.tscn" id="5_cd38d"]
+[ext_resource type="Texture2D" uid="uid://civvnyxocpfks" path="res://objects/fish/sprites/sine_fish.png" id="6_vbyo0"]
+[ext_resource type="Texture2D" uid="uid://nlgslrramhyt" path="res://objects/fish/sprites/glow_fish.png" id="7_sgkm4"]
+[ext_resource type="PackedScene" uid="uid://bklcldpxvdiad" path="res://objects/fish/sinusoidalfish.tscn" id="8_83x2j"]
 
 [node name="AmmoPouch" type="Control"]
 layout_mode = 3
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_top = -336.0
-offset_right = 64.0
-grow_vertical = 0
-size_flags_horizontal = 0
-size_flags_vertical = 0
-script = ExtResource("1_84fyg")
-
-[node name="SmoothScrollContainer" type="ScrollContainer" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
-theme = SubResource("Theme_c2mtq")
-script = ExtResource("3_cnyll")
-wheel_scroll_damper = SubResource("Resource_4lt18")
-dragging_scroll_damper = SubResource("Resource_6g57r")
-allow_horizontal_scroll = false
-auto_allow_scroll = false
-
-[node name="VBoxContainer" type="VBoxContainer" parent="SmoothScrollContainer"]
-layout_mode = 2
-
-[node name="NinePatchRect" type="NinePatchRect" parent="."]
-modulate = Color(0.705882, 0, 1, 1)
-layout_mode = 0
-offset_right = 64.0
-offset_bottom = 336.0
-texture = ExtResource("4_q2nxn")
-region_rect = Rect2(0, 0, 64, 64)
-patch_margin_left = 32
-patch_margin_top = 32
-patch_margin_right = 32
-patch_margin_bottom = 32
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_84fyg")
 
 [node name="Hotbar" type="TextureRect" parent="."]
 visible = false
@@ -77,4 +36,39 @@ offset_top = -258.0
 offset_right = 211.5
 grow_horizontal = 2
 grow_vertical = 0
-texture = ExtResource("5_1uq3y")
+texture = ExtResource("2_rp0r2")
+
+[node name="BasicFish" parent="." instance=ExtResource("3_rk2em")]
+layout_mode = 1
+offset_left = -157.0
+offset_top = -89.0
+offset_right = -117.0
+offset_bottom = -49.0
+fish_scene = ExtResource("4_k22wc")
+
+[node name="SineFish" parent="." instance=ExtResource("3_rk2em")]
+layout_mode = 1
+offset_left = -78.0
+offset_top = -89.0
+offset_right = -38.0
+offset_bottom = -49.0
+texture = ExtResource("6_vbyo0")
+fish_scene = ExtResource("8_83x2j")
+
+[node name="JetFish" parent="." instance=ExtResource("3_rk2em")]
+layout_mode = 1
+offset_left = 1.0
+offset_top = -88.0
+offset_right = 41.0
+offset_bottom = -48.0
+texture = ExtResource("5_7jfyd")
+fish_scene = ExtResource("5_cd38d")
+
+[node name="GlowFish" parent="." instance=ExtResource("3_rk2em")]
+layout_mode = 1
+offset_left = 81.0
+offset_top = -88.0
+offset_right = 121.0
+offset_bottom = -48.0
+texture = ExtResource("7_sgkm4")
+fish_scene = ExtResource("4_k22wc")

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bg652gtotcs7y"
-path="res://.godot/imported/hotbar.png-e405df2954b6522f31beaf0bf438d15e.ctex"
+uid="uid://tfyvdm1nofe2"
+path="res://.godot/imported/default_yellow_fish_sheet.png-d4f55f1680e5905c4cc1921aca748eee.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://resources/hotbar.png"
-dest_files=["res://.godot/imported/hotbar.png-e405df2954b6522f31beaf0bf438d15e.ctex"]
+source_file="res://objects/fish/sprites/default_yellow_fish_sheet.png"
+dest_files=["res://.godot/imported/default_yellow_fish_sheet.png-d4f55f1680e5905c4cc1921aca748eee.ctex"]
 
 [params]
 

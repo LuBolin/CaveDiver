@@ -5,12 +5,20 @@ extends Node
 ## Top portion is for common variables and functions. Add bottom functions and initialise variables
 ## See FishTypeBasic for example
 
+enum FishTypeEnum {
+	Basic,
+	Sine,
+	Jet,
+	Glow
+}
+
 ## FishType agnostic variables and functions
 var fish : Fish
 var fish_skeleton : FishSkeleton
 var die : Callable
-@export var fish_texture: Texture2D
+@export var fish_sprite_frames: SpriteFrames
 @export var fish_trail_gradient : Gradient
+@export var fish_ammo_type: FishTypeEnum
 
 func initialise(f : Fish, skeleton : FishSkeleton, d : Callable) -> void:
 	fish = f
@@ -18,7 +26,7 @@ func initialise(f : Fish, skeleton : FishSkeleton, d : Callable) -> void:
 	die = d
 	fish.scale = Vector2(size, size)
 	fish.move_install(move_function, collision_function, speed)
-	fish_skeleton.install(fish, fish_texture, fish_trail_gradient)
+	fish_skeleton.install(fish, fish_sprite_frames, fish_trail_gradient)
 
 ## FishType variant variables and functions
 ## Use _init to initialise these variables
