@@ -21,6 +21,8 @@ func _ready():
 	set_limit(SIDE_TOP, bounds.position.y)
 	set_limit(SIDE_RIGHT, bounds.position.x + bounds.size.x)
 	set_limit(SIDE_BOTTOM, bounds.position.y + bounds.size.y)
+	
+	toggle_zoom()
 
 func move():
 	global_position = player.global_position
@@ -29,12 +31,6 @@ func _process(delta):
 	move()
 
 func _input(event):
-	#if event is InputEventKey and event.is_pressed():
-		#match event.keycode:
-			#KEY_Q:
-				#adjust_zoom(-1)
-			#KEY_E:
-				#adjust_zoom(1)
 	if event is InputEventMouseButton and event.is_pressed():
 		if event.button_index == MOUSE_BUTTON_RIGHT:
 			toggle_zoom()

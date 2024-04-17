@@ -55,7 +55,7 @@ animation = &"land_idle"
 autoplay = "land_idle"
 
 [node name="PointLight2D" type="PointLight2D" parent="Renderer"]
-energy = 1.5
+energy = 0.3
 texture = ExtResource("5_7idbf")
 
 [node name="BodyCollider" type="CollisionShape2D" parent="."]
@@ -174,5 +174,6 @@ anchors_preset = 7
 anchor_top = 1.0
 anchor_bottom = 1.0
 grow_vertical = 0
+tank_capacity = 30
 
 [connection signal="body_entered" from="RetrieveFishArea" to="RetrieveFishArea" method="_on_body_entered"]

@@ -32,18 +32,35 @@ func scroll(direction: int):
 	current_index = new_index
 	my_fishes[current_index].set_selected(true)
 
+func scroll_to(target: int):
+	my_fishes[current_index].set_selected(false)
+	current_index = target
+	my_fishes[current_index].set_selected(true)
+
 func _input(event):
 	if event is InputEventMouseButton and event.is_pressed():
 		match event.button_index:
 			MOUSE_BUTTON_WHEEL_UP:
-				scroll(1)
-			MOUSE_BUTTON_WHEEL_DOWN:
 				scroll(-1)
+			MOUSE_BUTTON_WHEEL_DOWN:
+				scroll(1)
 	if event is InputEventKey and event.is_pressed():
 		match event.keycode:
 			KEY_1:
-				push_fish(FishType.FishTypeEnum.Basic)
+				scroll_to(FishType.FishTypeEnum.Basic)
 			KEY_2:
-				push_fish(FishType.FishTypeEnum.Sine)
+				scroll_to(FishType.FishTypeEnum.Sine)
 			KEY_3:
-				push_fish(FishType.FishTypeEnum.Jet)
+				scroll_to(FishType.FishTypeEnum.Jet)
+			KEY_4:
+				scroll_to(FishType.FishTypeEnum.Glow)
+		if Input.is_key_pressed(KEY_SHIFT):
+			match event.keycode:
+				KEY_1:
+					push_fish(FishType.FishTypeEnum.Basic)
+				KEY_2:
+					push_fish(FishType.FishTypeEnum.Sine)
+				KEY_3:
+					push_fish(FishType.FishTypeEnum.Jet)
+				KEY_3:
+					push_fish(FishType.FishTypeEnum.Glow)

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://6gg137rgmlb1"
-path="res://.godot/imported/oxygen_tank.png-21ec7808a93fd3909195cdf9b17545f4.ctex"
+uid="uid://dk7ymoxvopgb"
+path="res://.godot/imported/urchin.png-00cd3a60626a3ca00f8f7222f015a929.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://objects/player/assets/oxygen_tank.png"
-dest_files=["res://.godot/imported/oxygen_tank.png-21ec7808a93fd3909195cdf9b17545f4.ctex"]
+source_file="res://objects/urchin/urchin.png"
+dest_files=["res://.godot/imported/urchin.png-00cd3a60626a3ca00f8f7222f015a929.ctex"]
 
 [params]
 

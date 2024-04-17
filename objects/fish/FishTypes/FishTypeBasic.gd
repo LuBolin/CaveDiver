@@ -4,7 +4,7 @@ extends FishType
 func _init():
 	size = 1
 	speed = 30
-	stamina = 100
+	stamina = 500
 
 ## Define how the fish moves
 func move_function(velocity : Vector2, delta) -> Vector2:

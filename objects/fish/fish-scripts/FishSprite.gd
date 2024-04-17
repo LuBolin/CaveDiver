@@ -17,4 +17,4 @@ func update(angle) -> void:
 func die():
 	died = true
 	rotation = -3*PI/4
-	self.set_modulate(Color.BLACK)
+	self.set_modulate(Color(Color.BLACK, 0.8))

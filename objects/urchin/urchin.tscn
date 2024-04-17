@@ -1,0 +1,122 @@
+[gd_scene load_steps=18 format=3 uid="uid://bljfc6wt5t51d"]
+
+[ext_resource type="Texture2D" uid="uid://dk7ymoxvopgb" path="res://objects/urchin/urchin.png" id="1_6ek8d"]
+[ext_resource type="Script" path="res://objects/urchin/Urchin.gd" id="1_n5e5d"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_kvb4k"]
+radius = 8.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v48sh"]
+atlas = ExtResource("1_6ek8d")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2jumw"]
+atlas = ExtResource("1_6ek8d")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k0sj0"]
+atlas = ExtResource("1_6ek8d")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_umkys"]
+atlas = ExtResource("1_6ek8d")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o482r"]
+atlas = ExtResource("1_6ek8d")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hg1d7"]
+atlas = ExtResource("1_6ek8d")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_grqk6"]
+atlas = ExtResource("1_6ek8d")
+region = Rect2(96, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jjju6"]
+atlas = ExtResource("1_6ek8d")
+region = Rect2(112, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5af54"]
+atlas = ExtResource("1_6ek8d")
+region = Rect2(128, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6v4yn"]
+atlas = ExtResource("1_6ek8d")
+region = Rect2(144, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6lgiv"]
+atlas = ExtResource("1_6ek8d")
+region = Rect2(160, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bs10c"]
+atlas = ExtResource("1_6ek8d")
+region = Rect2(176, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nfkpl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v48sh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2jumw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k0sj0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_umkys")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o482r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hg1d7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_grqk6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jjju6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5af54")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6v4yn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6lgiv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bs10c")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_e4cnp"]
+radius = 2.0
+height = 8.0
+
+[node name="Urchin" type="StaticBody2D"]
+
+[node name="KillZone" type="Area2D" parent="."]
+collision_mask = 2
+script = ExtResource("1_n5e5d")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KillZone"]
+shape = SubResource("CircleShape2D_kvb4k")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_nfkpl")
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 4)
+shape = SubResource("CapsuleShape2D_e4cnp")
+
+[connection signal="body_entered" from="KillZone" to="KillZone" method="_on_body_entered"]

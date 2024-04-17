@@ -20,10 +20,10 @@ texture = ExtResource("1_ejpx7")
 shape = SubResource("RectangleShape2D_e7ux1")
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
-color = Color(0, 0.788235, 0.294118, 1)
+color = Color(0.509804, 1, 0.584314, 1)
 energy = 0.5
 texture = ExtResource("3_wfw14")
-texture_scale = 1.2
+texture_scale = 0.6
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

@@ -50,5 +50,7 @@ func evaluate_hot_cold(dist):
 		s = 1*(0.99**(dist-200))
 	e = max(e, 0)
 	s = max(s, 0)
+	e = e/6.0
+	s = s/6.0
 	set_energy(e)
 	set_texture_scale(s)

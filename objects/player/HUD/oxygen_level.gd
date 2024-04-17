@@ -38,13 +38,21 @@ func _physics_process(delta):
 func _process(delta):
 	if not player.alive:
 		return
-	if lungs_left < 0:
-		lungs_label.set_text("No more breath!")
+	if lungs_left <= 0:
+		lungs_label.set_text("0")
+		lungs_label.add_theme_color_override(\
+			"font_color", Color.RED)
 	else:
 		lungs_label.set_text(str(snapped(lungs_left, 0.1)))
+		lungs_label.add_theme_color_override(\
+			"font_color", Color.WHITE)
 	
-	if tank_left < 0:
-		tank_label.set_text("Empty!")
+	if tank_left <= 0:
+		tank_label.set_text("0")
+		tank_label.add_theme_color_override(\
+			"font_color", Color.RED)
 	else:
 		tank_label.set_text(str(snapped(tank_left, 0.1)))
+		tank_label.add_theme_color_override(\
+			"font_color", Color.WHITE)
 
