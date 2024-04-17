@@ -56,6 +56,7 @@ autoplay = "land_idle"
 
 [node name="PointLight2D" type="PointLight2D" parent="Renderer"]
 energy = 0.3
+range_layer_min = -2
 texture = ExtResource("5_7idbf")
 
 [node name="BodyCollider" type="CollisionShape2D" parent="."]

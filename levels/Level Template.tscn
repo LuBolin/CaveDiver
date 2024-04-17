@@ -20,23 +20,29 @@ script = ExtResource("1_rwxwj")
 
 [node name="Misc" type="Node2D" parent="."]
 
-[node name="Background" type="Sprite2D" parent="Misc"]
-z_as_relative = false
-position = Vector2(-8, 17)
-scale = Vector2(1.30879, 1.22309)
-texture = ExtResource("2_gmhbh")
-
 [node name="Camera2D" type="Camera2D" parent="Misc"]
 zoom = Vector2(2, 2)
 script = ExtResource("3_mr5m7")
 
 [node name="Darkness" type="DirectionalLight2D" parent="Misc"]
-visible = false
 z_index = 1000
 z_as_relative = false
 color = Color(0, 0, 0, 1)
 blend_mode = 2
+range_layer_min = -2
 shadow_enabled = true
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="Misc"]
+layer = -1
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="Misc/ParallaxBackground"]
+motion_scale = Vector2(0.3, 0.3)
+
+[node name="Background" type="Sprite2D" parent="Misc/ParallaxBackground/ParallaxLayer"]
+z_as_relative = false
+position = Vector2(26, -1.99998)
+scale = Vector2(1.8457, 2.09896)
+texture = ExtResource("2_gmhbh")
 
 [node name="World" type="Node2D" parent="."]
 
