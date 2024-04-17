@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c5y85uh26v1nv"
-path="res://.godot/imported/shark-sheet.png-9264097ca93f5c53b3992c8ee829b5a6.ctex"
+uid="uid://bg652gtotcs7y"
+path="res://.godot/imported/hotbar.png-e405df2954b6522f31beaf0bf438d15e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://objects/shark/shark-sheet.png"
-dest_files=["res://.godot/imported/shark-sheet.png-9264097ca93f5c53b3992c8ee829b5a6.ctex"]
+source_file="res://resources/hotbar.png"
+dest_files=["res://.godot/imported/hotbar.png-e405df2954b6522f31beaf0bf438d15e.ctex"]
 
 [params]
 

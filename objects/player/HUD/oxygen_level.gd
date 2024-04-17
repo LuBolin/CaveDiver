@@ -2,9 +2,9 @@ class_name OxygenLevel
 extends Control
 
 @onready
-var lungs_label: Label = $HBox/Lungs/LungsLabel
+var lungs_label: Label = $LungsLabel
 @onready
-var tank_label: Label = $HBox/Tank/TankLabel
+var tank_label: Label = $TankLabel
 
 @export var lung_capacity: int = 5
 @export var tank_capacity: int = 20

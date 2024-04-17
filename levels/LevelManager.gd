@@ -1,3 +1,4 @@
+class_name LevelManager
 extends Node2D
 
 @onready var main_menu: PackedScene = preload("res://levels/MainMenu/MainMenu.tscn")

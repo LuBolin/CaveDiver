@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bbrjyragd7ae2"
-path="res://.godot/imported/Idle-Sheet.png-783e367140941e7301e1fd26a9ee6181.ctex"
+uid="uid://dk2mth0lx7gbf"
+path="res://.godot/imported/shark.png-fbcdbd813e1f79951133ec878b145300.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://objects/player/assets/Orc - Rogue/Idle/Idle-Sheet.png"
-dest_files=["res://.godot/imported/Idle-Sheet.png-783e367140941e7301e1fd26a9ee6181.ctex"]
+source_file="res://objects/shark/shark.png"
+dest_files=["res://.godot/imported/shark.png-fbcdbd813e1f79951133ec878b145300.ctex"]
 
 [params]
 

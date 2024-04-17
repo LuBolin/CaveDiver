@@ -69,20 +69,25 @@ var basic_fish: PackedScene = preload("res://objects/fish/basicfish.tscn")
 var sine_fish: PackedScene = preload("res://objects/fish/sinusoidalfish.tscn")
 var jet_fish: PackedScene = preload("res://objects/fish/jetfish.tscn")
 func _input(event):
-	if event is InputEventMouseButton and event.is_pressed():
-		match event.button_index:
-			MOUSE_BUTTON_WHEEL_UP:
-				scroll(-1)
-			MOUSE_BUTTON_WHEEL_DOWN:
-				scroll(1)
-	elif event is InputEventKey and event.is_pressed():
+	#if event is InputEventMouseButton and event.is_pressed():
+		#match event.button_index:
+			#MOUSE_BUTTON_WHEEL_UP:
+				#scroll(-1)
+			#MOUSE_BUTTON_WHEEL_DOWN:
+				#scroll(1)
+	#elif event is InputEventKey and event.is_pressed():
+	if event is InputEventKey and event.is_pressed():
 		match event.keycode:
-			KEY_1:
-				push_fish(basic_fish)
-			KEY_2:
-				push_fish(sine_fish)
-			KEY_3:
-				push_fish(jet_fish)
+			KEY_Q:
+				scroll(-1)
+			KEY_E:
+				scroll(1)
+			#KEY_1:
+				#push_fish(basic_fish)
+			#KEY_2:
+				#push_fish(sine_fish)
+			#KEY_3:
+				#push_fish(jet_fish)
 
 func get_fish_count():
 	return vbox_list.get_children().size()

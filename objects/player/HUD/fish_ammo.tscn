@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bxw45oxdrsd2l"]
 
-[ext_resource type="Texture2D" uid="uid://cv2yy61xyn4yf" path="res://resources/sprites/frame.png" id="2_xwuxh"]
+[ext_resource type="Texture2D" uid="uid://cv2yy61xyn4yf" path="res://objects/player/assets/frame.png" id="2_xwuxh"]
 
 [node name="FishTexture" type="TextureRect"]
 custom_minimum_size = Vector2(64, 64)

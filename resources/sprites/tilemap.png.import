@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dv7ko70pkr0rx"
-path="res://.godot/imported/water_move.png-44b9835e11eeb2f0a987bc84e1858408.ctex"
+uid="uid://duv2omhws18o"
+path="res://.godot/imported/tilemap.png-ebe3d27c4bbbde5cb09596572e06865b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://objects/player/assets/Orc - Rogue/water_move.png"
-dest_files=["res://.godot/imported/water_move.png-44b9835e11eeb2f0a987bc84e1858408.ctex"]
+source_file="res://resources/sprites/tilemap.png"
+dest_files=["res://.godot/imported/tilemap.png-ebe3d27c4bbbde5cb09596572e06865b.ctex"]
 
 [params]
 

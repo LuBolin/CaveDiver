@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://woomdm41kudd"
-path="res://.godot/imported/water_float.png-f7cf426860068bb58b470e65e8463813.ctex"
+uid="uid://beadwq5fnn8d6"
+path="res://.godot/imported/hotbar.png-71d31c1f05aa903970d8ea7dbc972f0d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://objects/player/assets/Orc - Rogue/water_float.png"
-dest_files=["res://.godot/imported/water_float.png-f7cf426860068bb58b470e65e8463813.ctex"]
+source_file="res://objects/player/assets/hotbar.png"
+dest_files=["res://.godot/imported/hotbar.png-71d31c1f05aa903970d8ea7dbc972f0d.ctex"]
 
 [params]
 

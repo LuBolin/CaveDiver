@@ -1,6 +1,10 @@
-[gd_resource type="SpriteFrames" load_steps=10 format=3 uid="uid://6xhup71bfrop"]
+[gd_resource type="SpriteFrames" load_steps=11 format=3 uid="uid://6xhup71bfrop"]
 
 [ext_resource type="Texture2D" uid="uid://tiddcbb3bayt" path="res://resources/sprites/player.png" id="6_em3vf"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sp5dg"]
+atlas = ExtResource("6_em3vf")
+region = Rect2(0, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ur7hc"]
 atlas = ExtResource("6_em3vf")
@@ -36,6 +40,14 @@ region = Rect2(0, 0, 16, 16)
 
 [resource]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sp5dg")
+}],
+"loop": true,
+"name": &"death",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ur7hc")

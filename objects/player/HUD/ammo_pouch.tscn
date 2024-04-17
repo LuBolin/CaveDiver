@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://bpp4cb8b201on"]
+[gd_scene load_steps=10 format=3 uid="uid://bpp4cb8b201on"]
 
 [ext_resource type="Script" path="res://objects/player/HUD/ammo_pouch.gd" id="1_84fyg"]
-[ext_resource type="Texture2D" uid="uid://cv2yy61xyn4yf" path="res://resources/sprites/frame.png" id="2_fhmhd"]
 [ext_resource type="Script" path="res://addons/SmoothScroll/SmoothScrollContainer.gd" id="3_cnyll"]
 [ext_resource type="Script" path="res://addons/SmoothScroll/scroll_damper/expo_scroll_damper.gd" id="4_88xlv"]
+[ext_resource type="Texture2D" uid="uid://cv2yy61xyn4yf" path="res://objects/player/assets/frame.png" id="4_q2nxn"]
+[ext_resource type="Texture2D" uid="uid://bg652gtotcs7y" path="res://resources/hotbar.png" id="5_1uq3y"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wa7c7"]
 
@@ -56,9 +57,24 @@ modulate = Color(0.705882, 0, 1, 1)
 layout_mode = 0
 offset_right = 64.0
 offset_bottom = 336.0
-texture = ExtResource("2_fhmhd")
+texture = ExtResource("4_q2nxn")
 region_rect = Rect2(0, 0, 64, 64)
 patch_margin_left = 32
 patch_margin_top = 32
 patch_margin_right = 32
 patch_margin_bottom = 32
+
+[node name="Hotbar" type="TextureRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -211.5
+offset_top = -258.0
+offset_right = 211.5
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("5_1uq3y")
