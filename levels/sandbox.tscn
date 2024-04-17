@@ -4,9 +4,6 @@
 
 [node name="LevelRoot" instance=ExtResource("1_ek2yp")]
 
-[node name="Darkness" parent="Misc" index="2"]
-visible = true
-
 [node name="CollisionShape2D" parent="World/AirPockets" index="0"]
 position = Vector2(-252.75, -127.25)
 

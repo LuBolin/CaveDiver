@@ -41,7 +41,7 @@ func launch_fish(direction):
 	if fish_resource:
 		var fish = fish_resource.instantiate()
 		get_parent().add_child(fish)
-		fish.global_position = self.global_position
+		fish.global_position = self.global_position + direction.normalized() * 15
 		fish.launch(direction)
 
 func has_ammo():
