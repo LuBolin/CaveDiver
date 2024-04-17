@@ -23,6 +23,6 @@ void fragment() {
     wave *= 0.03; // Reducing amplitude for subtlety
 
     vec4 color = base_color + 3.0 * vec4(noise + wave, noise + wave, noise + wave, 0.0);
-
+	color.a = 0.65;
     COLOR = color;
 }

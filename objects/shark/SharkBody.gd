@@ -51,7 +51,6 @@ func _physics_process(delta):
 				done = true
 	self.set_linear_velocity(to_travel.normalized() * speed)
 
-
 func _on_kill_zone_body_entered(body):
 	if body == self:
 		return

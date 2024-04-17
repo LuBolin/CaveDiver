@@ -1,0 +1,32 @@
+[gd_resource type="SpriteFrames" load_steps=5 format=3 uid="uid://d37gnm2s37fky"]
+
+[ext_resource type="Texture2D" uid="uid://ghydh2d3w2fa" path="res://objects/fish/sprites/fast_fish_sheet.png" id="1_ptucp"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_erlrt"]
+atlas = ExtResource("1_ptucp")
+region = Rect2(0, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fqssj"]
+atlas = ExtResource("1_ptucp")
+region = Rect2(8, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cjwo6"]
+atlas = ExtResource("1_ptucp")
+region = Rect2(16, 0, 8, 8)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_erlrt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fqssj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cjwo6")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]

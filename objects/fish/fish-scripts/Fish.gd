@@ -5,8 +5,10 @@ extends CharacterBody2D
 ## Fish class
 ## Attach generic Fish Skeleton and Fish Type subclass
 
-@export var fish_type : FishType
-@export var fish_skeleton : FishSkeleton
+# @export var fish_type : FishType
+@onready var fish_type : FishType = $FishType
+# @export var fish_skeleton : FishSkeleton
+@onready var fish_skeleton : FishSkeleton = $FishSkeleton
 
 var live : bool
 var speed : int

@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://cw5v4ivweo6bl"]
+[gd_scene load_steps=24 format=3 uid="uid://cw5v4ivweo6bl"]
 
 [ext_resource type="Script" path="res://objects/player/Player.gd" id="1_kiu2d"]
 [ext_resource type="SpriteFrames" uid="uid://6xhup71bfrop" path="res://objects/player/player_spriteframes.tres" id="2_gp143"]
@@ -15,9 +15,11 @@
 [ext_resource type="Script" path="res://objects/player/states/water_sink.gd" id="12_5gqv5"]
 [ext_resource type="PackedScene" uid="uid://bpp4cb8b201on" path="res://objects/player/HUD/ammo_pouch.tscn" id="13_u68c8"]
 [ext_resource type="FontFile" uid="uid://oc44ktq8rgys" path="res://resources/fonts/Xolonium-Regular.ttf" id="13_vppum"]
+[ext_resource type="Script" path="res://objects/player/states/death.gd" id="14_2opko"]
 [ext_resource type="Script" path="res://objects/player/AimIndicator.gd" id="15_ape5n"]
 [ext_resource type="Texture2D" uid="uid://dwrel4o0rfjxx" path="res://resources/sprites/arrow.png" id="15_gffn3"]
 [ext_resource type="Script" path="res://objects/player/RetrieveFish.gd" id="18_k0akq"]
+[ext_resource type="Texture2D" uid="uid://bg652gtotcs7y" path="res://resources/sprites/hotbar.png" id="18_ncsvg"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4ksd0"]
 radius = 8.0
@@ -49,11 +51,11 @@ debug_color = Color(0, 0.419608, 0, 0.419608)
 
 [node name="AnimatedSprite" type="AnimatedSprite2D" parent="Renderer"]
 sprite_frames = ExtResource("2_gp143")
-animation = &"water_sink"
+animation = &"land_idle"
 autoplay = "land_idle"
 
 [node name="PointLight2D" type="PointLight2D" parent="Renderer"]
-energy = 1.5
+energy = 0.3
 texture = ExtResource("5_7idbf")
 
 [node name="BodyCollider" type="CollisionShape2D" parent="."]
@@ -123,6 +125,9 @@ water_idle_state = NodePath("../water_idle")
 water_move_state = NodePath("../water_move")
 water_float_state = NodePath("../water_float")
 
+[node name="death" type="Node2D" parent="StateMachine"]
+script = ExtResource("14_2opko")
+
 [node name="StateLabel" type="Label" parent="."]
 offset_left = -19.5
 offset_top = -32.5
@@ -145,8 +150,30 @@ texture = ExtResource("15_gffn3")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
+[node name="Hotbar" type="TextureRect" parent="CanvasLayer"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -211.5
+offset_top = -258.0
+offset_right = 211.5
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("18_ncsvg")
+
 [node name="AmmoPouch" parent="CanvasLayer" instance=ExtResource("13_u68c8")]
+anchors_preset = 7
+anchor_top = 1.0
+anchor_bottom = 1.0
+grow_vertical = 0
 
 [node name="OxygenLevel" parent="CanvasLayer" instance=ExtResource("3_06578")]
+anchors_preset = 7
+anchor_top = 1.0
+anchor_bottom = 1.0
+grow_vertical = 0
+tank_capacity = 30
 
 [connection signal="body_entered" from="RetrieveFishArea" to="RetrieveFishArea" method="_on_body_entered"]

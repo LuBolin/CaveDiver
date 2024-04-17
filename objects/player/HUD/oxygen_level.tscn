@@ -1,8 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://c10mfic5lq45q"]
+[gd_scene load_steps=3 format=3 uid="uid://c10mfic5lq45q"]
 
 [ext_resource type="Script" path="res://objects/player/HUD/oxygen_level.gd" id="1_e86li"]
-[ext_resource type="Texture2D" uid="uid://bqv8vxdwkuy6a" path="res://objects/player/assets/lungs.png" id="1_hu1wt"]
-[ext_resource type="Texture2D" uid="uid://6gg137rgmlb1" path="res://objects/player/assets/oxygen_tank.png" id="2_3tdn3"]
+[ext_resource type="Texture2D" uid="uid://bg652gtotcs7y" path="res://resources/sprites/hotbar.png" id="2_g1seo"]
 
 [node name="OxygenLevel" type="Control"]
 layout_mode = 3
@@ -14,40 +13,40 @@ size_flags_horizontal = 4
 size_flags_vertical = 0
 script = ExtResource("1_e86li")
 
-[node name="HBox" type="HBoxContainer" parent="."]
+[node name="Hotbar" type="TextureRect" parent="."]
+visible = false
 layout_mode = 1
-anchors_preset = 5
+anchors_preset = 7
 anchor_left = 0.5
+anchor_top = 1.0
 anchor_right = 0.5
-offset_left = -110.0
-offset_right = 110.0
-offset_bottom = 67.0
+anchor_bottom = 1.0
+offset_left = -211.5
+offset_top = -258.0
+offset_right = 211.5
 grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("2_g1seo")
 
-[node name="Lungs" type="HBoxContainer" parent="HBox"]
+[node name="LungsLabel" type="Label" parent="."]
 layout_mode = 2
-
-[node name="LungsTexture" type="TextureRect" parent="HBox/Lungs"]
-layout_mode = 2
-texture = ExtResource("1_hu1wt")
-
-[node name="LungsLabel" type="Label" parent="HBox/Lungs"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 32
+offset_left = -74.0
+offset_top = -164.0
+offset_right = -27.0
+offset_bottom = -110.0
+theme_override_font_sizes/font_size = 24
 text = "5"
+horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="VSeparator" type="VSeparator" parent="HBox/Lungs"]
+[node name="TankLabel" type="Label" parent="."]
 layout_mode = 2
-
-[node name="Tank" type="HBoxContainer" parent="HBox"]
-layout_mode = 2
-
-[node name="TankTexture" type="TextureRect" parent="HBox/Tank"]
-layout_mode = 2
-texture = ExtResource("2_3tdn3")
-
-[node name="TankLabel" type="Label" parent="HBox/Tank"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 48
-text = "20"
+offset_left = 21.0
+offset_top = -164.0
+offset_right = 68.0
+offset_bottom = -110.0
+theme_override_font_sizes/font_size = 24
+text = "20
+"
+horizontal_alignment = 1
+vertical_alignment = 1

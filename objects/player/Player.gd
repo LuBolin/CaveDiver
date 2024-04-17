@@ -45,13 +45,11 @@ func launch_fish(direction):
 		fish.launch(direction)
 
 func has_ammo():
-	return ammo_pouch.get_fish_count() > 0
+	return ammo_pouch.has_ammo()
 
-func pickup_fish(fish_resource: PackedScene):
-	ammo_pouch.push_fish(fish_resource)
+func pickup_fish(fish_type_enum: FishType.FishTypeEnum):
+	ammo_pouch.push_fish(fish_type_enum)
 
+@onready var death_state: State = $StateMachine/death
 func die():
-	alive = false
-	# some animation
-	await get_tree().create_timer(2).timeout
-	Singleton.restart.emit()
+	state_machine.change_state(death_state)

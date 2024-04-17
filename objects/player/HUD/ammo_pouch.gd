@@ -1,73 +1,42 @@
 class_name AmmoPouch
 extends Control
 
-@onready var scroll_container = $SmoothScrollContainer
-@onready var vbox_list = $SmoothScrollContainer/VBoxContainer
-
-var fish_ammo_dummy: PackedScene = preload('res://objects/player/HUD/fish_ammo.tscn')
+@export var initial_fishes: Array[int] = [0, 0, 0, 0]
 var current_index: int = 0
-
-@export var initial_fishes: Array[PackedScene] = []
-
-# hiding of scroll-bar is achieved in "Theme"
+var my_fishes = []
 
 func _ready():
-	for f in initial_fishes:
-		push_fish(f)
+	for f in get_children():
+		if f is FishAmmo:
+			my_fishes.append(f)
+	for i in initial_fishes.size():
+		my_fishes[i].push_fish()
+	scroll(0)
 
-func push_fish(fish_resource: PackedScene):
-	var instance = fish_resource.instantiate()
-	var fish_type = instance.name.to_lower()
-	var texture = instance.fish_type.fish_texture
-	instance.queue_free()
-	
-	# potentially retrieve texture by fish_type by file_name
-	var new_fish = fish_ammo_dummy.instantiate()
-	vbox_list.add_child(new_fish)
-	new_fish.set_texture(texture)
-	new_fish.set_meta("fish_type", fish_type)
-	new_fish.set_meta("fish_resource", fish_resource)
-	var fish_count = vbox_list.get_child_count()
-	if fish_count == 1:
-		current_index = 0
-		new_fish.get_node("SelectFrame").set_visible(true)
-	elif fish_count == current_index+2 : #+1 before pushing the new fish
-		scroll(1)
+func push_fish(fish_type_enum: FishType.FishTypeEnum):
+	my_fishes[fish_type_enum].push_fish()
 
 func pop_fish():
-	var fishes = vbox_list.get_children()
-	if fishes.size() == 0:
-		return null
-	var popping = fishes[current_index]
-	
-	var fish_type = popping.get_meta("fish_type")
-	var fish_resource = popping.get_meta("fish_resource")
-	
-	# reparent first, queue_free is delayed
-	# but we need children to be accurate
-	# for the sake of updating focus
-	popping.reparent(get_parent())
-	popping.queue_free()
-	if current_index > 0:
-		current_index -= 1
-	scroll(0)
+	var f = my_fishes[current_index]
+	var fish_resource = f.pop_fish()
+	if not fish_resource:
+		return
 	return fish_resource
 
-func scroll(direction: int):
-	var fishes = vbox_list.get_children()
-	var new_index = current_index + direction
-	if new_index < 0 or new_index >= fishes.size():
-		return
-	var old_fish = fishes[current_index]
-	old_fish.get_node("SelectFrame").set_visible(false)
-	current_index = new_index
-	var new_fish = fishes[current_index]
-	new_fish.get_node("SelectFrame").set_visible(true)
-	new_fish.grab_focus.call_deferred()
+func has_ammo():
+	return my_fishes[current_index].has_ammo()
 
-var basic_fish: PackedScene = preload("res://objects/fish/basicfish.tscn")
-var sine_fish: PackedScene = preload("res://objects/fish/sinusoidalfish.tscn")
-var jet_fish: PackedScene = preload("res://objects/fish/jetfish.tscn")
+func scroll(direction: int):
+	var new_index = (current_index + direction) % my_fishes.size()
+	my_fishes[current_index].set_selected(false)
+	current_index = new_index
+	my_fishes[current_index].set_selected(true)
+
+func scroll_to(target: int):
+	my_fishes[current_index].set_selected(false)
+	current_index = target
+	my_fishes[current_index].set_selected(true)
+
 func _input(event):
 	if event is InputEventMouseButton and event.is_pressed():
 		match event.button_index:
@@ -75,14 +44,23 @@ func _input(event):
 				scroll(-1)
 			MOUSE_BUTTON_WHEEL_DOWN:
 				scroll(1)
-	elif event is InputEventKey and event.is_pressed():
+	if event is InputEventKey and event.is_pressed():
 		match event.keycode:
 			KEY_1:
-				push_fish(basic_fish)
+				scroll_to(FishType.FishTypeEnum.Basic)
 			KEY_2:
-				push_fish(sine_fish)
+				scroll_to(FishType.FishTypeEnum.Sine)
 			KEY_3:
-				push_fish(jet_fish)
-
-func get_fish_count():
-	return vbox_list.get_children().size()
+				scroll_to(FishType.FishTypeEnum.Jet)
+			KEY_4:
+				scroll_to(FishType.FishTypeEnum.Glow)
+		if Input.is_key_pressed(KEY_SHIFT):
+			match event.keycode:
+				KEY_1:
+					push_fish(FishType.FishTypeEnum.Basic)
+				KEY_2:
+					push_fish(FishType.FishTypeEnum.Sine)
+				KEY_3:
+					push_fish(FishType.FishTypeEnum.Jet)
+				KEY_3:
+					push_fish(FishType.FishTypeEnum.Glow)

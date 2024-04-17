@@ -1,25 +1,21 @@
-[gd_scene load_steps=9 format=3 uid="uid://c1dr63pe1527k"]
+[gd_scene load_steps=8 format=3 uid="uid://c1dr63pe1527k"]
 
-[ext_resource type="Texture2D" uid="uid://c5y85uh26v1nv" path="res://objects/shark/shark-sheet.png" id="1_iirp7"]
 [ext_resource type="Script" path="res://objects/shark/Shark.gd" id="1_ugetu"]
 [ext_resource type="Script" path="res://objects/shark/SharkBody.gd" id="2_teqiw"]
+[ext_resource type="Texture2D" uid="uid://dk2mth0lx7gbf" path="res://objects/shark/shark.png" id="3_nvoq6"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_vxawq"]
-atlas = ExtResource("1_iirp7")
-region = Rect2(0, 0, 32, 32)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3qjf7"]
+height = 36.0
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_nnsvx"]
-atlas = ExtResource("1_iirp7")
-region = Rect2(32, 0, 32, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_kw6jx"]
+atlas = ExtResource("3_nvoq6")
+region = Rect2(0, 0, 48, 48)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_64son"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_vxawq")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_nnsvx")
+"texture": SubResource("AtlasTexture_kw6jx")
 }],
 "loop": true,
 "name": &"default",
@@ -28,10 +24,6 @@ animations = [{
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_psm21"]
 radius = 6.0
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3qjf7"]
-radius = 8.0
-height = 24.0
 
 [node name="Shark" type="Line2D"]
 points = PackedVector2Array(0, 0)
@@ -43,7 +35,15 @@ gravity_scale = 0.0
 contact_monitor = true
 script = ExtResource("2_teqiw")
 
+[node name="KillZone" type="Area2D" parent="Shark"]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Shark/KillZone"]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_3qjf7")
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Shark"]
+position = Vector2(0, -3)
 sprite_frames = SubResource("SpriteFrames_64son")
 autoplay = "default"
 
@@ -51,12 +51,5 @@ autoplay = "default"
 rotation = 1.5708
 shape = SubResource("CircleShape2D_psm21")
 debug_color = Color(0.572549, 0, 0.337255, 0.419608)
-
-[node name="KillZone" type="Area2D" parent="Shark"]
-collision_mask = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Shark/KillZone"]
-rotation = 1.5708
-shape = SubResource("CapsuleShape2D_3qjf7")
 
 [connection signal="body_entered" from="Shark/KillZone" to="Shark" method="_on_kill_zone_body_entered"]

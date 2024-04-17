@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://objects/fish/fish-scripts/Fish.gd" id="1_7tkhu"]
 [ext_resource type="Script" path="res://objects/fish/FishTypes/FishTypeSinusoidal.gd" id="2_2dmav"]
-[ext_resource type="Texture2D" uid="uid://civvnyxocpfks" path="res://objects/fish/sprites/sine_fish.png" id="2_p1hv3"]
+[ext_resource type="SpriteFrames" uid="uid://yhuwihkbbnpq" path="res://objects/fish/sprites/sine_fish_sf.tres" id="3_r0mjv"]
 [ext_resource type="PackedScene" uid="uid://cr1vireck1kai" path="res://objects/fish/fish_skeleton.tscn" id="4_66d2o"]
 
 [sub_resource type="Gradient" id="Gradient_w7tjq"]
@@ -13,19 +13,18 @@ metadata/_snap_enabled = true
 [sub_resource type="CircleShape2D" id="CircleShape2D_ohq10"]
 radius = 4.0
 
-[node name="Sinusoidalfish" type="CharacterBody2D" node_paths=PackedStringArray("fish_type", "fish_skeleton")]
+[node name="Sinusoidalfish" type="CharacterBody2D"]
 top_level = true
 z_index = 50
 z_as_relative = false
 collision_layer = 2
 script = ExtResource("1_7tkhu")
-fish_type = NodePath("FishType")
-fish_skeleton = NodePath("FishSkeleton")
 
 [node name="FishType" type="Node" parent="."]
 script = ExtResource("2_2dmav")
-fish_texture = ExtResource("2_p1hv3")
+fish_sprite_frames = ExtResource("3_r0mjv")
 fish_trail_gradient = SubResource("Gradient_w7tjq")
+fish_ammo_type = 1
 
 [node name="Collision" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_ohq10")

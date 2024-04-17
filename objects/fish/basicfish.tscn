@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://objects/fish/fish-scripts/Fish.gd" id="1_0ih44"]
 [ext_resource type="Script" path="res://objects/fish/FishTypes/FishTypeBasic.gd" id="2_6h74k"]
-[ext_resource type="Texture2D" uid="uid://bdl1f1klfjfxh" path="res://objects/fish/sprites/default_yellow_fish.png" id="2_pmbw4"]
+[ext_resource type="SpriteFrames" uid="uid://cvnyvhktytepd" path="res://objects/fish/sprites/basic_fish_sf.tres" id="3_2ggpy"]
 [ext_resource type="PackedScene" uid="uid://cr1vireck1kai" path="res://objects/fish/fish_skeleton.tscn" id="4_wnqkg"]
 
 [sub_resource type="Gradient" id="Gradient_ojxx5"]
@@ -11,18 +11,16 @@ colors = PackedColorArray(1, 1, 1, 1, 1, 1, 0, 1)
 [sub_resource type="CircleShape2D" id="CircleShape2D_tup3n"]
 radius = 4.0
 
-[node name="BasicFish" type="CharacterBody2D" node_paths=PackedStringArray("fish_type", "fish_skeleton")]
+[node name="BasicFish" type="CharacterBody2D"]
 top_level = true
 z_index = 50
 z_as_relative = false
 collision_layer = 2
 script = ExtResource("1_0ih44")
-fish_type = NodePath("FishType")
-fish_skeleton = NodePath("FishSkeleton")
 
 [node name="FishType" type="Node" parent="."]
 script = ExtResource("2_6h74k")
-fish_texture = ExtResource("2_pmbw4")
+fish_sprite_frames = ExtResource("3_2ggpy")
 fish_trail_gradient = SubResource("Gradient_ojxx5")
 
 [node name="Collision" type="CollisionShape2D" parent="."]
