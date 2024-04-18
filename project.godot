@@ -18,6 +18,7 @@ config/features=PackedStringArray("4.2", "Mobile")
 
 Singleton="*res://misc/Singleton.gd"
 BetterTerrain="*res://addons/better-terrain/BetterTerrain.gd"
+Bgm="*res://misc/BGM.tscn"
 
 [display]
 
