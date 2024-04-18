@@ -1,6 +1,8 @@
 extends Node2D
 
-@onready var buttonsGrid = $ControlsGroup/LevelButtons
+@onready var main_canvas = $MainMenu
+@onready var tutorial_canvas = $TutorialMenu
+@onready var buttonsGrid = $MainMenu/LevelButtons
 @onready var lvl_button_template = \
 	preload("res://levels/MainMenu/level_button.tscn")
 
@@ -21,6 +23,8 @@ func _ready():
 		lvl_button.set_text(str(lvl_num))
 		lvl_button.pressed.connect(func x(): gotoLevel(lvl_scene))
 	self.renderBeaten()
+	main_canvas.show()
+	tutorial_canvas.hide()
 
 func init_levels():
 	var dir = DirAccess.open(lvl_scenes_dir)
@@ -50,3 +54,11 @@ func _on_clear_beaten_button_pressed():
 	Singleton.levelsBeaten = []
 	Singleton.save_data()
 	renderBeaten()
+
+func _on_tutorial_button_pressed():
+	main_canvas.hide()
+	tutorial_canvas.show()
+
+func _on_main_menu_button_pressed():
+	tutorial_canvas.hide()
+	main_canvas.show()
