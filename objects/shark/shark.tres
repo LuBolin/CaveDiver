@@ -1,0 +1,53 @@
+[gd_resource type="SpriteFrames" load_steps=8 format=3 uid="uid://ch50wp7k2ybrb"]
+
+[ext_resource type="Texture2D" uid="uid://d0v4hfdv2nmma" path="res://objects/shark/shark_anim.png" id="1_t0ubw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6croi"]
+atlas = ExtResource("1_t0ubw")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_we3oo"]
+atlas = ExtResource("1_t0ubw")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vgwl2"]
+atlas = ExtResource("1_t0ubw")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sgypi"]
+atlas = ExtResource("1_t0ubw")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t6qoc"]
+atlas = ExtResource("1_t0ubw")
+region = Rect2(192, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lsmur"]
+atlas = ExtResource("1_t0ubw")
+region = Rect2(240, 0, 48, 48)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6croi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_we3oo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vgwl2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sgypi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t6qoc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lsmur")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]

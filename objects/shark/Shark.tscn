@@ -1,26 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://c1dr63pe1527k"]
+[gd_scene load_steps=6 format=3 uid="uid://c1dr63pe1527k"]
 
 [ext_resource type="Script" path="res://objects/shark/Shark.gd" id="1_ugetu"]
 [ext_resource type="Script" path="res://objects/shark/SharkBody.gd" id="2_teqiw"]
-[ext_resource type="Texture2D" uid="uid://dk2mth0lx7gbf" path="res://objects/shark/shark.png" id="3_nvoq6"]
+[ext_resource type="SpriteFrames" uid="uid://ch50wp7k2ybrb" path="res://objects/shark/shark.tres" id="3_gofmt"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3qjf7"]
 height = 36.0
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_kw6jx"]
-atlas = ExtResource("3_nvoq6")
-region = Rect2(0, 0, 48, 48)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_64son"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_kw6jx")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_psm21"]
 radius = 6.0
@@ -44,7 +29,7 @@ shape = SubResource("CapsuleShape2D_3qjf7")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Shark"]
 position = Vector2(0, -3)
-sprite_frames = SubResource("SpriteFrames_64son")
+sprite_frames = ExtResource("3_gofmt")
 autoplay = "default"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Shark"]

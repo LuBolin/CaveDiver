@@ -31,9 +31,9 @@ func _ready():
 
 func _process(delta):
 	if get_linear_velocity().x < 0:
-		sprite.flip_h = true
-	else:
 		sprite.flip_h = false
+	else:
+		sprite.flip_h = true
 
 func _physics_process(delta):
 	if done or patrol_point_count == 0:
