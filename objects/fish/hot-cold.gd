@@ -1,7 +1,9 @@
+class_name OxygenLight
 extends PointLight2D
 
 # hot-cold render
 var air_pockets = []
+var energy_multiplier : float = 3
 		
 func _ready():
 	var root = get_tree().root.get_node('LevelRoot')
@@ -52,5 +54,5 @@ func evaluate_hot_cold(dist):
 	s = max(s, 0)
 	e = e/6.0
 	s = s/6.0
-	set_energy(e)
-	set_texture_scale(s)
+	set_energy(e * energy_multiplier)
+	set_texture_scale(s * energy_multiplier)

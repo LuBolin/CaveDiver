@@ -34,6 +34,7 @@ script = ExtResource("4_46sr8")
 
 [node name="OxygenLight" type="PointLight2D" parent="."]
 energy = 0.5
+range_layer_min = -2
 texture = ExtResource("5_s1lu8")
 texture_scale = 5.0
 script = ExtResource("6_2lvpw")
