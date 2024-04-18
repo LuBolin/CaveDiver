@@ -26,13 +26,14 @@ func initialise(f : Fish, skeleton : FishSkeleton, d : Callable) -> void:
 	die = d
 	fish.scale = Vector2(size, size)
 	fish.move_install(move_function, collision_function, speed)
-	fish_skeleton.install(fish, fish_sprite_frames, fish_trail_gradient)
+	fish_skeleton.install(fish, fish_sprite_frames, fish_trail_gradient, brightness)
 
 ## FishType variant variables and functions
 ## Use _init to initialise these variables
 var speed : int = 0
 var size : float = 1
 var stamina : float = 100
+var brightness : float = 1
 
 
 ## Define how the fish moves
