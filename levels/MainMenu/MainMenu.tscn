@@ -1,24 +1,49 @@
-[gd_scene load_steps=8 format=3 uid="uid://c8rw51gwceyv1"]
+[gd_scene load_steps=9 format=3 uid="uid://c8rw51gwceyv1"]
 
 [ext_resource type="Script" path="res://levels/MainMenu/MainMenu.gd" id="1_5c725"]
 [ext_resource type="Texture2D" uid="uid://bjyku550d14un" path="res://resources/sprites/menu_background.png" id="2_h4je5"]
 [ext_resource type="FontFile" uid="uid://bi2sdfixosf2v" path="res://resources/fonts/paper_cut.ttf" id="3_0slis"]
 [ext_resource type="FontFile" uid="uid://oc44ktq8rgys" path="res://resources/fonts/Xolonium-Regular.ttf" id="4_jq88i"]
+[ext_resource type="Texture2D" uid="uid://cqudevowpmm1x" path="res://resources/sprites/tutorial.png" id="5_rvefb"]
 
 [sub_resource type="Animation" id="Animation_ysx83"]
 length = 0.001
 
 [sub_resource type="Animation" id="Animation_ge4pr"]
-resource_name = "init_shake"
+resource_name = "init_fade"
 step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("CanvasModulate:color")
+tracks/0/path = NodePath("../BgModulate:color")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
+"times": PackedFloat32Array(0.2, 0.65),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MainModulate:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.2, 0.65),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../TutorialMenu/TutModulate:color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.2, 0.65),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(0, 0, 0, 1), Color(1, 1, 1, 1)]
@@ -27,27 +52,33 @@ tracks/0/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_5m8e3"]
 _data = {
 "RESET": SubResource("Animation_ysx83"),
-"init_shake": SubResource("Animation_ge4pr")
+"init_fade": SubResource("Animation_ge4pr")
 }
 
 [node name="MainScreen" type="Node2D"]
 script = ExtResource("1_5c725")
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="BgModulate" type="CanvasModulate" parent="."]
 
 [node name="Background" type="Sprite2D" parent="."]
-position = Vector2(0, -247)
-scale = Vector2(1.2, 1.2)
+scale = Vector2(0.65, 0.65)
 texture = ExtResource("2_h4je5")
 
-[node name="Line2D" type="Line2D" parent="."]
-points = PackedVector2Array(0, -330, 0, 330)
+[node name="Camera2D" type="Camera2D" parent="."]
 
-[node name="ControlsGroup" type="CanvasLayer" parent="."]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../MainMenu")
+libraries = {
+"": SubResource("AnimationLibrary_5m8e3")
+}
+autoplay = "init_fade"
+speed_scale = 0.5
 
-[node name="CanvasModulate" type="CanvasModulate" parent="ControlsGroup"]
+[node name="MainMenu" type="CanvasLayer" parent="."]
 
-[node name="Title_EN" type="Label" parent="ControlsGroup"]
+[node name="MainModulate" type="CanvasModulate" parent="MainMenu"]
+
+[node name="Title_EN" type="Label" parent="MainMenu"]
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
@@ -65,7 +96,7 @@ theme_override_font_sizes/font_size = 128
 text = "Cave Diver"
 horizontal_alignment = 1
 
-[node name="author" type="Label" parent="ControlsGroup"]
+[node name="author" type="Label" parent="MainMenu"]
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
@@ -84,7 +115,7 @@ theme_override_fonts/font = ExtResource("3_0slis")
 theme_override_font_sizes/font_size = 48
 text = "Team 45 Inches"
 
-[node name="LevelButtons" type="GridContainer" parent="ControlsGroup"]
+[node name="LevelButtons" type="GridContainer" parent="MainMenu"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -96,31 +127,60 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 columns = 3
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="ControlsGroup"]
-libraries = {
-"": SubResource("AnimationLibrary_5m8e3")
-}
-autoplay = "init_shake"
-speed_scale = 0.5
-
-[node name="ClearBeatenButton" type="Button" parent="ControlsGroup"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MainMenu"]
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_top = -36.0
-offset_right = 303.0
+offset_top = -40.0
+offset_right = 40.0
 grow_vertical = 0
+
+[node name="TutorialButton" type="Button" parent="MainMenu/VBoxContainer"]
+layout_mode = 2
 theme_override_fonts/font = ExtResource("4_jq88i")
-theme_override_font_sizes/font_size = 24
+theme_override_font_sizes/font_size = 48
+text = "Tutorial"
+
+[node name="ClearBeatenButton" type="Button" parent="MainMenu/VBoxContainer"]
+visible = false
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_jq88i")
+theme_override_font_sizes/font_size = 48
 text = "Reset Beaten Levels"
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="ControlsGroup"]
-volume_db = 20.0
-autoplay = true
+[node name="TutorialMenu" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="TutModulate" type="CanvasModulate" parent="TutorialMenu"]
+
+[node name="Tutorial Sprite" type="TextureRect" parent="TutorialMenu"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_rvefb")
+
+[node name="MainMenuButton" type="Button" parent="TutorialMenu"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -163.0
+offset_top = -84.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("3_0slis")
+theme_override_font_sizes/font_size = 64
+text = "Back
+"
 
 [node name="edges for help in render" type="Line2D" parent="."]
 points = PackedVector2Array(-576, 324, 576, 324, 576, -324, -576, -324)
 closed = true
 default_color = Color(0, 0.392157, 0.392157, 1)
 
-[connection signal="pressed" from="ControlsGroup/ClearBeatenButton" to="." method="_on_clear_beaten_button_pressed"]
+[connection signal="pressed" from="MainMenu/VBoxContainer/TutorialButton" to="." method="_on_tutorial_button_pressed"]
+[connection signal="pressed" from="MainMenu/VBoxContainer/ClearBeatenButton" to="." method="_on_clear_beaten_button_pressed"]
+[connection signal="pressed" from="TutorialMenu/MainMenuButton" to="." method="_on_main_menu_button_pressed"]
