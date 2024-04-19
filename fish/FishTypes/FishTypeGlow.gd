@@ -2,10 +2,10 @@ class_name FishTypeGlow
 extends FishType
 
 func _init():
-	size = 1.5
-	speed = 10
+	size = 1
+	speed = 30
 	stamina = 500
-	brightness = 4
+	brightness = 5
 
 ## Define how the fish moves
 func move_function(velocity : Vector2, delta) -> Vector2:
