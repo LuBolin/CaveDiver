@@ -1,20 +1,114 @@
-[gd_scene load_steps=5 format=3 uid="uid://5g0gkvddwhcs"]
+[gd_scene load_steps=20 format=3 uid="uid://5g0gkvddwhcs"]
 
 [ext_resource type="Script" path="res://objects/escape/Escape.gd" id="1_as0h3"]
-[ext_resource type="Texture2D" uid="uid://wa3ucflrb47o" path="res://objects/escape/escape.png" id="1_ejpx7"]
 [ext_resource type="Texture2D" uid="uid://bteqkxejmlhbm" path="res://resources/sprites/light_circle.png" id="3_wfw14"]
+[ext_resource type="Texture2D" uid="uid://dp66jhlvvgq4w" path="res://objects/escape/cave_water.png" id="4_oaus6"]
+[ext_resource type="Texture2D" uid="uid://bt1cvafrdcwkh" path="res://objects/escape/cave_land.png" id="4_uxska"]
+[ext_resource type="AudioStream" uid="uid://c6oa6o6wbr7n" path="res://resources/audio/victory.mp3" id="5_qkcdk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e7ux1"]
 size = Vector2(32, 32)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_5t6nb"]
+atlas = ExtResource("4_uxska")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0bhe6"]
+atlas = ExtResource("4_uxska")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dn7rp"]
+atlas = ExtResource("4_uxska")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nmdwd"]
+atlas = ExtResource("4_uxska")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_arvhu"]
+atlas = ExtResource("4_uxska")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q7oxg"]
+atlas = ExtResource("4_uxska")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2pgg7"]
+atlas = ExtResource("4_oaus6")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x0b2u"]
+atlas = ExtResource("4_oaus6")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ept3f"]
+atlas = ExtResource("4_oaus6")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_my1xb"]
+atlas = ExtResource("4_oaus6")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kem54"]
+atlas = ExtResource("4_oaus6")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_omtu0"]
+atlas = ExtResource("4_oaus6")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_f3a2s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5t6nb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0bhe6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dn7rp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nmdwd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_arvhu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q7oxg")
+}],
+"loop": true,
+"name": &"land",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2pgg7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x0b2u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ept3f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_my1xb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kem54")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_omtu0")
+}],
+"loop": true,
+"name": &"water",
+"speed": 5.0
+}]
+
 [node name="Escape" type="Area2D"]
 collision_mask = 3
 script = ExtResource("1_as0h3")
-
-[node name="Sprite" type="Sprite2D" parent="."]
-position = Vector2(-4.76837e-07, 0.5)
-scale = Vector2(0.5, 0.515625)
-texture = ExtResource("1_ejpx7")
 
 [node name="CollisionShape" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_e7ux1")
@@ -24,6 +118,15 @@ color = Color(0.509804, 1, 0.584314, 1)
 energy = 0.5
 texture = ExtResource("3_wfw14")
 texture_scale = 0.6
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_f3a2s")
+animation = &"land"
+autoplay = "land"
+
+[node name="victory" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_qkcdk")
+volume_db = 5.0
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

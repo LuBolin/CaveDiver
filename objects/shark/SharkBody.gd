@@ -58,3 +58,9 @@ func _on_kill_zone_body_entered(body):
 		body.die()
 	if body is Player:
 		body.die()
+	sprite.play("chomp")
+	sprite.animation_finished.connect(bite)
+
+func bite():
+	sprite.play("default")
+	sprite.animation_finished.disconnect(bite)

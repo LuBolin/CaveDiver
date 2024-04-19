@@ -1,0 +1,31 @@
+[gd_scene load_steps=7 format=3 uid="uid://cbm1xwuo4opmu"]
+
+[ext_resource type="Script" path="res://fish/fish-scripts/Fish.gd" id="1_0ih44"]
+[ext_resource type="Script" path="res://fish/FishTypes/FishTypeBasic.gd" id="2_6h74k"]
+[ext_resource type="SpriteFrames" uid="uid://cvnyvhktytepd" path="res://fish/sprites/basic_fish_sf.tres" id="3_2ggpy"]
+[ext_resource type="PackedScene" uid="uid://cr1vireck1kai" path="res://fish/fish_skeleton.tscn" id="4_wnqkg"]
+
+
+[sub_resource type="Gradient" id="Gradient_ojxx5"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 0, 1)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tup3n"]
+radius = 4.0
+
+[node name="BasicFish" type="CharacterBody2D"]
+top_level = true
+z_index = 50
+z_as_relative = false
+collision_layer = 2
+script = ExtResource("1_0ih44")
+
+[node name="FishType" type="Node" parent="."]
+script = ExtResource("2_6h74k")
+fish_sprite_frames = ExtResource("3_2ggpy")
+fish_trail_gradient = SubResource("Gradient_ojxx5")
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_tup3n")
+one_way_collision = true
+
+[node name="FishSkeleton" parent="." instance=ExtResource("4_wnqkg")]

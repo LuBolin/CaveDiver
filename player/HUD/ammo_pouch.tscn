@@ -1,0 +1,75 @@
+[gd_scene load_steps=11 format=3 uid="uid://bpp4cb8b201on"]
+
+[ext_resource type="Script" path="res://player/HUD/ammo_pouch.gd" id="1_84fyg"]
+[ext_resource type="Texture2D" uid="uid://beadwq5fnn8d6" path="res://player/assets/hotbar.png" id="2_1ev8s"]
+[ext_resource type="PackedScene" uid="uid://b5hlpndhldwaf" path="res://player/HUD/fish_ammo.tscn" id="3_rk2em"]
+[ext_resource type="PackedScene" uid="uid://cbm1xwuo4opmu" path="res://fish/basicfish.tscn" id="4_k22wc"]
+[ext_resource type="Texture2D" uid="uid://b6elufhidf1t6" path="res://fish/sprites/fast_fish.png" id="5_7jfyd"]
+[ext_resource type="PackedScene" uid="uid://drxm4lprot2ml" path="res://fish/jetfish.tscn" id="5_cd38d"]
+[ext_resource type="Texture2D" uid="uid://civvnyxocpfks" path="res://fish/sprites/sine_fish.png" id="6_vbyo0"]
+[ext_resource type="Texture2D" uid="uid://nlgslrramhyt" path="res://fish/sprites/glow_fish.png" id="7_sgkm4"]
+[ext_resource type="PackedScene" uid="uid://bklcldpxvdiad" path="res://fish/sinusoidalfish.tscn" id="8_83x2j"]
+[ext_resource type="PackedScene" uid="uid://bdbqbregiv5ws" path="res://fish/glowfish.tscn" id="10_yeyd5"]
+
+[node name="AmmoPouch" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_84fyg")
+
+[node name="Hotbar" type="TextureRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -211.5
+offset_top = -258.0
+offset_right = 211.5
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("2_1ev8s")
+
+[node name="BasicFish" parent="." instance=ExtResource("3_rk2em")]
+layout_mode = 1
+offset_left = -157.0
+offset_top = -89.0
+offset_right = -117.0
+offset_bottom = -49.0
+fish_scene = ExtResource("4_k22wc")
+
+[node name="SineFish" parent="." instance=ExtResource("3_rk2em")]
+layout_mode = 1
+offset_left = -78.0
+offset_top = -89.0
+offset_right = -38.0
+offset_bottom = -49.0
+texture = ExtResource("6_vbyo0")
+fish_scene = ExtResource("8_83x2j")
+
+[node name="JetFish" parent="." instance=ExtResource("3_rk2em")]
+layout_mode = 1
+offset_left = 1.0
+offset_top = -88.0
+offset_right = 41.0
+offset_bottom = -48.0
+texture = ExtResource("5_7jfyd")
+fish_scene = ExtResource("5_cd38d")
+
+[node name="GlowFish" parent="." instance=ExtResource("3_rk2em")]
+layout_mode = 1
+offset_left = 81.0
+offset_top = -88.0
+offset_right = 121.0
+offset_bottom = -48.0
+texture = ExtResource("7_sgkm4")
+fish_scene = ExtResource("10_yeyd5")

@@ -1,8 +1,9 @@
 [gd_scene load_steps=4 format=3 uid="uid://bytaxhf5abbl0"]
 
 [ext_resource type="FontFile" uid="uid://oc44ktq8rgys" path="res://resources/fonts/Xolonium-Regular.ttf" id="1_alch8"]
-[ext_resource type="Texture2D" uid="uid://cx0gbh13fmhu4" path="res://resources/sprites/red_tick.png" id="2_b3chd"]
-[ext_resource type="Texture2D" uid="uid://tiddcbb3bayt" path="res://resources/sprites/player.png" id="2_jdi36"]
+[ext_resource type="Texture2D" uid="uid://cx0gbh13fmhu4" path="res://levels/MainMenu/red_tick.png" id="2_b3chd"]
+[ext_resource type="Texture2D" uid="uid://tiddcbb3bayt" path="res://levels/MainMenu/player.png" id="2_jdi36"]
+
 
 [node name="LevelButton" type="Button"]
 custom_minimum_size = Vector2(80, 0)

@@ -1,0 +1,33 @@
+[gd_scene load_steps=7 format=3 uid="uid://drxm4lprot2ml"]
+
+[ext_resource type="Script" path="res://fish/fish-scripts/Fish.gd" id="1_t2ylc"]
+[ext_resource type="Script" path="res://fish/FishTypes/FishTypeJet.gd" id="2_ngnf3"]
+[ext_resource type="SpriteFrames" uid="uid://d37gnm2s37fky" path="res://fish/sprites/jet_fish_sf.tres" id="3_dgmh0"]
+[ext_resource type="PackedScene" uid="uid://cr1vireck1kai" path="res://fish/fish_skeleton.tscn" id="4_653bi"]
+
+
+[sub_resource type="Gradient" id="Gradient_t3820"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 0, 0, 1)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rhsrg"]
+radius = 4.0
+
+[node name="Jetfish" type="CharacterBody2D"]
+top_level = true
+z_index = 50
+z_as_relative = false
+scale = Vector2(1.00852, 1)
+collision_layer = 2
+script = ExtResource("1_t2ylc")
+
+[node name="FishType" type="Node" parent="."]
+script = ExtResource("2_ngnf3")
+fish_sprite_frames = ExtResource("3_dgmh0")
+fish_trail_gradient = SubResource("Gradient_t3820")
+fish_ammo_type = 2
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_rhsrg")
+one_way_collision = true
+
+[node name="FishSkeleton" parent="." instance=ExtResource("4_653bi")]

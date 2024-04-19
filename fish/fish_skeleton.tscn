@@ -1,0 +1,45 @@
+[gd_scene load_steps=9 format=3 uid="uid://cr1vireck1kai"]
+
+[ext_resource type="Script" path="res://fish/fish-scripts/FishSkeleton.gd" id="1_v50yd"]
+[ext_resource type="Script" path="res://fish/fish-scripts/FishSprite.gd" id="3_pipeh"]
+[ext_resource type="Script" path="res://fish/fish-scripts/FishTrail.gd" id="4_46sr8"]
+[ext_resource type="Texture2D" uid="uid://bteqkxejmlhbm" path="res://resources/sprites/light_circle.png" id="5_s1lu8"]
+[ext_resource type="Script" path="res://fish/hot-cold.gd" id="6_2lvpw"]
+
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_4ngiv"]
+light_mode = 1
+
+[sub_resource type="Gradient" id="Gradient_p8jy6"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 1, 0, 0.231373)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_oxw2s"]
+
+[node name="FishSkeleton" type="Node2D" node_paths=PackedStringArray("anim_sprite", "fish_trail", "oxygen_light")]
+script = ExtResource("1_v50yd")
+anim_sprite = NodePath("AnimSprite")
+fish_trail = NodePath("Trail")
+oxygen_light = NodePath("OxygenLight")
+
+[node name="Trail" type="Line2D" parent="."]
+top_level = true
+z_index = 40
+z_as_relative = false
+material = SubResource("CanvasItemMaterial_4ngiv")
+width = 4.0
+gradient = SubResource("Gradient_p8jy6")
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+script = ExtResource("4_46sr8")
+
+[node name="OxygenLight" type="PointLight2D" parent="."]
+energy = 0.5
+range_layer_min = -2
+texture = ExtResource("5_s1lu8")
+texture_scale = 5.0
+script = ExtResource("6_2lvpw")
+
+[node name="AnimSprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_oxw2s")
+script = ExtResource("3_pipeh")
