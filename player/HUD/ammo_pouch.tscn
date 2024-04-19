@@ -48,15 +48,6 @@ offset_right = -117.0
 offset_bottom = -49.0
 fish_scene = ExtResource("4_k22wc")
 
-[node name="SineFish" parent="." instance=ExtResource("3_rk2em")]
-layout_mode = 1
-offset_left = 1.0
-offset_top = -89.0
-offset_right = 41.0
-offset_bottom = -49.0
-texture = ExtResource("6_vbyo0")
-fish_scene = ExtResource("8_83x2j")
-
 [node name="JetFish" parent="." instance=ExtResource("3_rk2em")]
 layout_mode = 1
 offset_left = -78.0
@@ -65,6 +56,15 @@ offset_right = -38.0
 offset_bottom = -48.0
 texture = ExtResource("5_7jfyd")
 fish_scene = ExtResource("5_cd38d")
+
+[node name="SineFish" parent="." instance=ExtResource("3_rk2em")]
+layout_mode = 1
+offset_left = 1.0
+offset_top = -89.0
+offset_right = 41.0
+offset_bottom = -49.0
+texture = ExtResource("6_vbyo0")
+fish_scene = ExtResource("8_83x2j")
 
 [node name="GlowFish" parent="." instance=ExtResource("3_rk2em")]
 layout_mode = 1

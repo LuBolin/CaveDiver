@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://v8uf6qi7n2pq"]
+[gd_scene load_steps=16 format=3 uid="uid://v8uf6qi7n2pq"]
 
 [ext_resource type="Script" path="res://levels/LevelManager.gd" id="1_rwxwj"]
 [ext_resource type="Texture2D" uid="uid://doh700gtklkfl" path="res://levels/background.png" id="2_gmhbh"]
@@ -10,12 +10,6 @@
 [ext_resource type="PackedScene" uid="uid://cw5v4ivweo6bl" path="res://player/player.tscn" id="7_xxhsr"]
 [ext_resource type="FontFile" uid="uid://dekp0len3c0jk" path="res://resources/fonts/Minecraft.ttf" id="11_5nfd8"]
 [ext_resource type="Script" path="res://levels/FadeScreen.gd" id="12_4lfej"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_pgyne"]
-size = Vector2(155, 50)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_35qm5"]
-size = Vector2(75.5, 46.5)
 
 [sub_resource type="Animation" id="Animation_a38q1"]
 length = 0.001
@@ -113,22 +107,12 @@ motion_scale = Vector2(0.3, 0.3)
 
 [node name="Background" type="Sprite2D" parent="Misc/ParallaxBackground/ParallaxLayer"]
 z_as_relative = false
-scale = Vector2(1.1206, 1.27437)
+scale = Vector2(2.06682, 2.35042)
 texture = ExtResource("2_gmhbh")
 
 [node name="World" type="Node2D" parent="."]
 
 [node name="AirPockets" parent="World" instance=ExtResource("3_yg37f")]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="World/AirPockets"]
-position = Vector2(-253, -135)
-shape = SubResource("RectangleShape2D_pgyne")
-debug_color = Color(1, 1, 1, 0.419608)
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="World/AirPockets"]
-position = Vector2(225, -124)
-shape = SubResource("RectangleShape2D_35qm5")
-debug_color = Color(1, 1, 1, 0.419608)
 
 [node name="TileMap" type="TileMap" parent="World"]
 tile_set = ExtResource("6_cglc4")

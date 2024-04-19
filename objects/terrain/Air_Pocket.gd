@@ -13,8 +13,8 @@ func _on_body_shape_entered(body_rid, body, body_shape_index, local_shape_index)
 		return
 	if body.get('air_level') is int:
 		body.air_level += 1
-	#if body.get('in_water') is bool:
-		#body.in_water = false
+	elif body.get('in_water') is bool:
+		body.in_water = false
 
 func _on_body_shape_exited(body_rid, body, body_shape_index, local_shape_index):
 	if not (body and is_instance_valid(body)):
@@ -23,5 +23,5 @@ func _on_body_shape_exited(body_rid, body, body_shape_index, local_shape_index):
 		return
 	if body.get('air_level') is int:
 		body.air_level -= 1
-	#if body.get('in_water') is bool:
-		#body.in_water = true
+	elif body.get('in_water') is bool:
+		body.in_water = true
