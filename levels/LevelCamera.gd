@@ -3,7 +3,7 @@ extends Camera2D
 @onready var tile_map: TileMap = $"../../World/TileMap"
 @onready var player: Player = $"../../Player"
 
-var max_zoom = 4
+var max_zoom = 3.5
 var zoom_step = 0.2
 
 var bounds = null
@@ -32,6 +32,8 @@ func _process(delta):
 	move()
 
 func _input(event):
+	return
+	# we do not want zoom adjust
 	if event is InputEventMouseButton and event.is_pressed():
 		match event.button_index:
 			MOUSE_BUTTON_WHEEL_UP:

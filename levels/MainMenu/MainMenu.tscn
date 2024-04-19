@@ -159,14 +159,13 @@ grow_vertical = 0
 visible = false
 layout_mode = 2
 theme_override_fonts/font = ExtResource("4_jq88i")
-theme_override_font_sizes/font_size = 48
+theme_override_font_sizes/font_size = 24
 text = "Tutorial"
 
 [node name="ClearBeatenButton" type="Button" parent="MainMenu/VBoxContainer"]
-visible = false
 layout_mode = 2
 theme_override_fonts/font = ExtResource("4_jq88i")
-theme_override_font_sizes/font_size = 48
+theme_override_font_sizes/font_size = 24
 text = "Reset Beaten Levels"
 
 [node name="Logo" type="TextureRect" parent="MainMenu"]

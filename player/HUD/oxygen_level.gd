@@ -7,7 +7,7 @@ var lungs_label: Label = $LungsLabel
 var tank_label: Label = $TankLabel
 
 @export var lung_capacity: int = 5
-@export var tank_capacity: int = 5
+@export var tank_capacity: int = 20
 
 var lungs_left = lung_capacity
 
@@ -17,7 +17,7 @@ var player: Player
 
 var state_drowning : bool
 var lung_threshold: int = 3
-var overal_threshold : int = 5
+var overal_threshold : int = 8
 
 const DEFAULT_COLOR = Color("171615")
 

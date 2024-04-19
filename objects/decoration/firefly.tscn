@@ -42,6 +42,7 @@ animations = [{
 [node name="Firefly" type="PointLight2D"]
 color = Color(1, 0.85098, 0.517647, 1)
 energy = 0.7
+range_layer_min = -2
 texture = ExtResource("1_qwrcw")
 texture_scale = 1.5
 

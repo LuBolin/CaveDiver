@@ -58,13 +58,14 @@ func _input(event):
 				scroll_to(FishType.FishTypeEnum.Sine)
 			KEY_4:
 				scroll_to(FishType.FishTypeEnum.Glow)
-		if Input.is_key_pressed(KEY_SHIFT):
-			match event.keycode:
-				KEY_1:
-					push_fish(FishType.FishTypeEnum.Basic)
-				KEY_2:
-					push_fish(FishType.FishTypeEnum.Jet)
-				KEY_3:
-					push_fish(FishType.FishTypeEnum.Sine)
-				KEY_4:
-					push_fish(FishType.FishTypeEnum.Glow)
+		# backdoor
+		#if Input.is_key_pressed(KEY_SHIFT):
+			#match event.keycode:
+				#KEY_1:
+					#push_fish(FishType.FishTypeEnum.Basic)
+				#KEY_2:
+					#push_fish(FishType.FishTypeEnum.Jet)
+				#KEY_3:
+					#push_fish(FishType.FishTypeEnum.Sine)
+				#KEY_4:
+					#push_fish(FishType.FishTypeEnum.Glow)
