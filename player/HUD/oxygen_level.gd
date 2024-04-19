@@ -15,6 +15,9 @@ var tank_left = tank_capacity
 
 var player: Player
 
+var state_drowning : bool
+var threshold : int = 20
+
 func _ready():
 	var p = get_parent()
 	while not p is Player:
@@ -31,11 +34,20 @@ func _physics_process(delta):
 		if lungs_left < 0:
 			tank_left += lungs_left
 			lungs_left = 0
+			test_drowning()
 	else:
 		if lungs_left < lung_capacity:
 			lungs_left = lung_capacity
 			var timer = get_tree().create_timer(0.15)
 			timer.timeout.connect($gasp.play)
+
+func test_drowning():
+	if lungs_left + tank_left < threshold and not state_drowning:
+		state_drowning = true
+		Singleton.drowning.emit()
+	else:
+		state_drowning = false
+	
 
 func _process(delta):
 	if not player.alive:
