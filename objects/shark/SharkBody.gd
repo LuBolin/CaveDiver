@@ -28,6 +28,9 @@ func _ready():
 	if patrol_points.size() > 1:
 		current_index = 1
 	patrol_route.set_default_color(Color.TRANSPARENT)
+	
+	# after chomping
+	sprite.animation_finished.connect(play_default_anim)
 
 func _process(delta):
 	if get_linear_velocity().x < 0:
@@ -59,8 +62,7 @@ func _on_kill_zone_body_entered(body):
 	if body is Player:
 		body.die()
 	sprite.play("chomp")
-	sprite.animation_finished.connect(bite)
 
-func bite():
-	sprite.play("default")
-	sprite.animation_finished.disconnect(bite)
+func play_default_anim():
+	if not (sprite.get_animation() == "default"):
+		sprite.play("default")

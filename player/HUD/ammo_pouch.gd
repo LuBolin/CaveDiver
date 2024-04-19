@@ -2,6 +2,7 @@ class_name AmmoPouch
 extends Control
 
 @export var initial_fishes: Array[int] = [0, 0, 0, 0]
+@onready var launch: AudioStreamPlayer2D = $launch
 var current_index: int = 0
 var my_fishes = []
 
@@ -21,6 +22,7 @@ func pop_fish():
 	var fish_resource = f.pop_fish()
 	if not fish_resource:
 		return
+	launch.play()
 	return fish_resource
 
 func has_ammo():

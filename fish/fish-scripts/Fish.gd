@@ -20,6 +20,8 @@ func _ready():
 
 func _process(delta):
 	update(delta)
+	if live:
+		fish_skeleton.play_swim(in_water)
 
 ## Spawner should call launch(direction) when instantiating 
 func launch(direction : Vector2) -> void:
@@ -34,6 +36,9 @@ func update(delta):
 
 func die() -> void:
 	live = false
+	set_collision_layer(4)
+	var timer = get_tree().create_timer(1.0/24)
+	timer.timeout.connect(func(): set_collision_layer(2))
 	fish_skeleton.die()
 	movement_function = dead_move
 

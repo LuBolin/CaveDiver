@@ -1,11 +1,12 @@
-[gd_scene load_steps=9 format=3 uid="uid://cr1vireck1kai"]
+[gd_scene load_steps=11 format=3 uid="uid://cr1vireck1kai"]
 
 [ext_resource type="Script" path="res://fish/fish-scripts/FishSkeleton.gd" id="1_v50yd"]
 [ext_resource type="Script" path="res://fish/fish-scripts/FishSprite.gd" id="3_pipeh"]
 [ext_resource type="Script" path="res://fish/fish-scripts/FishTrail.gd" id="4_46sr8"]
 [ext_resource type="Texture2D" uid="uid://bteqkxejmlhbm" path="res://resources/sprites/light_circle.png" id="5_s1lu8"]
 [ext_resource type="Script" path="res://fish/hot-cold.gd" id="6_2lvpw"]
-
+[ext_resource type="AudioStream" uid="uid://bpcra13remjj7" path="res://resources/audio/fish_death.mp3" id="6_ypjvd"]
+[ext_resource type="AudioStream" uid="uid://bd4rtxrpoopth" path="res://resources/audio/water_woosh.mp3" id="7_rma25"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_4ngiv"]
 light_mode = 1
@@ -43,3 +44,12 @@ script = ExtResource("6_2lvpw")
 [node name="AnimSprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_oxw2s")
 script = ExtResource("3_pipeh")
+
+[node name="death" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_ypjvd")
+volume_db = 10.0
+
+[node name="swim" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_rma25")
+volume_db = -20.0
+autoplay = true

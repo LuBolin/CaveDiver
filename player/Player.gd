@@ -20,9 +20,14 @@ var in_water: bool = false :
 	set(value):
 		if not value == in_water:
 			in_water = value
+			if not is_ready:
+				return
 			splash.play(1.3)
 
+var is_ready = false
+
 func _ready():
+	is_ready = true
 	var root_node = get_tree().root.get_node("LevelRoot")
 	alive = true
 	state_machine.init(self)

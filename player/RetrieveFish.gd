@@ -9,7 +9,6 @@ func _input(event):
 		if event.keycode == KEY_C:
 			collect_state = event.is_pressed()
 			print(collect_state)
-		
 
 func _on_body_entered(body):
 	if not player.alive:

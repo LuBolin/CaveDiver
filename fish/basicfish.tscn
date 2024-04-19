@@ -5,7 +5,6 @@
 [ext_resource type="SpriteFrames" uid="uid://cvnyvhktytepd" path="res://fish/sprites/basic_fish_sf.tres" id="3_2ggpy"]
 [ext_resource type="PackedScene" uid="uid://cr1vireck1kai" path="res://fish/fish_skeleton.tscn" id="4_wnqkg"]
 
-
 [sub_resource type="Gradient" id="Gradient_ojxx5"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 0, 1)
 

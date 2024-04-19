@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bpp4cb8b201on"]
+[gd_scene load_steps=12 format=3 uid="uid://bpp4cb8b201on"]
 
 [ext_resource type="Script" path="res://player/HUD/ammo_pouch.gd" id="1_84fyg"]
 [ext_resource type="Texture2D" uid="uid://beadwq5fnn8d6" path="res://player/assets/hotbar.png" id="2_1ev8s"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://nlgslrramhyt" path="res://fish/sprites/glow_fish.png" id="7_sgkm4"]
 [ext_resource type="PackedScene" uid="uid://bklcldpxvdiad" path="res://fish/sinusoidalfish.tscn" id="8_83x2j"]
 [ext_resource type="PackedScene" uid="uid://bdbqbregiv5ws" path="res://fish/glowfish.tscn" id="10_yeyd5"]
+[ext_resource type="AudioStream" uid="uid://cyfg7al7hkk4h" path="res://resources/audio/launch.mp3" id="11_frbap"]
 
 [node name="AmmoPouch" type="Control"]
 layout_mode = 3
@@ -73,3 +74,6 @@ offset_right = 121.0
 offset_bottom = -48.0
 texture = ExtResource("7_sgkm4")
 fish_scene = ExtResource("10_yeyd5")
+
+[node name="launch" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("11_frbap")
