@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://nlgslrramhyt" path="res://fish/sprites/glow_fish.png" id="7_sgkm4"]
 [ext_resource type="PackedScene" uid="uid://bklcldpxvdiad" path="res://fish/sinusoidalfish.tscn" id="8_83x2j"]
 [ext_resource type="PackedScene" uid="uid://bdbqbregiv5ws" path="res://fish/glowfish.tscn" id="10_yeyd5"]
-[ext_resource type="AudioStream" uid="uid://cyfg7al7hkk4h" path="res://resources/audio/launch.mp3" id="11_frbap"]
+[ext_resource type="AudioStream" uid="uid://cmsryyexbku8b" path="res://resources/audio/launch.mp3" id="11_frbap"]
 
 [node name="AmmoPouch" type="Control"]
 layout_mode = 3

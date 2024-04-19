@@ -3,8 +3,8 @@ extends FishType
 
 func _init():
 	size = 1
-	speed = 50
-	stamina = 1000
+	speed = 200
+	stamina = 9999999
 
 ## Define how the fish moves
 var cycle : float = 0

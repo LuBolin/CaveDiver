@@ -1,8 +1,9 @@
-[gd_scene load_steps=48 format=3 uid="uid://cw5v4ivweo6bl"]
+[gd_scene load_steps=49 format=3 uid="uid://cw5v4ivweo6bl"]
 
 [ext_resource type="Script" path="res://player/Player.gd" id="1_kiu2d"]
 [ext_resource type="SpriteFrames" uid="uid://6xhup71bfrop" path="res://player/player_spriteframes.tres" id="2_gp143"]
 [ext_resource type="PackedScene" uid="uid://c10mfic5lq45q" path="res://player/HUD/oxygen_level.tscn" id="3_06578"]
+[ext_resource type="AudioStream" uid="uid://cyfg7al7hkk4h" path="res://resources/audio/pickup.mp3" id="3_sf7hi"]
 [ext_resource type="Script" path="res://player/PlayerStatemachine.gd" id="4_jvups"]
 [ext_resource type="Texture2D" uid="uid://bteqkxejmlhbm" path="res://resources/sprites/light_circle.png" id="5_7idbf"]
 [ext_resource type="Script" path="res://player/states/land_idle.gd" id="5_pbnr6"]
@@ -184,6 +185,9 @@ script = ExtResource("18_k0akq")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RetrieveFishArea"]
 shape = SubResource("CircleShape2D_4ksd0")
 debug_color = Color(0, 0.419608, 0, 0.419608)
+
+[node name="pickup" type="AudioStreamPlayer2D" parent="RetrieveFishArea"]
+stream = ExtResource("3_sf7hi")
 
 [node name="Renderer" type="Node2D" parent="."]
 

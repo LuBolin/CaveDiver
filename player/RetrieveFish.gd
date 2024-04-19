@@ -33,6 +33,7 @@ func _on_body_entered(body):
 		var fish_ammo_type: FishType.FishTypeEnum = \
 			body.fish_type.fish_ammo_type
 		player.pickup_fish(fish_ammo_type)
+		$pickup.play()
 
 
 func _on_body_exited(body):

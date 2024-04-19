@@ -5,7 +5,6 @@
 [ext_resource type="SpriteFrames" uid="uid://d37gnm2s37fky" path="res://fish/sprites/jet_fish_sf.tres" id="3_dgmh0"]
 [ext_resource type="PackedScene" uid="uid://cr1vireck1kai" path="res://fish/fish_skeleton.tscn" id="4_653bi"]
 
-
 [sub_resource type="Gradient" id="Gradient_t3820"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 0, 0, 1)
 
@@ -24,7 +23,7 @@ script = ExtResource("1_t2ylc")
 script = ExtResource("2_ngnf3")
 fish_sprite_frames = ExtResource("3_dgmh0")
 fish_trail_gradient = SubResource("Gradient_t3820")
-fish_ammo_type = 2
+fish_ammo_type = 1
 
 [node name="Collision" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_rhsrg")

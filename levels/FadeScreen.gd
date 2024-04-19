@@ -17,8 +17,12 @@ func next():
 	$AnimationPlayer.play("fade_to_black")
 	state = "win"
 
-func drowning():
-	$AnimationPlayer.play("drowning")
+func drowning(is_drown: bool):
+	if is_drown:
+		$AnimationPlayer.play("drowning")
+	else:
+		if $AnimationPlayer.get_current_animation() == "drowning":
+			$AnimationPlayer.stop()
 
 func _on_animation_player_animation_finished(anim_name):
 	if anim_name == "fade_to_black":

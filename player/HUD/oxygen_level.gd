@@ -7,7 +7,7 @@ var lungs_label: Label = $LungsLabel
 var tank_label: Label = $TankLabel
 
 @export var lung_capacity: int = 5
-@export var tank_capacity: int = 20
+@export var tank_capacity: int = 5
 
 var lungs_left = lung_capacity
 
@@ -32,6 +32,8 @@ func _ready():
 func _physics_process(delta):
 	if not player.alive:
 		return
+	if lungs_left + tank_left <= 0:
+		player.die()
 	if player.in_water:
 		lungs_left -= delta
 		if lungs_left < 0:
@@ -40,6 +42,7 @@ func _physics_process(delta):
 			test_drowning()
 	else:
 		state_drowning = false
+		Singleton.drowning.emit(state_drowning)
 		if lungs_left < lung_capacity:
 			lungs_left = lung_capacity
 			var timer = get_tree().create_timer(0.15)
@@ -53,7 +56,8 @@ func test_drowning():
 	if state_drowning:
 		return
 	state_drowning = true
-	Singleton.drowning.emit()
+	Singleton.drowning.emit(state_drowning)
+	
 	
 
 func _process(delta):

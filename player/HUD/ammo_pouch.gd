@@ -63,8 +63,8 @@ func _input(event):
 				KEY_1:
 					push_fish(FishType.FishTypeEnum.Basic)
 				KEY_2:
-					push_fish(FishType.FishTypeEnum.Sine)
-				KEY_3:
 					push_fish(FishType.FishTypeEnum.Jet)
 				KEY_3:
+					push_fish(FishType.FishTypeEnum.Sine)
+				KEY_4:
 					push_fish(FishType.FishTypeEnum.Glow)
