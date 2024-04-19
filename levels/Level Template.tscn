@@ -1,10 +1,9 @@
-[gd_scene load_steps=19 format=3 uid="uid://v8uf6qi7n2pq"]
+[gd_scene load_steps=18 format=3 uid="uid://v8uf6qi7n2pq"]
 
 [ext_resource type="Script" path="res://levels/LevelManager.gd" id="1_rwxwj"]
 [ext_resource type="Texture2D" uid="uid://doh700gtklkfl" path="res://levels/background.png" id="2_gmhbh"]
 [ext_resource type="Script" path="res://levels/LevelCamera.gd" id="3_mr5m7"]
 [ext_resource type="PackedScene" uid="uid://yxs84srwww6w" path="res://objects/terrain/Air_Pocket.tscn" id="3_yg37f"]
-[ext_resource type="Material" uid="uid://d0yt0pah0id4y" path="res://objects/terrain/water_shader.tres" id="5_igmmf"]
 [ext_resource type="Texture2D" uid="uid://cqrwicjmdivmc" path="res://resources/sprites/overlay.png" id="6_5qg5g"]
 [ext_resource type="TileSet" uid="uid://bvjrde51nofk3" path="res://objects/terrain/terrain_tileset.tres" id="6_cglc4"]
 [ext_resource type="PackedScene" uid="uid://5g0gkvddwhcs" path="res://objects/escape/Escape.tscn" id="7_c5rmx"]
@@ -131,16 +130,6 @@ debug_color = Color(1, 1, 1, 0.419608)
 position = Vector2(225, -124)
 shape = SubResource("RectangleShape2D_35qm5")
 debug_color = Color(1, 1, 1, 0.419608)
-
-[node name="Water_Shader" type="TextureRect" parent="World"]
-z_as_relative = false
-material = ExtResource("5_igmmf")
-offset_left = -290.0
-offset_top = -164.0
-offset_right = 862.0
-offset_bottom = 484.0
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("6_5qg5g")
 
 [node name="TileMap" type="TileMap" parent="World"]
 tile_set = ExtResource("6_cglc4")

@@ -1,6 +1,7 @@
-[gd_resource type="TileSet" load_steps=3 format=3 uid="uid://bvjrde51nofk3"]
+[gd_resource type="TileSet" load_steps=4 format=3 uid="uid://bvjrde51nofk3"]
 
 [ext_resource type="Texture2D" uid="uid://cfdifxk0d2rk5" path="res://objects/terrain/tilemap.png" id="1_efial"]
+[ext_resource type="Material" uid="uid://d0yt0pah0id4y" path="res://objects/terrain/water_shader.tres" id="1_h7625"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_aqtb8"]
 texture = ExtResource("1_efial")
@@ -849,6 +850,10 @@ texture_region_size = Vector2i(8, 8)
 15: [0],
 "type": 0
 }
+9:5/0 = 0
+9:5/0/material = ExtResource("1_h7625")
+9:5/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+9:5/0/physics_layer_0/angular_velocity = 0.0
 
 [resource]
 tile_size = Vector2i(8, 8)
