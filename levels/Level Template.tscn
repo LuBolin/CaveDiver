@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://v8uf6qi7n2pq"]
+[gd_scene load_steps=24 format=3 uid="uid://v8uf6qi7n2pq"]
 
 [ext_resource type="Script" path="res://levels/LevelManager.gd" id="1_rwxwj"]
 [ext_resource type="Texture2D" uid="uid://doh700gtklkfl" path="res://levels/background.png" id="2_gmhbh"]
@@ -10,8 +10,12 @@
 [ext_resource type="PackedScene" uid="uid://5g0gkvddwhcs" path="res://objects/escape/Escape.tscn" id="7_c5rmx"]
 [ext_resource type="PackedScene" uid="uid://cw5v4ivweo6bl" path="res://player/player.tscn" id="7_xxhsr"]
 [ext_resource type="PackedScene" uid="uid://c1dr63pe1527k" path="res://objects/shark/Shark.tscn" id="8_cvq4k"]
+[ext_resource type="PackedScene" uid="uid://bljfc6wt5t51d" path="res://objects/urchin/urchin.tscn" id="10_kg56m"]
 [ext_resource type="FontFile" uid="uid://dekp0len3c0jk" path="res://resources/fonts/Minecraft.ttf" id="11_5nfd8"]
+[ext_resource type="PackedScene" uid="uid://btejc5uuj6r0f" path="res://objects/decoration/firefly.tscn" id="11_thjbw"]
+[ext_resource type="PackedScene" uid="uid://dndmix727sf5a" path="res://objects/decoration/moss.tscn" id="11_y4ofa"]
 [ext_resource type="Script" path="res://levels/FadeScreen.gd" id="12_4lfej"]
+[ext_resource type="PackedScene" uid="uid://bdbqbregiv5ws" path="res://fish/glowfish.tscn" id="16_d2wc5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pgyne"]
 size = Vector2(86, 95)
@@ -34,8 +38,9 @@ tracks/0/keys = {
 "values": [Color(0, 0, 0, 1)]
 }
 
-[sub_resource type="Animation" id="Animation_a38q1"]
-length = 0.001
+[sub_resource type="Animation" id="Animation_0hr1k"]
+resource_name = "drowning"
+length = 5.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -43,10 +48,10 @@ tracks/0/path = NodePath(".:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 2.1, 2.2, 4.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Color(0, 0, 0, 1)]
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1), Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_kdqa8"]
@@ -80,22 +85,6 @@ tracks/0/keys = {
 "values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_0hr1k"]
-resource_name = "drowning"
-length = 5.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 2.1, 2.2, 4.9),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1), Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_b7y1i"]
 _data = {
 "RESET": SubResource("Animation_a38q1"),
@@ -114,6 +103,7 @@ zoom = Vector2(2, 2)
 script = ExtResource("3_mr5m7")
 
 [node name="Darkness" type="DirectionalLight2D" parent="Misc"]
+visible = false
 z_index = 1000
 z_as_relative = false
 color = Color(0, 0, 0, 1)
@@ -182,6 +172,18 @@ points = PackedVector2Array(106, -7, 109, 121, 34, 124, 32, -10)
 position = Vector2(147, 10)
 points = PackedVector2Array(20, 112, 83, -6)
 
+[node name="Urchin" parent="Entities/Dangers" instance=ExtResource("10_kg56m")]
+position = Vector2(-9, 143)
+
+[node name="Lighting" type="Node2D" parent="Entities"]
+
+[node name="Firefly" parent="Entities/Lighting" instance=ExtResource("11_thjbw")]
+position = Vector2(-256, -146)
+
+[node name="Moss" parent="Entities/Lighting" instance=ExtResource("11_y4ofa")]
+position = Vector2(200, -128)
+rotation = 1.57079
+
 [node name="Player" parent="." instance=ExtResource("7_xxhsr")]
 position = Vector2(-268, -125)
 
@@ -209,5 +211,9 @@ script = ExtResource("12_4lfej")
 libraries = {
 "": SubResource("AnimationLibrary_b7y1i")
 }
+
+[node name="GlowFish" parent="." instance=ExtResource("16_d2wc5")]
+position = Vector2(-184, -76)
+pickable = true
 
 [connection signal="animation_finished" from="CanvasLayer/Faded/AnimationPlayer" to="CanvasLayer/Faded" method="_on_animation_player_animation_finished"]

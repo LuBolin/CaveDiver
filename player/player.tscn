@@ -32,7 +32,7 @@ radius = 5.0
 height = 14.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4ksd0"]
-radius = 8.0
+radius = 12.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fsp7w"]
 atlas = ExtResource("5_x37sp")
@@ -339,3 +339,4 @@ grow_vertical = 0
 tank_capacity = 30
 
 [connection signal="body_entered" from="RetrieveFishArea" to="RetrieveFishArea" method="_on_body_entered"]
+[connection signal="body_exited" from="RetrieveFishArea" to="RetrieveFishArea" method="_on_body_exited"]

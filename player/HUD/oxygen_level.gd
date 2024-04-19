@@ -18,6 +18,8 @@ var player: Player
 var state_drowning : bool
 var threshold : int = 20
 
+const DEFAULT_COLOR = Color("171615")
+
 func _ready():
 	var p = get_parent()
 	while not p is Player:
@@ -59,7 +61,7 @@ func _process(delta):
 	else:
 		lungs_label.set_text(str(snapped(lungs_left, 0.1)))
 		lungs_label.add_theme_color_override(\
-			"font_color", Color.WHITE)
+			"font_color", DEFAULT_COLOR)
 	
 	if tank_left <= 0:
 		tank_label.set_text("0")
@@ -68,5 +70,5 @@ func _process(delta):
 	else:
 		tank_label.set_text(str(snapped(tank_left, 0.1)))
 		tank_label.add_theme_color_override(\
-			"font_color", Color.WHITE)
+			"font_color", DEFAULT_COLOR)
 

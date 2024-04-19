@@ -22,7 +22,7 @@ func _ready():
 	Singleton.restart.connect(restart)
 	Singleton.escape.connect(to_menu)
 	Singleton.win.connect(win)
-	#darkness.visible = true
+	darkness.visible = true
 	water_shader.visible = true
 
 func restart():
