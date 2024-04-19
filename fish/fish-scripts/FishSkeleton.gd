@@ -21,7 +21,7 @@ func install(fish : Fish, fish_frames : SpriteFrames, fish_trail_gradient : Grad
 	anim_sprite.set_sprite_frames(fish_frames)
 	anim_sprite.play()
 	fish_trail.install(fish, fish_trail_gradient)
-	oxygen_light.energy_multiplier = b
+	oxygen_light.energy_addition = b
 
 func update(sprite_angle, delta):
 	anim_sprite.update(sprite_angle)

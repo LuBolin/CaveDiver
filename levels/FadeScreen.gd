@@ -14,6 +14,7 @@ func die():
 
 func next():
 	$AnimationPlayer.play("fade_to_black")
+	state = "win"
 
 func drowning():
 	$AnimationPlayer.play("drowning")
