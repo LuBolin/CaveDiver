@@ -38,7 +38,6 @@ script = ExtResource("4_46sr8")
 energy = 0.5
 range_layer_min = -2
 texture = ExtResource("5_s1lu8")
-texture_scale = 5.0
 script = ExtResource("6_2lvpw")
 
 [node name="AnimSprite" type="AnimatedSprite2D" parent="."]
@@ -51,5 +50,5 @@ volume_db = 10.0
 
 [node name="swim" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("7_rma25")
-volume_db = -20.0
+volume_db = -30.0
 autoplay = true

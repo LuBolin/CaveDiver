@@ -23,7 +23,6 @@ func _ready():
 	Singleton.escape.connect(to_menu)
 	Singleton.win.connect(win)
 	darkness.visible = true
-	water_shader.visible = true
 
 func restart():
 	get_tree().reload_current_scene()
