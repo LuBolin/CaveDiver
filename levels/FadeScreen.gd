@@ -6,6 +6,7 @@ func _ready():
 	Singleton.lose.connect(die)
 	Singleton.win.connect(next)
 	Singleton.drowning.connect(drowning)
+	$".".show()
 	$AnimationPlayer.play("fade_to_normal")
 
 func die():

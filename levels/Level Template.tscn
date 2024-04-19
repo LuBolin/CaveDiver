@@ -12,7 +12,7 @@
 [ext_resource type="Script" path="res://levels/FadeScreen.gd" id="12_4lfej"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pgyne"]
-size = Vector2(264, 80)
+size = Vector2(368, 80)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_35qm5"]
 size = Vector2(175, 107)
@@ -162,6 +162,7 @@ theme_override_font_sizes/font_size = 36
 text = "Level X"
 
 [node name="Faded" type="TextureRect" parent="CanvasLayer"]
+visible = false
 modulate = Color(0, 0, 0, 1)
 offset_left = -414.0
 offset_top = -335.0

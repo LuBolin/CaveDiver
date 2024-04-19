@@ -16,7 +16,8 @@ var tank_left = tank_capacity
 var player: Player
 
 var state_drowning : bool
-var threshold : int = 20
+var lung_threshold: int = 3
+var overal_threshold : int = 5
 
 const DEFAULT_COLOR = Color("171615")
 
@@ -38,17 +39,21 @@ func _physics_process(delta):
 			lungs_left = 0
 			test_drowning()
 	else:
+		state_drowning = false
 		if lungs_left < lung_capacity:
 			lungs_left = lung_capacity
 			var timer = get_tree().create_timer(0.15)
 			timer.timeout.connect($gasp.play)
 
 func test_drowning():
-	if lungs_left + tank_left < threshold and not state_drowning:
-		state_drowning = true
-		Singleton.drowning.emit()
-	else:
-		state_drowning = false
+	if lungs_left >= lung_threshold:
+		return
+	if lungs_left + tank_left >= overal_threshold:
+		return
+	if state_drowning:
+		return
+	state_drowning = true
+	Singleton.drowning.emit()
 	
 
 func _process(delta):
