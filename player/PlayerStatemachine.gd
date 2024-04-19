@@ -22,7 +22,10 @@ func change_state(new_state: State):
 	if current_state:
 		current_state.exit()
 	current_state = new_state
-	
+	if "water" in new_state.name:
+		player.drip_animator.hide()
+	else:
+		player.drip_animator.show()
 	# checks for buttons that are held down
 	var newer_state = current_state.enter()
 	if newer_state:
@@ -42,6 +45,7 @@ func process_frame(delta):
 	var movement = Input.get_axis("move_left", "move_right")
 	if movement != 0:
 		player.animations.flip_h = movement < 0
+		player.drip_animator.flip_h = movement < 0
 		if not woosh.is_playing():
 			woosh.play()
 	else:

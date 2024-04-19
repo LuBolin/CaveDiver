@@ -3,8 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://cv2yy61xyn4yf" path="res://player/assets/frame.png" id="1_letlw"]
 [ext_resource type="Texture2D" uid="uid://bdl1f1klfjfxh" path="res://fish/sprites/default_yellow_fish.png" id="1_ouv5h"]
 [ext_resource type="Script" path="res://player/HUD/fish_ammo.gd" id="2_limej"]
-[ext_resource type="FontFile" uid="uid://oc44ktq8rgys" path="res://resources/fonts/Xolonium-Regular.ttf" id="3_1reqb"]
-
+[ext_resource type="FontFile" uid="uid://dekp0len3c0jk" path="res://resources/fonts/Minecraft.ttf" id="4_4h1mq"]
 
 [node name="Fish_Ammo" type="TextureRect"]
 anchors_preset = 8
@@ -35,7 +34,7 @@ layout_mode = 0
 offset_top = 54.0
 offset_right = 40.0
 offset_bottom = 77.0
-theme_override_fonts/font = ExtResource("3_1reqb")
+theme_override_fonts/font = ExtResource("4_4h1mq")
 theme_override_font_sizes/font_size = 24
 text = "0
 "

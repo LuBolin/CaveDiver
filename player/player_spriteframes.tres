@@ -1,7 +1,7 @@
 [gd_resource type="SpriteFrames" load_steps=173 format=3 uid="uid://6xhup71bfrop"]
 
 [ext_resource type="Texture2D" uid="uid://dychhhdpvt7li" path="res://player/assets/anim_water_death.png" id="1_4vcns"]
-[ext_resource type="Texture2D" uid="uid://ch3j1bcxl4g67" path="res://player/assets/anim_land_idle.png" id="2_6d286"]
+[ext_resource type="Texture2D" uid="uid://bc8t3r0xq1tx3" path="res://player/assets/anim_land_idle.png" id="2_6d286"]
 [ext_resource type="Texture2D" uid="uid://chujva84sq3f1" path="res://player/assets/anim_land_fall.png" id="2_m1cqy"]
 [ext_resource type="Texture2D" uid="uid://tu8osjty2mpg" path="res://player/assets/anim_swim_idle.png" id="3_nvhlo"]
 [ext_resource type="Texture2D" uid="uid://bxwuked4whbmc" path="res://player/assets/anim_land_jump.png" id="4_75cce"]
@@ -155,71 +155,71 @@ region = Rect2(288, 0, 16, 18)
 atlas = ExtResource("2_m1cqy")
 region = Rect2(304, 0, 16, 18)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_6nrpy"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_uf7rv"]
 atlas = ExtResource("2_6d286")
 region = Rect2(0, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_7ngp2"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_yn6q8"]
 atlas = ExtResource("2_6d286")
 region = Rect2(16, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_rnsfr"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_lhrco"]
 atlas = ExtResource("2_6d286")
 region = Rect2(32, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_1sqen"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_b8h62"]
 atlas = ExtResource("2_6d286")
 region = Rect2(48, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_tnhfo"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_bsj11"]
 atlas = ExtResource("2_6d286")
 region = Rect2(64, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_qjf2j"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_rkxyt"]
 atlas = ExtResource("2_6d286")
 region = Rect2(80, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_sv1yp"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_54w1v"]
 atlas = ExtResource("2_6d286")
 region = Rect2(96, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_iv5dx"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_ay4ww"]
 atlas = ExtResource("2_6d286")
 region = Rect2(112, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_lstnw"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_y1i3w"]
 atlas = ExtResource("2_6d286")
 region = Rect2(128, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_b5dry"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_l1p5v"]
 atlas = ExtResource("2_6d286")
 region = Rect2(144, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_6lml1"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_eailt"]
 atlas = ExtResource("2_6d286")
 region = Rect2(160, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_v5x7f"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_q2sn6"]
 atlas = ExtResource("2_6d286")
 region = Rect2(176, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_jysom"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_73mpc"]
 atlas = ExtResource("2_6d286")
 region = Rect2(192, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_rvhq8"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_1wghh"]
 atlas = ExtResource("2_6d286")
 region = Rect2(208, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ax2h5"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_0k7np"]
 atlas = ExtResource("2_6d286")
 region = Rect2(224, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_xhbtn"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_3ewdn"]
 atlas = ExtResource("2_6d286")
 region = Rect2(240, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_gv3f3"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_77u1w"]
 atlas = ExtResource("2_6d286")
 region = Rect2(256, 0, 16, 16)
 
@@ -795,55 +795,55 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_6nrpy")
+"texture": SubResource("AtlasTexture_uf7rv")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_7ngp2")
+"texture": SubResource("AtlasTexture_yn6q8")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_rnsfr")
+"texture": SubResource("AtlasTexture_lhrco")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_1sqen")
+"texture": SubResource("AtlasTexture_b8h62")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_tnhfo")
+"texture": SubResource("AtlasTexture_bsj11")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_qjf2j")
+"texture": SubResource("AtlasTexture_rkxyt")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_sv1yp")
+"texture": SubResource("AtlasTexture_54w1v")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_iv5dx")
+"texture": SubResource("AtlasTexture_ay4ww")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_lstnw")
+"texture": SubResource("AtlasTexture_y1i3w")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_b5dry")
+"texture": SubResource("AtlasTexture_l1p5v")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_6lml1")
+"texture": SubResource("AtlasTexture_eailt")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_v5x7f")
+"texture": SubResource("AtlasTexture_q2sn6")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_jysom")
+"texture": SubResource("AtlasTexture_73mpc")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_rvhq8")
+"texture": SubResource("AtlasTexture_1wghh")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ax2h5")
+"texture": SubResource("AtlasTexture_0k7np")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_xhbtn")
+"texture": SubResource("AtlasTexture_3ewdn")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_gv3f3")
+"texture": SubResource("AtlasTexture_77u1w")
 }],
 "loop": true,
 "name": &"land_idle",
