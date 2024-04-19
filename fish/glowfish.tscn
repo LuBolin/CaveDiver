@@ -1,0 +1,32 @@
+[gd_scene load_steps=7 format=3 uid="uid://bdbqbregiv5ws"]
+
+[ext_resource type="Script" path="res://fish/fish-scripts/Fish.gd" id="1_ptnko"]
+[ext_resource type="Script" path="res://fish/FishTypes/FishTypeGlow.gd" id="2_mnxxv"]
+[ext_resource type="SpriteFrames" uid="uid://cd4m3mpm8cylb" path="res://fish/sprites/glow_fish_sf.tres" id="3_7kt4o"]
+[ext_resource type="PackedScene" uid="uid://cr1vireck1kai" path="res://fish/fish_skeleton.tscn" id="4_n8ky8"]
+
+
+[sub_resource type="Gradient" id="Gradient_t6ecv"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 0.627451, 0, 1)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tup3n"]
+radius = 4.0
+
+[node name="GlowFish" type="CharacterBody2D"]
+top_level = true
+z_index = 50
+z_as_relative = false
+collision_layer = 2
+script = ExtResource("1_ptnko")
+
+[node name="FishType" type="Node" parent="."]
+script = ExtResource("2_mnxxv")
+fish_sprite_frames = ExtResource("3_7kt4o")
+fish_trail_gradient = SubResource("Gradient_t6ecv")
+fish_ammo_type = 3
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_tup3n")
+one_way_collision = true
+
+[node name="FishSkeleton" parent="." instance=ExtResource("4_n8ky8")]

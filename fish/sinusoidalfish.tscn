@@ -1,0 +1,34 @@
+[gd_scene load_steps=7 format=3 uid="uid://bklcldpxvdiad"]
+
+[ext_resource type="Script" path="res://fish/fish-scripts/Fish.gd" id="1_7tkhu"]
+[ext_resource type="Script" path="res://fish/FishTypes/FishTypeSinusoidal.gd" id="2_2dmav"]
+[ext_resource type="SpriteFrames" uid="uid://yhuwihkbbnpq" path="res://fish/sprites/sine_fish_sf.tres" id="3_r0mjv"]
+[ext_resource type="PackedScene" uid="uid://cr1vireck1kai" path="res://fish/fish_skeleton.tscn" id="4_66d2o"]
+
+
+[sub_resource type="Gradient" id="Gradient_w7tjq"]
+offsets = PackedFloat32Array(0, 0.1, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1)
+colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 1, 0.803922, 0.25098, 1, 1, 0.501961, 0, 1, 1, 0, 0, 1, 1, 0, 1, 0.141176, 1, 1, 1, 0, 1, 1, 0.552941, 0.109804, 1, 1, 0, 0, 1)
+metadata/_snap_enabled = true
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ohq10"]
+radius = 4.0
+
+[node name="Sinusoidalfish" type="CharacterBody2D"]
+top_level = true
+z_index = 50
+z_as_relative = false
+collision_layer = 2
+script = ExtResource("1_7tkhu")
+
+[node name="FishType" type="Node" parent="."]
+script = ExtResource("2_2dmav")
+fish_sprite_frames = ExtResource("3_r0mjv")
+fish_trail_gradient = SubResource("Gradient_w7tjq")
+fish_ammo_type = 1
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_ohq10")
+one_way_collision = true
+
+[node name="FishSkeleton" parent="." instance=ExtResource("4_66d2o")]

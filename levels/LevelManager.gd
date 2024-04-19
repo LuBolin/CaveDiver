@@ -34,5 +34,5 @@ func to_menu():
 func win():
 	Singleton.levelsBeaten.append(level_num)
 	Singleton.save_data()
-	await get_tree().create_timer(2).timeout
+	await get_tree().create_timer(2.5).timeout
 	to_menu()
