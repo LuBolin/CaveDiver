@@ -10,8 +10,9 @@ func _ready():
 	for f in get_children():
 		if f is FishAmmo:
 			my_fishes.append(f)
-	for i in player.initial_fishes:
-		for j in range(i):
+	for i in player.initial_fishes.size():
+		var count = player.initial_fishes[i]
+		for j in range(count):
 			my_fishes[i].push_fish()
 	scroll(0)
 
@@ -52,9 +53,9 @@ func _input(event):
 			KEY_1:
 				scroll_to(FishType.FishTypeEnum.Basic)
 			KEY_2:
-				scroll_to(FishType.FishTypeEnum.Sine)
-			KEY_3:
 				scroll_to(FishType.FishTypeEnum.Jet)
+			KEY_3:
+				scroll_to(FishType.FishTypeEnum.Sine)
 			KEY_4:
 				scroll_to(FishType.FishTypeEnum.Glow)
 		if Input.is_key_pressed(KEY_SHIFT):

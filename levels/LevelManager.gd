@@ -3,7 +3,7 @@ extends Node2D
 
 @onready var main_menu: PackedScene = preload("res://levels/MainMenu/MainMenu.tscn")
 @onready var darkness: DirectionalLight2D = $Misc/Darkness
-@onready var water_shader: TextureRect = $World/Water_Shader
+#@onready var water_shader: TextureRect = $World/Water_Shader
 @onready var level_label: Label = $CanvasLayer/LevelLabel
 # Called when the node enters the scene tree for the first time.
 

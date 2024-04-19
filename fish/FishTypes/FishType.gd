@@ -7,8 +7,8 @@ extends Node
 
 enum FishTypeEnum {
 	Basic,
-	Sine,
 	Jet,
+	Sine,
 	Glow
 }
 
