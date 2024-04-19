@@ -3,6 +3,7 @@ signal win
 signal lose
 signal restart
 signal escape
+signal drowning
 
 const SAVE_FILE_PATH = "user://saves/LevelsBeaten.dat"
 

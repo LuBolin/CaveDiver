@@ -147,7 +147,6 @@ volume_db = 3.0
 
 [node name="woosh" type="AudioStreamPlayer2D" parent="StateMachine"]
 stream = ExtResource("13_fqt3o")
-volume_db = -1.0
 
 [node name="StateLabel" type="Label" parent="."]
 offset_left = -19.5
