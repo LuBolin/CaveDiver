@@ -1,21 +1,90 @@
-[gd_scene load_steps=8 format=3 uid="uid://c1dr63pe1527k"]
+[gd_scene load_steps=18 format=3 uid="uid://c1dr63pe1527k"]
 
 [ext_resource type="Script" path="res://objects/shark/Shark.gd" id="1_ugetu"]
 [ext_resource type="Script" path="res://objects/shark/SharkBody.gd" id="2_teqiw"]
-[ext_resource type="Texture2D" uid="uid://dk2mth0lx7gbf" path="res://objects/shark/shark.png" id="3_nvoq6"]
+[ext_resource type="Texture2D" uid="uid://7cpqy5tn7tug" path="res://objects/shark/shark_bite.png" id="3_rfx4i"]
+[ext_resource type="Texture2D" uid="uid://ctox2fxn4xst0" path="res://objects/shark/shark_anim.png" id="3_ywoia"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3qjf7"]
 height = 36.0
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_kw6jx"]
-atlas = ExtResource("3_nvoq6")
+[sub_resource type="AtlasTexture" id="AtlasTexture_4c72p"]
+atlas = ExtResource("3_rfx4i")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_52cmd"]
+atlas = ExtResource("3_rfx4i")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k3wbx"]
+atlas = ExtResource("3_rfx4i")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6or0n"]
+atlas = ExtResource("3_rfx4i")
+region = Rect2(192, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vvw7a"]
+atlas = ExtResource("3_ywoia")
 region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rj4dj"]
+atlas = ExtResource("3_ywoia")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0xwwx"]
+atlas = ExtResource("3_ywoia")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l1aru"]
+atlas = ExtResource("3_ywoia")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ydgrv"]
+atlas = ExtResource("3_ywoia")
+region = Rect2(192, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mnkmw"]
+atlas = ExtResource("3_ywoia")
+region = Rect2(240, 0, 48, 48)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_64son"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_kw6jx")
+"texture": SubResource("AtlasTexture_4c72p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_52cmd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k3wbx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6or0n")
+}],
+"loop": false,
+"name": &"chomp",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vvw7a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rj4dj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0xwwx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l1aru")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ydgrv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mnkmw")
 }],
 "loop": true,
 "name": &"default",
@@ -39,13 +108,17 @@ script = ExtResource("2_teqiw")
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Shark/KillZone"]
+position = Vector2(3, 0)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_3qjf7")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Shark"]
 position = Vector2(0, -3)
 sprite_frames = SubResource("SpriteFrames_64son")
+animation = &"chomp"
 autoplay = "default"
+frame = 3
+frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Shark"]
 rotation = 1.5708
