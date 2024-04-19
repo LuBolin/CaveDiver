@@ -1,12 +1,18 @@
 extends TextureRect
 
+var state : String = ""
+
 func _ready():
-	Singleton.lose.connect(play)
-	Singleton.win.connect(play)
+	Singleton.lose.connect(die)
+	Singleton.win.connect(next)
 	Singleton.drowning.connect(drowning)
 	$AnimationPlayer.play("fade_to_normal")
 
-func play():
+func die():
+	$AnimationPlayer.play("fade_to_black")
+	state = "die"
+
+func next():
 	$AnimationPlayer.play("fade_to_black")
 
 func drowning():
@@ -14,4 +20,9 @@ func drowning():
 
 func _on_animation_player_animation_finished(anim_name):
 	if anim_name == "fade_to_black":
-		Singleton.restart.emit()
+		match(state):
+			"die":
+				Singleton.restart.emit()
+			"win":
+				pass
+		state = ""

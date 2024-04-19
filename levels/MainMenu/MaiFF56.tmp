@@ -1,10 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://c8rw51gwceyv1"]
+[gd_scene load_steps=10 format=3 uid="uid://c8rw51gwceyv1"]
 
 [ext_resource type="Script" path="res://levels/MainMenu/MainMenu.gd" id="1_5c725"]
 [ext_resource type="FontFile" uid="uid://bi2sdfixosf2v" path="res://resources/fonts/paper_cut.ttf" id="3_0slis"]
-[ext_resource type="Shader" path="res://levels/MainMenu/MainMenuBackground.gdshader" id="4_03x64"]
 [ext_resource type="FontFile" uid="uid://oc44ktq8rgys" path="res://resources/fonts/Xolonium-Regular.ttf" id="4_jq88i"]
 [ext_resource type="Texture2D" uid="uid://cqudevowpmm1x" path="res://levels/MainMenu/tutorial.png" id="5_2fspu"]
+[ext_resource type="Script" path="res://levels/MainMenu/MainMenuParallex.gd" id="5_2qack"]
 [ext_resource type="Texture2D" uid="uid://doh700gtklkfl" path="res://levels/background.png" id="5_fv3cf"]
 
 [sub_resource type="Animation" id="Animation_ysx83"]
@@ -55,9 +55,6 @@ _data = {
 "RESET": SubResource("Animation_ysx83"),
 "init_fade": SubResource("Animation_ge4pr")
 }
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_s6r3u"]
-shader = ExtResource("4_03x64")
 
 [node name="MainScreen" type="Node2D"]
 script = ExtResource("1_5c725")
@@ -148,20 +145,6 @@ theme_override_fonts/font = ExtResource("4_jq88i")
 theme_override_font_sizes/font_size = 48
 text = "Reset Beaten Levels"
 
-[node name="Control" type="Control" parent="MainMenu"]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="Background" type="TextureRect" parent="MainMenu/Control"]
-texture_repeat = 2
-material = SubResource("ShaderMaterial_s6r3u")
-custom_minimum_size = Vector2(1280, 720)
-offset_right = 512.0
-offset_bottom = 288.0
-texture = ExtResource("5_fv3cf")
-
 [node name="TutorialMenu" type="CanvasLayer" parent="."]
 visible = false
 
@@ -194,6 +177,16 @@ text = "Back
 points = PackedVector2Array(-576, 324, 576, 324, 576, -324, -576, -324)
 closed = true
 default_color = Color(0, 0.392157, 0.392157, 1)
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+script = ExtResource("5_2qack")
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(512, 288)
+
+[node name="Background" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+texture_repeat = 2
+texture = ExtResource("5_fv3cf")
 
 [connection signal="pressed" from="MainMenu/VBoxContainer/TutorialButton" to="." method="_on_tutorial_button_pressed"]
 [connection signal="pressed" from="MainMenu/VBoxContainer/ClearBeatenButton" to="." method="_on_clear_beaten_button_pressed"]
