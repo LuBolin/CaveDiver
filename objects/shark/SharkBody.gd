@@ -57,11 +57,9 @@ func _physics_process(delta):
 func _on_kill_zone_body_entered(body):
 	if body == self:
 		return
-	if body is Fish:
+	if body is Fish or body is Player:
 		body.die()
-	if body is Player:
-		body.die()
-	sprite.play("chomp")
+		sprite.play("chomp")
 
 func play_default_anim():
 	if not (sprite.get_animation() == "default"):
