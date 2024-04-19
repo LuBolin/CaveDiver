@@ -9,8 +9,16 @@ var water_move_state: State
 @export
 var water_sink_state: State
 
+@onready
+var drip_animator: AnimatedSprite2D = $"../../Renderer/DripWater"
+
 func enter():
 	super()
+	drip_animator.stop()
+
+func exit():
+	super()
+	drip_animator.play()
 
 func process_physics(delta: float):
 	if parent.in_water:

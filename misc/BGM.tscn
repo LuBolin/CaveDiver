@@ -1,12 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://b6cn5bxpbm600"]
+[gd_scene load_steps=4 format=3 uid="uid://b6cn5bxpbm600"]
 
 [ext_resource type="Script" path="res://misc/BGM.gd" id="1_5wxx5"]
-[ext_resource type="AudioStream" uid="uid://epj42q8yj8n4" path="res://resources/audio/bgm.mp3" id="1_841n8"]
+[ext_resource type="AudioStream" uid="uid://dugnlhv7vb71i" path="res://resources/audio/level_bgm.mp3" id="2_kv8al"]
+[ext_resource type="AudioStream" uid="uid://bpiw2l1mw2ogk" path="res://resources/audio/menu_bgm.mp3" id="3_qqenr"]
 
 [node name="Bgm" type="Node"]
 script = ExtResource("1_5wxx5")
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("1_841n8")
+[node name="level" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_kv8al")
 volume_db = -20.0
 autoplay = true
+
+[node name="menu" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_qqenr")
+volume_db = -20.0
