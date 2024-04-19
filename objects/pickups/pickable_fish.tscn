@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://b2610poqla0xq"]
+
+[ext_resource type="PackedScene" uid="uid://bdbqbregiv5ws" path="res://fish/glowfish.tscn" id="1_fum3f"]
+
+[node name="PickableFish" type="Node2D"]
+
+[node name="GlowFish" parent="." instance=ExtResource("1_fum3f")]

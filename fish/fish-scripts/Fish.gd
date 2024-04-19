@@ -10,13 +10,22 @@ extends CharacterBody2D
 # @export var fish_skeleton : FishSkeleton
 @onready var fish_skeleton : FishSkeleton = $FishSkeleton
 
+@export var pickable: bool = false
+
 var live : bool
 var speed : int
 var in_water: bool = true
+var left_player: bool = false
 
 func _ready():
 	fish_type.initialise(self, fish_skeleton, die)
 	var root_node = get_tree().root.get_node('LevelRoot')
+	if pickable:
+		left_player = true
+		set_physics_process(false)
+		set_process(false)
+		set_process_input(false)
+		set_process_unhandled_input(false)
 
 func _process(delta):
 	update(delta)

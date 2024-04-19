@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://dndmix727sf5a"]
+
+[ext_resource type="Texture2D" uid="uid://bteqkxejmlhbm" path="res://resources/sprites/light_circle.png" id="1_bsyx3"]
+[ext_resource type="Texture2D" uid="uid://cko0henpuelew" path="res://objects/decoration/moss1.png" id="1_l0w7p"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fin5n"]
+atlas = ExtResource("1_l0w7p")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ery5l"]
+atlas = ExtResource("1_l0w7p")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_m2st6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fin5n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ery5l")
+}],
+"loop": true,
+"name": &"default",
+"speed": 0.5
+}]
+
+[node name="Moss" type="PointLight2D"]
+color = Color(0, 0.282353, 0.0156863, 1)
+energy = 0.5
+texture = ExtResource("1_bsyx3")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_m2st6")
+autoplay = "default"
+frame_progress = 0.565019

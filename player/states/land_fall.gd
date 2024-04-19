@@ -14,6 +14,8 @@ func enter():
 
 func process_physics(delta):
 	parent.velocity.y += gravity * delta
+	if parent.velocity.y > terminal_fall_speed:
+		parent.velocity.y = terminal_fall_speed
 	parent.move_and_slide()
 	
 	var movement = Input.get_axis("move_left", "move_right") \
@@ -22,7 +24,8 @@ func process_physics(delta):
 	parent.move_and_slide()
 	
 	if parent.in_water:      
-		parent.velocity.y *= 0.5
+		# parent.velocity.y *= 0.1
+		parent.velocity.y = 0
 		return water_idle_state
 
 	if parent.is_on_floor():

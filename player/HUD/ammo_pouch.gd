@@ -40,12 +40,12 @@ func scroll_to(target: int):
 	my_fishes[current_index].set_selected(true)
 
 func _input(event):
-	if event is InputEventMouseButton and event.is_pressed():
-		match event.button_index:
-			MOUSE_BUTTON_WHEEL_UP:
-				scroll(-1)
-			MOUSE_BUTTON_WHEEL_DOWN:
-				scroll(1)
+	#if event is InputEventMouseButton and event.is_pressed():
+		#match event.button_index:
+			#MOUSE_BUTTON_WHEEL_UP:
+				#scroll(-1)
+			#MOUSE_BUTTON_WHEEL_DOWN:
+				#scroll(1)
 	if event is InputEventKey and event.is_pressed():
 		match event.keycode:
 			KEY_1:
