@@ -2,21 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-<<<<<<< HEAD:resources/sprites/arrow.png.import
-uid="uid://do8voppctjmh1"
-path="res://.godot/imported/arrow.png-ee22b3040f0b2fe779dbbb3ead8dbe37.ctex"
-=======
-uid="uid://dwrel4o0rfjxx"
-path="res://.godot/imported/arrow.png-dce5b958836f63f8f79b647c5afb9671.ctex"
->>>>>>> master:player/assets/arrow.png.import
+uid="uid://ceq5fqnmi4av7"
+path="res://.godot/imported/cone.png-0ca1d693ea825736c381ae1a2bf16777.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://player/assets/arrow.png"
-dest_files=["res://.godot/imported/arrow.png-dce5b958836f63f8f79b647c5afb9671.ctex"]
+source_file="res://resources/sprites/cone.png"
+dest_files=["res://.godot/imported/cone.png-0ca1d693ea825736c381ae1a2bf16777.ctex"]
 
 [params]
 
