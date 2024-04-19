@@ -11,7 +11,7 @@ var bounds = null
 func _ready():
 	var used_rect: Rect2i = tile_map.get_used_rect()
 	var tile_size: Vector2i = tile_map.get_tileset().get_tile_size()
-	print("TIlemap ratio: ", used_rect)
+	# print("TIlemap ratio: ", used_rect)
 	var tm_pos: Vector2 = tile_map.global_position
 	
 	bounds = Rect2(\
