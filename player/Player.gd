@@ -64,3 +64,4 @@ func pickup_fish(fish_type_enum: FishType.FishTypeEnum):
 @onready var death_state: State = $StateMachine/death
 func die():
 	state_machine.change_state(death_state)
+	
