@@ -1,15 +1,13 @@
-[gd_scene load_steps=11 format=3 uid="uid://c8rw51gwceyv1"]
+[gd_scene load_steps=13 format=3 uid="uid://c8rw51gwceyv1"]
 
 [ext_resource type="Script" path="res://levels/MainMenu/MainMenu.gd" id="1_5c725"]
 [ext_resource type="FontFile" uid="uid://bi2sdfixosf2v" path="res://resources/fonts/paper_cut.ttf" id="3_0slis"]
-
-[ext_resource type="Shader" path="res://levels/MainMenu/MainMenuBackground.gdshader" id="4_03x64"]
-[ext_resource type="Texture2D" uid="uid://doh700gtklkfl" path="res://levels/background.png" id="5_fv3cf"]
 [ext_resource type="FontFile" uid="uid://dekp0len3c0jk" path="res://resources/fonts/Minecraft.ttf" id="3_23kkw"]
+[ext_resource type="Shader" path="res://levels/MainMenu/MainMenuBackground.gdshader" id="4_03x64"]
 [ext_resource type="FontFile" uid="uid://oc44ktq8rgys" path="res://resources/fonts/Xolonium-Regular.ttf" id="4_jq88i"]
 [ext_resource type="Texture2D" uid="uid://cqudevowpmm1x" path="res://levels/MainMenu/tutorial.png" id="5_2fspu"]
 [ext_resource type="Texture2D" uid="uid://cu7t7aqacbexe" path="res://resources/sprites/logo.png" id="5_a705a"]
-
+[ext_resource type="Texture2D" uid="uid://doh700gtklkfl" path="res://levels/background.png" id="5_fv3cf"]
 
 [sub_resource type="Animation" id="Animation_ysx83"]
 length = 0.001
@@ -79,6 +77,21 @@ autoplay = "init_fade"
 speed_scale = 0.5
 
 [node name="MainMenu" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="MainMenu"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Background" type="TextureRect" parent="MainMenu/Control"]
+texture_repeat = 2
+material = SubResource("ShaderMaterial_s6r3u")
+custom_minimum_size = Vector2(1280, 720)
+layout_mode = 0
+offset_right = 512.0
+offset_bottom = 288.0
+texture = ExtResource("5_fv3cf")
 
 [node name="MainModulate" type="CanvasModulate" parent="MainMenu"]
 
@@ -154,18 +167,6 @@ theme_override_fonts/font = ExtResource("4_jq88i")
 theme_override_font_sizes/font_size = 48
 text = "Reset Beaten Levels"
 
-[node name="Control" type="Control" parent="MainMenu"]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-[node name="Background" type="TextureRect" parent="MainMenu/Control"]
-texture_repeat = 2
-material = SubResource("ShaderMaterial_s6r3u")
-custom_minimum_size = Vector2(1280, 720)
-offset_right = 512.0
-offset_bottom = 288.0
-texture = ExtResource("5_fv3cf")
 [node name="Logo" type="TextureRect" parent="MainMenu"]
 anchors_preset = 5
 anchor_left = 0.5

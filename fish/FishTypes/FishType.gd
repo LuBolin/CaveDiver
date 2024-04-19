@@ -33,7 +33,7 @@ func initialise(f : Fish, skeleton : FishSkeleton, d : Callable) -> void:
 var speed : int = 0
 var size : float = 1
 var stamina : float = 100
-var brightness : float = 1
+var brightness : float = 0.1
 
 
 ## Define how the fish moves
