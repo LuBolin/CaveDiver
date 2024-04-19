@@ -9,6 +9,12 @@ extends Node2D
 const lvl_scenes_dir = "res://levels"
 # "Level X.tscn"
 var lvl_scene_name_regex = RegEx.new()
+@export var lvl_1: PackedScene
+@export var lvl_2: PackedScene
+@export var lvl_3: PackedScene
+@export var lvl_4: PackedScene
+@export var lvl_5: PackedScene
+@export var lvl_6: PackedScene
 
 var levels = []
 
@@ -26,14 +32,23 @@ func _ready():
 	main_canvas.show()
 	tutorial_canvas.hide()
 
+# auto_loading breaks on html5 export
+# for the sake of game jam
+# just patch it up like this for now
 func init_levels():
-	var dir = DirAccess.open(lvl_scenes_dir)
-	for f in dir.get_files():
-		if lvl_scene_name_regex.search(f):
-			var lvl_scene = load(lvl_scenes_dir + "//" + f)
-			var lvl_digits = f.length()-11 #"Level ".length() - ".tscn".length()
-			var lvl_num = int(f.substr(6,lvl_digits))
-			levels.append([lvl_num, lvl_scene])
+	levels.append([1, lvl_1])
+	levels.append([2, lvl_2])
+	levels.append([3, lvl_3])
+	levels.append([4, lvl_4])
+	levels.append([5, lvl_5])
+	levels.append([6, lvl_6])
+	#var dir = DirAccess.open(lvl_scenes_dir)
+	#for f in dir.get_files():
+		#if lvl_scene_name_regex.search(f):
+			#var lvl_scene = load(lvl_scenes_dir + "//" + f)
+			#var lvl_digits = f.length()-11 #"Level ".length() - ".tscn".length()
+			#var lvl_num = int(f.substr(6,lvl_digits))
+			#levels.append([lvl_num, lvl_scene])
 
 func gotoLevel(lvl_scene):
 	get_tree().change_scene_to_packed(lvl_scene)

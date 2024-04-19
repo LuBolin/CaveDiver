@@ -1,7 +1,6 @@
 class_name LevelManager
 extends Node2D
 
-@onready var main_menu: PackedScene = preload("res://levels/MainMenu/MainMenu.tscn")
 @onready var darkness: DirectionalLight2D = $Misc/Darkness
 #@onready var water_shader: TextureRect = $World/Water_Shader
 @onready var level_label: Label = $CanvasLayer/LevelLabel
@@ -28,6 +27,7 @@ func restart():
 	get_tree().reload_current_scene()
 
 func to_menu():
+	var main_menu: PackedScene = load("res://levels/MainMenu/MainMenu.tscn")
 	get_tree().change_scene_to_packed(main_menu)
 
 func win():

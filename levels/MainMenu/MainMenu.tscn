@@ -1,13 +1,19 @@
-[gd_scene load_steps=13 format=3 uid="uid://c8rw51gwceyv1"]
+[gd_scene load_steps=19 format=3 uid="uid://c8rw51gwceyv1"]
 
 [ext_resource type="Script" path="res://levels/MainMenu/MainMenu.gd" id="1_5c725"]
+[ext_resource type="PackedScene" uid="uid://ciknaj5uxmmej" path="res://levels/Level 1.tscn" id="2_gs84e"]
 [ext_resource type="FontFile" uid="uid://bi2sdfixosf2v" path="res://resources/fonts/paper_cut.ttf" id="3_0slis"]
 [ext_resource type="FontFile" uid="uid://dekp0len3c0jk" path="res://resources/fonts/Minecraft.ttf" id="3_23kkw"]
+[ext_resource type="PackedScene" uid="uid://dothshj1wmvxq" path="res://levels/Level 2.tscn" id="3_gdbet"]
 [ext_resource type="Shader" path="res://levels/MainMenu/MainMenuBackground.gdshader" id="4_03x64"]
+[ext_resource type="PackedScene" uid="uid://sh2j000ur77q" path="res://levels/Level 3.tscn" id="4_40eex"]
 [ext_resource type="FontFile" uid="uid://oc44ktq8rgys" path="res://resources/fonts/Xolonium-Regular.ttf" id="4_jq88i"]
 [ext_resource type="Texture2D" uid="uid://cqudevowpmm1x" path="res://levels/MainMenu/tutorial.png" id="5_2fspu"]
 [ext_resource type="Texture2D" uid="uid://cu7t7aqacbexe" path="res://resources/sprites/logo.png" id="5_a705a"]
 [ext_resource type="Texture2D" uid="uid://doh700gtklkfl" path="res://levels/background.png" id="5_fv3cf"]
+[ext_resource type="PackedScene" uid="uid://dc02l0jlo77d8" path="res://levels/Level 4.tscn" id="5_oca56"]
+[ext_resource type="PackedScene" uid="uid://dai3ddy3lwio8" path="res://levels/Level 5.tscn" id="6_au325"]
+[ext_resource type="PackedScene" uid="uid://csj2k2hb5d5s0" path="res://levels/Level 6.tscn" id="7_6xmg5"]
 
 [sub_resource type="Animation" id="Animation_ysx83"]
 length = 0.001
@@ -63,6 +69,12 @@ shader = ExtResource("4_03x64")
 
 [node name="MainScreen" type="Node2D"]
 script = ExtResource("1_5c725")
+lvl_1 = ExtResource("2_gs84e")
+lvl_2 = ExtResource("3_gdbet")
+lvl_3 = ExtResource("4_40eex")
+lvl_4 = ExtResource("5_oca56")
+lvl_5 = ExtResource("6_au325")
+lvl_6 = ExtResource("7_6xmg5")
 
 [node name="BgModulate" type="CanvasModulate" parent="."]
 

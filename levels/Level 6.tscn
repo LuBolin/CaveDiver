@@ -116,8 +116,8 @@ points = PackedVector2Array(3, 6, 3, 126)
 speed = 20.0
 
 [node name="Player" parent="." index="3"]
-position = Vector2(-20, -120)
-initial_fishes = Array[int]([2, 2, 2, 0])
+position = Vector2(-17, -114)
+initial_fishes = Array[int]([1, 1, 1, 0])
 
 [node name="GlowFish" parent="." index="5" instance=ExtResource("4_ifycj")]
 position = Vector2(334, -25)
