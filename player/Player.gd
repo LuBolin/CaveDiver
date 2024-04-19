@@ -2,7 +2,7 @@ class_name Player
 extends CharacterBody2D
 
 @onready
-var animations = $Renderer/AnimatedSprite
+var animations = $Renderer/MainAnimator
 @onready
 var state_machine = $StateMachine
 @onready
@@ -14,6 +14,10 @@ var splash: AudioStreamPlayer2D = $StateMachine/splash
 var ammo_pouch: AmmoPouch = $CanvasLayer/AmmoPouch
 @onready
 var oxygen_level: OxygenLevel = $CanvasLayer/OxygenLevel
+
+@onready
+var drip_animator: AnimatedSprite2D = $Renderer/DripWater
+
 
 var alive: bool = true
 var in_water: bool = false :
@@ -64,4 +68,3 @@ func pickup_fish(fish_type_enum: FishType.FishTypeEnum):
 @onready var death_state: State = $StateMachine/death
 func die():
 	state_machine.change_state(death_state)
-	

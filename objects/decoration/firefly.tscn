@@ -1,0 +1,50 @@
+[gd_scene load_steps=8 format=3 uid="uid://btejc5uuj6r0f"]
+
+[ext_resource type="Texture2D" uid="uid://bteqkxejmlhbm" path="res://resources/sprites/light_circle.png" id="1_qwrcw"]
+[ext_resource type="Texture2D" uid="uid://bv45sn6pov47t" path="res://objects/decoration/firefly.png" id="2_6lw4o"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0woh6"]
+atlas = ExtResource("2_6lw4o")
+region = Rect2(0, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_al1yr"]
+atlas = ExtResource("2_6lw4o")
+region = Rect2(8, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_shaep"]
+atlas = ExtResource("2_6lw4o")
+region = Rect2(16, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ghylg"]
+atlas = ExtResource("2_6lw4o")
+region = Rect2(24, 0, 8, 8)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_m8h7q"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0woh6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_al1yr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_shaep")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ghylg")
+}],
+"loop": true,
+"name": &"default",
+"speed": 4.0
+}]
+
+[node name="Firefly" type="PointLight2D"]
+color = Color(1, 0.85098, 0.517647, 1)
+energy = 0.7
+texture = ExtResource("1_qwrcw")
+texture_scale = 1.5
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_m8h7q")
+frame_progress = 0.836517

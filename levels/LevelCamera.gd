@@ -32,6 +32,13 @@ func _process(delta):
 
 func _input(event):
 	if event is InputEventMouseButton and event.is_pressed():
+		match event.button_index:
+			MOUSE_BUTTON_WHEEL_UP:
+				adjust_zoom(1)
+			MOUSE_BUTTON_WHEEL_DOWN:
+				adjust_zoom(-1)
+
+	if event is InputEventMouseButton and event.is_pressed():
 		if event.button_index == MOUSE_BUTTON_RIGHT:
 			toggle_zoom()
 

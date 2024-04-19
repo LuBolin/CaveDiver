@@ -11,9 +11,9 @@ config_version=5
 [application]
 
 config/name="CaveDiver"
-run/main_scene="res://levels/sandbox.tscn"
+run/main_scene="res://levels/MainMenu/MainMenu.tscn"
 config/features=PackedStringArray("4.2", "Mobile")
-config/icon="res://resources/sprites/icon.png"
+config/icon="res://resources/sprites/logo.png"
 
 [audio]
 

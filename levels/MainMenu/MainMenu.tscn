@@ -2,10 +2,14 @@
 
 [ext_resource type="Script" path="res://levels/MainMenu/MainMenu.gd" id="1_5c725"]
 [ext_resource type="FontFile" uid="uid://bi2sdfixosf2v" path="res://resources/fonts/paper_cut.ttf" id="3_0slis"]
+
 [ext_resource type="Shader" path="res://levels/MainMenu/MainMenuBackground.gdshader" id="4_03x64"]
+[ext_resource type="Texture2D" uid="uid://doh700gtklkfl" path="res://levels/background.png" id="5_fv3cf"]
+[ext_resource type="FontFile" uid="uid://dekp0len3c0jk" path="res://resources/fonts/Minecraft.ttf" id="3_23kkw"]
 [ext_resource type="FontFile" uid="uid://oc44ktq8rgys" path="res://resources/fonts/Xolonium-Regular.ttf" id="4_jq88i"]
 [ext_resource type="Texture2D" uid="uid://cqudevowpmm1x" path="res://levels/MainMenu/tutorial.png" id="5_2fspu"]
-[ext_resource type="Texture2D" uid="uid://doh700gtklkfl" path="res://levels/background.png" id="5_fv3cf"]
+[ext_resource type="Texture2D" uid="uid://cu7t7aqacbexe" path="res://resources/sprites/logo.png" id="5_a705a"]
+
 
 [sub_resource type="Animation" id="Animation_ysx83"]
 length = 0.001
@@ -79,6 +83,7 @@ speed_scale = 0.5
 [node name="MainModulate" type="CanvasModulate" parent="MainMenu"]
 
 [node name="Title_EN" type="Label" parent="MainMenu"]
+visible = false
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
@@ -91,7 +96,7 @@ theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 20
 theme_override_constants/shadow_outline_size = 30
-theme_override_fonts/font = ExtResource("3_0slis")
+theme_override_fonts/font = ExtResource("3_23kkw")
 theme_override_font_sizes/font_size = 128
 text = "Cave Diver"
 horizontal_alignment = 1
@@ -102,7 +107,7 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -368.0
+offset_left = -384.0
 offset_top = -57.0
 grow_horizontal = 0
 grow_vertical = 0
@@ -111,9 +116,9 @@ theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 20
 theme_override_constants/shadow_outline_size = 30
-theme_override_fonts/font = ExtResource("3_0slis")
+theme_override_fonts/font = ExtResource("3_23kkw")
 theme_override_font_sizes/font_size = 48
-text = "Team 45 Inches"
+text = "Team 45 Inches "
 
 [node name="LevelButtons" type="GridContainer" parent="MainMenu"]
 anchors_preset = 8
@@ -136,6 +141,7 @@ offset_right = 40.0
 grow_vertical = 0
 
 [node name="TutorialButton" type="Button" parent="MainMenu/VBoxContainer"]
+visible = false
 layout_mode = 2
 theme_override_fonts/font = ExtResource("4_jq88i")
 theme_override_font_sizes/font_size = 48
@@ -153,7 +159,6 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
-
 [node name="Background" type="TextureRect" parent="MainMenu/Control"]
 texture_repeat = 2
 material = SubResource("ShaderMaterial_s6r3u")
@@ -161,6 +166,18 @@ custom_minimum_size = Vector2(1280, 720)
 offset_right = 512.0
 offset_bottom = 288.0
 texture = ExtResource("5_fv3cf")
+[node name="Logo" type="TextureRect" parent="MainMenu"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -228.0
+offset_right = -48.0001
+offset_bottom = 120.0
+grow_horizontal = 2
+scale = Vector2(2.57108, 2.57108)
+size_flags_horizontal = 4
+texture = ExtResource("5_a705a")
+metadata/_edit_use_anchors_ = true
 
 [node name="TutorialMenu" type="CanvasLayer" parent="."]
 visible = false

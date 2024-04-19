@@ -14,7 +14,10 @@ func enter():
 		return water_float_state
 
 func process_physics(delta):
-	parent.velocity.y = water_idle_fall_speed
+	if parent.velocity.y < water_idle_fall_speed:
+		parent.velocity.y += delta/2.0 * water_idle_fall_speed
+		if parent.velocity.y > water_idle_fall_speed:
+			parent.velocity.y = water_idle_fall_speed
 	parent.move_and_slide()
 	return null
 

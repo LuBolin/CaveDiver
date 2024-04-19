@@ -6,6 +6,8 @@ extends TextureRect
 @export var fish_scene: PackedScene
 var count: int = 0
 
+const DEFAULT_COLOR = Color("171615")
+
 func _ready():
 	update_label()
 
@@ -26,10 +28,14 @@ func pop_fish():
 
 func update_label():
 	count_label.set_text(str(count))
+	var ls = LabelSettings.new()
 	if count <= 0:
-		count_label.add_theme_color_override("font_color", Color.RED)
+		
+		count_label.add_theme_color_override(\
+			"font_color", Color.RED)
 	else:
-		count_label.add_theme_color_override("font_color", Color.WHITE)
+		count_label.add_theme_color_override(\
+			"font_color", DEFAULT_COLOR)
 
 func has_ammo():
 	return count > 0
