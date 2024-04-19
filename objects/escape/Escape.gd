@@ -9,6 +9,7 @@ var wind_up = 0.1
 var wind_up_progress = 0
 
 var player_arrived = false
+var won = false
 
 func _ready():
 	if water_version:
@@ -17,11 +18,14 @@ func _ready():
 		animated_sprite.play("land")
 
 func _physics_process(delta):
+	if won:
+		return
 	if wind_up_progress >= wind_up:
 		return
 	if player_arrived:
 		wind_up_progress += delta
 	if wind_up_progress >= wind_up:
+		won = true
 		$victory.play()
 		Singleton.win.emit()
 

@@ -25,7 +25,6 @@ zoom = Vector2(2, 2)
 script = ExtResource("3_mr5m7")
 
 [node name="Darkness" type="DirectionalLight2D" parent="Misc"]
-visible = false
 z_index = 1000
 z_as_relative = false
 color = Color(0, 0, 0, 1)
