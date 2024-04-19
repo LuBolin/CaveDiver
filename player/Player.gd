@@ -18,8 +18,14 @@ var oxygen_level: OxygenLevel = $CanvasLayer/OxygenLevel
 @onready
 var drip_animator: AnimatedSprite2D = $Renderer/DripWater
 
+@export var initial_fishes: Array[int] = [0, 0, 0, 0]
 
 var alive: bool = true
+var air_level: int = 0 :
+	set(value):
+		air_level = value
+		in_water = air_level <= 0
+
 var in_water: bool = false :
 	set(value):
 		if not value == in_water:

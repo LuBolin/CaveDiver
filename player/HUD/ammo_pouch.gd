@@ -1,7 +1,7 @@
 class_name AmmoPouch
 extends Control
 
-@export var initial_fishes: Array[int] = [0, 0, 0, 0]
+@onready var player: Player = $"../.."
 @onready var launch: AudioStreamPlayer2D = $launch
 var current_index: int = 0
 var my_fishes = []
@@ -10,8 +10,9 @@ func _ready():
 	for f in get_children():
 		if f is FishAmmo:
 			my_fishes.append(f)
-	for i in initial_fishes.size():
-		my_fishes[i].push_fish()
+	for i in player.initial_fishes:
+		for j in range(i):
+			my_fishes[i].push_fish()
 	scroll(0)
 
 func push_fish(fish_type_enum: FishType.FishTypeEnum):
