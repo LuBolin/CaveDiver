@@ -13,7 +13,7 @@
 [ext_resource type="FontFile" uid="uid://oc44ktq8rgys" path="res://resources/fonts/Xolonium-Regular.ttf" id="8_wfou2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pgyne"]
-size = Vector2(132, 70.844)
+size = Vector2(123, 52)
 
 [node name="LevelRoot" type="Node2D"]
 script = ExtResource("1_rwxwj")
@@ -50,12 +50,12 @@ texture = ExtResource("2_gmhbh")
 [node name="AirPockets" parent="World" instance=ExtResource("3_yg37f")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="World/AirPockets"]
-position = Vector2(-255.5, -150)
+position = Vector2(-252.5, -152)
 shape = SubResource("RectangleShape2D_pgyne")
 debug_color = Color(1, 1, 1, 0.419608)
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="World/AirPockets"]
-position = Vector2(226.5, -138)
+position = Vector2(224.5, -127)
 shape = SubResource("RectangleShape2D_pgyne")
 debug_color = Color(1, 1, 1, 0.419608)
 
