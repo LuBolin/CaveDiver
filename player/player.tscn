@@ -193,9 +193,8 @@ stream = ExtResource("3_sf7hi")
 
 [node name="MainAnimator" type="AnimatedSprite2D" parent="Renderer"]
 sprite_frames = ExtResource("2_gp143")
-animation = &"land_idle"
+animation = &"water_move"
 autoplay = "land_idle"
-frame_progress = 0.282984
 
 [node name="PointLight2D" type="PointLight2D" parent="Renderer"]
 energy = 0.3
