@@ -3,6 +3,7 @@ extends RigidBody2D
 @onready var patrol_route = $".."
 @onready var sprite = $AnimatedSprite2D
 @onready var kill_area = $KillZone
+@onready var chomp = $chomp
 
 var patrol_point_count: int
 var patrol_points = []
@@ -61,10 +62,12 @@ func _on_kill_zone_body_entered(body):
 		if body.live:
 			body.die()
 			sprite.play("chomp")
+			chomp.play()
 	if body is Player:
 		if body.alive:
 			body.die()
 			sprite.play("chomp")
+			chomp.play()
 
 func play_default_anim():
 	if not (sprite.get_animation() == "default"):

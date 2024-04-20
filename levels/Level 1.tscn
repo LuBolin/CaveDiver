@@ -11,7 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://bb1oe6eo4lrn5" path="res://levels/tutorial/tut3.png" id="9_lotqh"]
 [ext_resource type="Texture2D" uid="uid://ddxvjte1lby1a" path="res://levels/tutorial/tut4.png" id="10_8jlgv"]
 [ext_resource type="Texture2D" uid="uid://bg431xbl236m7" path="res://levels/tutorial/tut5.png" id="11_wk3v7"]
-[ext_resource type="Texture2D" uid="uid://gr63blcqp5io" path="res://levels/tutorial/tut6.png" id="12_2a6hu"]
+[ext_resource type="Texture2D" uid="uid://joeyfcyrkm23" path="res://levels/tutorial/tutE.png" id="12_epic3"]
 [ext_resource type="Texture2D" uid="uid://bcsho7kgumm2b" path="res://levels/tutorial/tut7.png" id="13_hn30a"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8s1cl"]
@@ -150,10 +150,10 @@ texture = ExtResource("10_8jlgv")
 position = Vector2(202, 324)
 texture = ExtResource("11_wk3v7")
 
-[node name="Tut6" type="Sprite2D" parent="." index="10"]
+[node name="TutE" type="Sprite2D" parent="." index="10"]
 position = Vector2(29, -38)
 scale = Vector2(0.88, 0.88)
-texture = ExtResource("12_2a6hu")
+texture = ExtResource("12_epic3")
 
 [node name="Tut7" type="Sprite2D" parent="." index="11"]
 position = Vector2(-80, 267)

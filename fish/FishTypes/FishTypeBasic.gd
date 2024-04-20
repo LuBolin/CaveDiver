@@ -3,7 +3,7 @@ extends FishType
 
 func _init():
 	size = 1
-	speed = 30
+	speed = 45
 	stamina = 500
 
 ## Define how the fish moves

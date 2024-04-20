@@ -1,9 +1,10 @@
-[gd_scene load_steps=18 format=3 uid="uid://c1dr63pe1527k"]
+[gd_scene load_steps=19 format=3 uid="uid://c1dr63pe1527k"]
 
 [ext_resource type="Script" path="res://objects/shark/Shark.gd" id="1_ugetu"]
 [ext_resource type="Script" path="res://objects/shark/SharkBody.gd" id="2_teqiw"]
 [ext_resource type="Texture2D" uid="uid://7cpqy5tn7tug" path="res://objects/shark/shark_bite.png" id="3_rfx4i"]
 [ext_resource type="Texture2D" uid="uid://ctox2fxn4xst0" path="res://objects/shark/shark_anim.png" id="3_ywoia"]
+[ext_resource type="AudioStream" uid="uid://bbhhh80x570rq" path="res://resources/audio/shark_chomp.mp3" id="5_2hh4e"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3qjf7"]
 height = 36.0
@@ -124,5 +125,8 @@ frame_progress = 1.0
 rotation = 1.5708
 shape = SubResource("CircleShape2D_psm21")
 debug_color = Color(0.572549, 0, 0.337255, 0.419608)
+
+[node name="chomp" type="AudioStreamPlayer2D" parent="Shark"]
+stream = ExtResource("5_2hh4e")
 
 [connection signal="body_entered" from="Shark/KillZone" to="Shark" method="_on_kill_zone_body_entered"]

@@ -10,7 +10,7 @@ var land_move_state: State
 @export
 var water_idle_state: State
 
-var jump_force: float = 400
+var jump_force: float = 300
 
 func enter():
 	super()

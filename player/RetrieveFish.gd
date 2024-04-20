@@ -6,7 +6,8 @@ var collect_state = false
 
 func _unhandled_input(event):
 	if event is InputEventKey:
-		if event.keycode == KEY_C:
+		# if event.keycode == KEY_C:
+		if event.keycode == KEY_E:
 			collect_state = event.is_pressed()
 			if collect_state:
 				force_check()
