@@ -109,17 +109,14 @@ script = ExtResource("2_teqiw")
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Shark/KillZone"]
-position = Vector2(3, 0)
+position = Vector2(-3, 0)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_3qjf7")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Shark"]
 position = Vector2(0, -3)
 sprite_frames = SubResource("SpriteFrames_64son")
-animation = &"chomp"
 autoplay = "default"
-frame = 3
-frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Shark"]
 rotation = 1.5708

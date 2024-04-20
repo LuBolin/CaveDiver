@@ -34,7 +34,7 @@ func _ready():
 	sprite.animation_finished.connect(play_default_anim)
 
 func _process(delta):
-	if get_linear_velocity().x < 0:
+	if get_linear_velocity().x > 0:
 		sprite.flip_h = true
 	else:
 		sprite.flip_h = false

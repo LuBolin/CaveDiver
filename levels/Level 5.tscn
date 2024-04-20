@@ -122,7 +122,7 @@ position = Vector2(-291, -100)
 position = Vector2(-307, -100)
 
 [node name="Firefly2" parent="." index="10" instance=ExtResource("5_xenjq")]
-position = Vector2(-228, -136)
+position = Vector2(-275, -136)
 texture_scale = 1.2
 
 [node name="Moss2" parent="." index="11" instance=ExtResource("4_efe1k")]
@@ -161,5 +161,19 @@ position = Vector2(-94, 154)
 
 [node name="Urchin11" parent="." index="22" instance=ExtResource("6_hpl1b")]
 position = Vector2(-65, 127)
+
+[node name="Moss6" parent="." index="23" instance=ExtResource("4_efe1k")]
+position = Vector2(-128, -61)
+rotation = -1.57079
+texture_scale = 1.5
+
+[node name="Moss7" parent="." index="24" instance=ExtResource("4_efe1k")]
+position = Vector2(-200, -62)
+rotation = 1.57079
+texture_scale = 1.5
+
+[node name="Moss8" parent="." index="25" instance=ExtResource("4_efe1k")]
+position = Vector2(-168, -16)
+texture_scale = 1.5
 
 [editable path="Player"]
