@@ -38,6 +38,7 @@ script = ExtResource("4_46sr8")
 energy = 0.5
 range_layer_min = -2
 texture = ExtResource("5_s1lu8")
+texture_scale = 1.3
 script = ExtResource("6_2lvpw")
 
 [node name="AnimSprite" type="AnimatedSprite2D" parent="."]

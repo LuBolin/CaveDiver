@@ -3,7 +3,7 @@ extends FishType
 
 func _init():
 	size = 1.5
-	speed = 10
+	speed = 25
 	stamina = 500
 	brightness = 0.6
 

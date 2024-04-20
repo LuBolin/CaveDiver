@@ -201,6 +201,7 @@ frame_progress = 0.282984
 energy = 0.3
 range_layer_min = -2
 texture = ExtResource("5_7idbf")
+texture_scale = 0.75
 
 [node name="DripWater" type="AnimatedSprite2D" parent="Renderer"]
 visible = false
@@ -308,6 +309,7 @@ rotation = 0.785397
 texture = ExtResource("15_gffn3")
 
 [node name="ConeLight" type="PointLight2D" parent="AimIndicator"]
+visible = false
 position = Vector2(-15, 5.34058e-05)
 scale = Vector2(2, 2)
 range_layer_min = -2
