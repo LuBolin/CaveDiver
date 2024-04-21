@@ -36,6 +36,8 @@ func _process(delta):
 func launch(direction : Vector2) -> void:
 	live = true
 	velocity = direction.normalized() * speed
+	if fish_type is FishTypeJet:
+		fish_type.launch_dirn = direction.normalized()
 
 func update(delta):
 	move(delta)
