@@ -79,7 +79,8 @@ func bounce(kmbd : KinematicCollision2D):
 
 func dead_move(velocity : Vector2, delta) -> Vector2:
 	if (not in_water):
-		return Vector2(0, 0)
+		gravity += Vector2(0, 50) * delta
+		return gravity
 	return Vector2(0, -20)
 
 var gravity : Vector2 = Vector2(0, 0)
