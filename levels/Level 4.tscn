@@ -167,3 +167,11 @@ texture_scale = 1.0
 position = Vector2(-82, 149)
 energy = 0.5
 texture_scale = 0.2
+
+[node name="Firefly5" parent="." index="16" instance=ExtResource("5_1mcg3")]
+position = Vector2(277, -134)
+
+[node name="Firefly6" parent="." index="17" instance=ExtResource("5_1mcg3")]
+position = Vector2(252, 197)
+energy = 0.5
+texture_scale = 0.7
