@@ -9,6 +9,7 @@ func _init():
 
 ## Define how the fish moves
 func move_function(velocity : Vector2, delta) -> Vector2:
+	#velocity = velocity.normalized() * speed
 	return stamina_drain(velocity, delta)
 
 ## Define what should be done on collision with a KinematicCollision2D object

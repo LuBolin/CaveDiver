@@ -13,10 +13,12 @@ var windup : float = 1
 func move_function(velocity : Vector2, delta) -> Vector2:
 	if (windup < 0):
 		multiplier = multiplier * (decay_rate ** (1.0-delta))
-		return stamina_drain(velocity * multiplier, delta)
+		velocity = velocity.normalized() * multiplier * speed
+		return stamina_drain(velocity, delta)
 	else:
 		windup -= delta
-		return velocity.normalized() * - (decay_rate ** (1.0-delta)) * 10
+		velocity = velocity.normalized() * - (decay_rate ** (1.0-delta)) * 10
+		return velocity
 
 
 ## Define what should be done on collision with a KinematicCollision2D object
